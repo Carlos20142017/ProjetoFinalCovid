@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid.ui
+package ipg.primeiro.projetofinalcovid.basedados
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -8,10 +8,13 @@ class BDCovidOpenHelper(context: Context?)
     : SQLiteOpenHelper(context, Nome_Base_Dados, null, VERSAO_BASE_DADOS) {
     override fun onCreate(db: SQLiteDatabase?) {
 
+        if (db != null) {
+            TabelaTestes(db).cria()
+        }
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-      
+
     }
 
     companion object{
