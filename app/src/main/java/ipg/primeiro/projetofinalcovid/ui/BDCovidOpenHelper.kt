@@ -1,0 +1,21 @@
+package ipg.primeiro.projetofinalcovid.ui
+
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+
+class BDCovidOpenHelper(context: Context?)
+    : SQLiteOpenHelper(context, Nome_Base_Dados, null, VERSAO_BASE_DADOS) {
+    override fun onCreate(db: SQLiteDatabase?) {
+
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+      
+    }
+
+    companion object{
+        const val Nome_Base_Dados = "Covid.db"
+        const val VERSAO_BASE_DADOS = 1
+    }
+}
