@@ -7,7 +7,28 @@ class TabelaPessoas(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE testes(_id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, sexo TEXT NOT NULL, idade INTEGER NOT NULL, distrito TEXT NOT NULL, id_teste INTEGER NOT NULL, FOREIGN KEY (id_teste) REFERENCES testes)")
+        db.execSQL("CREATE TABLE" +
+                NOME_TABELA +
+                "(" +
+                BaseColumns._ID +
+                " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                CAMPO_NOME +
+                " TEXT NOT NULL," +
+                CAMPO_SEXO +
+                "TEXT NOT NULL," +
+                CAMPO_IDADE +
+                " INTEGER NOT NULL," +
+                CAMPO_DISTRITO +
+                " TEXT NOT NULL)")
+
+    }
+
+    companion object{
+        const val NOME_TABELA ="pessoas"
+        const val CAMPO_NOME ="nome"
+        const val CAMPO_SEXO ="sexo"
+        const val CAMPO_IDADE="idade"
+        const val CAMPO_DISTRITO ="distrito"
 
     }
 
