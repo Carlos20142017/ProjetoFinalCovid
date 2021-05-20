@@ -9,8 +9,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE " + NOME_TABELA +
-                "(" +
+        db.execSQL("CREATE TABLE " + NOME_TABELA + "(" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 CAMPO_ALERTA + " TEXT NOT NULL, " +
                 CAMPO_DESCRICAO + " TEXT NOT NULL, " +

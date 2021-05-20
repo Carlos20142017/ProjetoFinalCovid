@@ -10,8 +10,7 @@ class TabelaTestes(db: SQLiteDatabase) {
         private val db: SQLiteDatabase = db
 
         fun cria() {
-            db.execSQL("CREATE TABLE " + NOME_TABELA +
-                    "(" +
+            db.execSQL("CREATE TABLE " + NOME_TABELA + "(" +
                     BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     CAMPO_TEMPERATURA + " REAL NOT NULL, " +
                     CAMPO_SINTOMAS + " TEXT NOT NULL, " +
