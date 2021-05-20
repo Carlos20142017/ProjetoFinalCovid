@@ -2,6 +2,7 @@ package ipg.primeiro.projetofinalcovid
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -14,11 +15,17 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class TesteBaseDados {
+
+
+    private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ipg.primeiro.projetofinalcovid", appContext.packageName)
+    fun consegueAbrirBaseDados(){
+
+        val openHelper = BDCovidOpenHelper(getAppContext())
+        val db = openHelper.readableDatabase
+        assert(db.isOpen)
+        db.close()
     }
 }
