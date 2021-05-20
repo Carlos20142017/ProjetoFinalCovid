@@ -10,6 +10,8 @@ class BDCovidOpenHelper(context: Context?)
 
         if (db != null) {
             TabelaPessoas(db).cria()
+            TabelaTestes(db).cria()
+            TabelaNotificacao(db).cria()
         }
     }
 
