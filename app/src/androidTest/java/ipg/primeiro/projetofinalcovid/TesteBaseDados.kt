@@ -3,6 +3,7 @@ package ipg.primeiro.projetofinalcovid
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
+import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,9 +30,21 @@ class TesteBaseDados {
     @Test
     fun consegueAbrirBaseDados(){
 
-        val openHelper = BDCovidOpenHelper(getAppContext())
-        val db = openHelper.readableDatabase
+        val db = getBDCovidOpenHelper().readableDatabase
         assert(db.isOpen)
         db.close()
+    }
+
+    private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
+
+    @Test
+    fun consegueInserirPessoas(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaPessoas = TabelaPessoas(db)
+
+        val id = tabelaPessoas.insert(Pessoa(nome ="José",sexo = "Masculino", idade = 25, distrito = "Guarda").toContentValues())
+        assertNotEquals(-1, id)
+        db.close()
+
     }
 }
