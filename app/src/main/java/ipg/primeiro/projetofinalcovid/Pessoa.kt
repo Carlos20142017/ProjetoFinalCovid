@@ -10,7 +10,7 @@ data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var id
         valores.put(TabelaPessoas.CAMPO_NOME, nome)
         valores.put(TabelaPessoas.CAMPO_SEXO, sexo)
         valores.put(TabelaPessoas.CAMPO_IDADE, idade)
-        valores.put(TabelaPessoas.CAMPO_NOME, distrito)
+        valores.put(TabelaPessoas.CAMPO_DISTRITO, distrito)
         return valores
     }
 }
