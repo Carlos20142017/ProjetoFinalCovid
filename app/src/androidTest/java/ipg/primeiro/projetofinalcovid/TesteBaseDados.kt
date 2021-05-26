@@ -42,7 +42,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
         val tabelaPessoas = TabelaPessoas(db)
 
-        val id = tabelaPessoas.insert(Pessoa(nome ="José",sexo = "Masculino", idade = 25, distrito = "Guarda").toContentValues())
+        val id = tabelaPessoas.insert(Pessoa(nome ="José",sexo = "Masculino", data_nascimento = 25/10/1990).toContentValues())
         assertNotEquals(-1, id)
         db.close()
 
