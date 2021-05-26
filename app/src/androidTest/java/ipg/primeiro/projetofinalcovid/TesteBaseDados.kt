@@ -1,5 +1,6 @@
 package ipg.primeiro.projetofinalcovid
 
+import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
@@ -24,6 +25,14 @@ class TesteBaseDados {
 
 
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
+    private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
+
+    private  fun insereDistrito(tabela: TabelaDistritos, distrito: Distrito): Long {
+        val id = tabela.insert(distrito.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
 
     @Before
     fun apagaBaseDados(){
@@ -38,19 +47,35 @@ class TesteBaseDados {
         db.close()
     }
 
-    private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
 
     @Test
     fun consegueInserirDistritos(){
         val db = getBDCovidOpenHelper().writableDatabase
-        //val tabelaPessoas = TabelaPessoas(db)
         val tabelaDistritos = TabelaDistritos(db)
 
-        val id = tabelaDistritos.insert(Distrito(nome_distrito = "Guarda").toContentValues())
-        assertNotEquals(-1, id)
-        /*val id = tabelaPessoas.insert(Pessoa(nome ="José",sexo = "Masculino", data_nascimento = 25/10/1990).toContentValues())
-        assertNotEquals(-1, id)*/
+        val distrito = Distrito(nome_distrito = "Guarda")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
         db.close()
 
+    }
+
+    @Test
+    fun consegueAlterarDistrito(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaDistritos = TabelaDistritos(db)
+
+        val distrito = Distrito(nome_distrito = "Lisboa")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+        distrito.nome_distrito = "LISBOA-PORTO"
+
+        val registoAlterados = tabelaDistritos.update(
+            distrito.toContentValues(),
+            "${BaseColumns._ID}?",
+            arrayOf(distrito.id.toString())
+        )
+
+        assertEquals(1, registoAlterados)
+        db.close()
     }
 }
