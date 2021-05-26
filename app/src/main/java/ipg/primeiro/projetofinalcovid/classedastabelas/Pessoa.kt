@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.classedastabelas
 
 import android.content.ContentValues
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
