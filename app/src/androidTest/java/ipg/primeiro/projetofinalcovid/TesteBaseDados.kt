@@ -3,7 +3,9 @@ package ipg.primeiro.projetofinalcovid
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
+import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
+import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 
 import org.junit.Test
@@ -39,12 +41,15 @@ class TesteBaseDados {
     private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
 
     @Test
-    fun consegueInserirPessoas(){
+    fun consegueInserirDistritos(){
         val db = getBDCovidOpenHelper().writableDatabase
-        val tabelaPessoas = TabelaPessoas(db)
+        //val tabelaPessoas = TabelaPessoas(db)
+        val tabelaDistritos = TabelaDistritos(db)
 
-        val id = tabelaPessoas.insert(Pessoa(nome ="José",sexo = "Masculino", data_nascimento = 25/10/1990).toContentValues())
+        val id = tabelaDistritos.insert(Distrito(nome_distrito = "Guarda").toContentValues())
         assertNotEquals(-1, id)
+        /*val id = tabelaPessoas.insert(Pessoa(nome ="José",sexo = "Masculino", data_nascimento = 25/10/1990).toContentValues())
+        assertNotEquals(-1, id)*/
         db.close()
 
     }
