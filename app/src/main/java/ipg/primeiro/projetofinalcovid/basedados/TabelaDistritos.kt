@@ -24,7 +24,7 @@ import android.provider.BaseColumns
          return db.delete(NOME_TABELA, whereClause, whereArgs)
      }
 
-     fun query(columns: Array<String>, selection: String, selectionArgs: Array<String>, groupBy: String, having: String, orderBy: String): Cursor? {
+     fun query(columns: Array<String>, selection: String?, selectionArgs: Array<String>?, groupBy: String?, having: String?, orderBy: String?): Cursor? {
          return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
      }
 
@@ -32,5 +32,6 @@ import android.provider.BaseColumns
          const val NOME_TABELA ="distrito"
          const val CAMPO_NOME_DISTRITO ="nome_distrito"
 
+         val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME_DISTRITO)
      }
 }

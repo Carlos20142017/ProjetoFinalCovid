@@ -34,6 +34,20 @@ class TesteBaseDados {
         return id
     }
 
+    private fun getDistritoBaseDados(tabela: TabelaDistritos, id: Long): Distrito {
+        val cursor = tabela.query(
+            TabelaDistritos.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Distrito.fromCursor(cursor)
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.Nome_Base_Dados)
@@ -93,6 +107,19 @@ class TesteBaseDados {
         )
 
         assertEquals(1, registosEliminados)
+        db.close()
+    }
+
+    @Test
+    fun consegueLerDistritos() {
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaDistritos = TabelaDistritos(db)
+
+        val distrito = Distrito(nome_distrito = "Viseu")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        assertEquals(distrito, getDistritoBaseDados(tabelaDistritos, distrito.id))
+
         db.close()
     }
 }
