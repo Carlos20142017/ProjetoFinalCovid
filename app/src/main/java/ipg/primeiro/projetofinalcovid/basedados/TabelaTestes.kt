@@ -22,7 +22,7 @@ class TabelaTestes(db: SQLiteDatabase) {
         return db.update(TabelaPessoas.NOME_TABELA, values, whereClause, whereArgs)
     }
 
-    fun delete(values: ContentValues, whereClause: String, whereArgs: Array<String>): Int {
+    fun delete( whereClause: String, whereArgs: Array<String>): Int {
         return db.delete(TabelaPessoas.NOME_TABELA, whereClause, whereArgs)
     }
 

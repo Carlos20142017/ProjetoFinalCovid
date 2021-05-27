@@ -21,7 +21,7 @@ class TabelaPessoas(db: SQLiteDatabase) {
         return db.update(TabelaDistritos.NOME_TABELA, values, whereClause, whereArgs)
     }
 
-    fun delete(values: ContentValues, whereClause: String, whereArgs: Array<String>): Int {
+    fun delete( whereClause: String, whereArgs: Array<String>): Int {
         return db.delete(TabelaDistritos.NOME_TABELA, whereClause, whereArgs)
     }
 

@@ -71,11 +71,28 @@ class TesteBaseDados {
 
         val registoAlterados = tabelaDistritos.update(
             distrito.toContentValues(),
-            "${BaseColumns._ID}?",
+            "${BaseColumns._ID}=?",
             arrayOf(distrito.id.toString())
         )
 
         assertEquals(1, registoAlterados)
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarDistritos(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaDistritos = TabelaDistritos(db)
+
+        val distrito = Distrito(nome_distrito = "teste")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val registosEliminados= tabelaDistritos.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(distrito.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
         db.close()
     }
 }

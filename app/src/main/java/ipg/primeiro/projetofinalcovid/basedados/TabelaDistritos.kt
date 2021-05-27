@@ -20,7 +20,7 @@ import android.provider.BaseColumns
          return db.update(NOME_TABELA, values, whereClause, whereArgs)
      }
 
-     fun delete(values: ContentValues, whereClause: String, whereArgs: Array<String>): Int {
+     fun delete( whereClause: String, whereArgs: Array<String>): Int {
          return db.delete(NOME_TABELA, whereClause, whereArgs)
      }
 
