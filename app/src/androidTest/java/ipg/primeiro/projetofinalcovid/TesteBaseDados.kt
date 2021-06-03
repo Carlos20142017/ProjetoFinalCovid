@@ -171,6 +171,40 @@ class TesteBaseDados {
     }
 
 
+    @Test
+    fun consegueAlterarPessoas(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaDistritos = TabelaDistritos(db)
+
+        val distritoAtual = Distrito(nome_distrito = "Guarda")
+        distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
+
+        val distritoNovo = Distrito(nome_distrito = "Lisboa")
+        distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
+
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa(nome = "?", sexo="?", data_nascimento= 0, id_estrang_distrito=distritoAtual.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        pessoa.nome="Lucas"
+        pessoa.sexo="Masculino"
+        pessoa.data_nascimento=1989
+        pessoa.id_estrang_distrito=distritoNovo.id
+
+        val registoAlterados = tabelaPessoas.update(
+            distritoAtual.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(pessoa.id.toString())
+        )
+
+        assertEquals(1, registoAlterados)
+
+        assertEquals(pessoa, getPessoaBaseDados(tabelaPessoas, pessoa.id))
+        db.close()
+    }
+
+
 
 
 }
