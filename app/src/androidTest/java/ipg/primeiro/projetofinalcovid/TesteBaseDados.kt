@@ -227,6 +227,22 @@ class TesteBaseDados {
     }
 
 
+    @Test
+    fun consegueLerPessoas() {
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaDistritos = TabelaDistritos(db)
+        val distrito = Distrito(nome_distrito = "Culinária")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento = 0 ,id_estrang_distrito = distrito.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        assertEquals(pessoa, getPessoaBaseDados(tabelaPessoas, pessoa.id))
+
+        db.close()
+    }
 
 
 
