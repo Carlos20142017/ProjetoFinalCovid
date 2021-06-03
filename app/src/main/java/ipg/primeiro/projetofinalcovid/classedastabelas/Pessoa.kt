@@ -14,4 +14,5 @@ data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var da
        valores.put(TabelaPessoas.CAMPO_ID_ESTRANG_DISTRITO, id_estrang_distrito)
        return valores
    }
+
 }
