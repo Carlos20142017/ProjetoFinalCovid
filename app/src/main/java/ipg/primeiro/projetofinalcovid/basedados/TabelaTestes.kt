@@ -15,19 +15,19 @@ class TabelaTestes(db: SQLiteDatabase) {
         }
 
     fun insert(values: ContentValues): Long {
-        return db.insert(TabelaPessoas.NOME_TABELA, null, values)
+        return db.insert(TabelaTestes.NOME_TABELA, null, values)
     }
 
     fun update(values: ContentValues, whereClause: String, whereArgs: Array<String>): Int {
-        return db.update(TabelaPessoas.NOME_TABELA, values, whereClause, whereArgs)
+        return db.update(TabelaTestes.NOME_TABELA, values, whereClause, whereArgs)
     }
 
     fun delete( whereClause: String, whereArgs: Array<String>): Int {
-        return db.delete(TabelaPessoas.NOME_TABELA, whereClause, whereArgs)
+        return db.delete(TabelaTestes.NOME_TABELA, whereClause, whereArgs)
     }
 
     fun query(columns: Array<String>, selection: String?, selectionArgs: Array<String>?, groupBy: String?, having: String?, orderBy: String?): Cursor? {
-        return db.query(TabelaPessoas.NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
+        return db.query(TabelaTestes.NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
 
        companion object{
