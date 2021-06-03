@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
+import com.google.android.material.tabs.TabLayout
 
 class TabelaPessoas(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
@@ -35,6 +36,8 @@ class TabelaPessoas(db: SQLiteDatabase) {
         const val CAMPO_SEXO ="sexo"
         const val CAMPO_DATA_NASCIMENTO="data_nascimento"
         const val CAMPO_ID_ESTRANG_DISTRITO ="id_distritos"
+
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_SEXO, CAMPO_DATA_NASCIMENTO, CAMPO_ID_ESTRANG_DISTRITO)
 
     }
 

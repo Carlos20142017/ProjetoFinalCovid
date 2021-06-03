@@ -35,5 +35,12 @@ class TabelaNotificacao(db: SQLiteDatabase) {
         const val CAMPO_DESCRICAO ="descricao"
         const val CAMPO_RESULTADO ="resultado"
         const val CAMPO_ID_ESTRANG_TESTES ="id_testes"
+
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
+            CAMPO_ALERTA,
+            CAMPO_DESCRICAO,
+            CAMPO_RESULTADO,
+            CAMPO_ID_ESTRANG_TESTES
+        )
     }
 }

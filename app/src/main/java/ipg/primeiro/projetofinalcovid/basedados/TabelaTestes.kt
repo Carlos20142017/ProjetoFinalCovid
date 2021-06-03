@@ -37,5 +37,11 @@ class TabelaTestes(db: SQLiteDatabase) {
            const val CAMPO_EST_SAUDE = "est_saude"
            const val CAMPO_ID_ESTRANG_PESSOAS ="id_pessoas"
 
+           val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
+               CAMPO_TEMPERATURA,
+               CAMPO_SINTOMAS,
+               CAMPO_EST_SAUDE,
+               CAMPO_ID_ESTRANG_PESSOAS
+           )
        }
     }

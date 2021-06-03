@@ -5,7 +5,9 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
+import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
+import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 
 
 import org.junit.Test
@@ -47,6 +49,27 @@ class TesteBaseDados {
         return Distrito.fromCursor(cursor)
     }
 
+    private fun getPessoaBaseDados(tabela: TabelaPessoas, id: Long): Pessoa {
+        val cursor = tabela.query(
+            TabelaPessoas.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Pessoa.fromCursor(cursor)
+    }
+
+    private fun inserePesssoa(tabela: TabelaPessoas, pessoa: Pessoa): Long {
+        val id = tabela.insert(pessoa.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.Nome_Base_Dados)
@@ -60,7 +83,9 @@ class TesteBaseDados {
         db.close()
     }
 
-
+ //==========================================================
+ //Tabela Distrito
+ //=========================================================
     @Test
     fun consegueInserirDistritos(){
         val db = getBDCovidOpenHelper().writableDatabase
@@ -121,4 +146,31 @@ class TesteBaseDados {
 
         db.close()
     }
+
+
+
+    //==========================================================
+    //Tabela Pessoa
+    //=========================================================
+
+    @Test
+    fun consegueInserirPessoas(){
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaDistritos = TabelaDistritos(db)
+        val distrito = Distrito(nome_distrito = "Guarda")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento=10-1995, id_estrang_distrito=distrito.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        assertEquals(pessoa, getPessoaBaseDados(tabelaPessoas, pessoa.id))
+        db.close()
+
+    }
+
+
+
+
 }
