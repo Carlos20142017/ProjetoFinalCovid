@@ -275,7 +275,28 @@ class TesteBaseDados {
     //Tabela Teste
     //=========================================================
 
-   
+    @Test
+    fun consegueInserirTestes(){
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaDistritos = TabelaDistritos(db)
+        val distrito = Distrito(nome_distrito = "Guarda")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento=10-1995, id_estrang_distrito=distrito.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        val tabelaTestes = TabelaTestes(db)
+        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom", id_estrang_pessoas= pessoa.id)
+        teste.id = insereTeste(tabelaTestes, teste)
+
+        assertEquals(teste, getTesteBaseDados(tabelaTestes, teste.id))
+        db.close()
+
+    }
+
+
 
 
 }
