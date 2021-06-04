@@ -3,11 +3,9 @@ package ipg.primeiro.projetofinalcovid
 import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
-import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
-import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
-import ipg.primeiro.projetofinalcovid.basedados.TabelaTestes
+import ipg.primeiro.projetofinalcovid.basedados.*
 import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
+import ipg.primeiro.projetofinalcovid.classedastabelas.Notificacao
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
 
@@ -86,8 +84,29 @@ class TesteBaseDados {
         return Teste.fromCursor(cursor)
     }
 
+    private fun getNotificacaoBaseDados(tabela: TabelaNotificacao, id: Long): Notificacao {
+        val cursor = tabela.query(
+            TabelaNotificacao.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Notificacao.fromCursor(cursor)
+    }
+
     private fun insereTeste(tabela: TabelaTestes, teste: Teste): Long {
         val id = tabela.insert(teste.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+    private fun insereNotificacao(tabela: TabelaNotificacao, notificacao: Notificacao): Long {
+        val id = tabela.insert(notificacao.toContentValues())
         assertNotEquals(-1, id)
 
         return id
@@ -387,6 +406,72 @@ class TesteBaseDados {
 
         db.close()
     }
+
+
+    //==========================================================
+    //Tabela Notificacao
+    //=========================================================
+
+
+    @Test
+    fun consegueInserirNotificacao(){
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaDistritos = TabelaDistritos(db)
+        val distrito = Distrito(nome_distrito = "Guarda")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento=10-1995, id_estrang_distrito=distrito.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        val tabelaTestes = TabelaTestes(db)
+        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "doente", id_estrang_pessoas= pessoa.id)
+        teste.id = insereTeste(tabelaTestes, teste)
+
+        val tabelaNotificacao = TabelaNotificacao(db)
+        val notificacao = Notificacao(alerta = "Amarelo", descricao = "Infectado", resultado = "Positivo", id_estrang_testes= teste.id)
+        notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
+
+        assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
+        db.close()
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
