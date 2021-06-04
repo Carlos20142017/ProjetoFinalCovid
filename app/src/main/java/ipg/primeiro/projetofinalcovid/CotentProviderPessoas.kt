@@ -143,6 +143,17 @@ class CotentProviderPessoas : ContentProvider() {
      * @return a MIME type string, or `null` if there is no type.
      */
     override fun getType(uri: Uri): String? {
+        return when  (getUriMatcher().match(uri)){
+            URI_PESSOAS -> "$MULTIPLOS_ITEMS/$PESSOAS"
+            URI_PESSOAS_ESPECIFICA -> "$UNICO_ITEM/$PESSOAS"
+            URI_DISTRITOS -> "$MULTIPLOS_ITEMS/$DISTRITO"
+            URI_DISTRITOS_ESPECIFICO -> "$UNICO_ITEM/$DISTRITO"
+            URI_TESTES -> "$MULTIPLOS_ITEMS/$TESTES"
+            URI_TESTES_ESPECIFICO -> "$UNICO_ITEM/$TESTES"
+            URI_NOTIFICACAO -> "$MULTIPLOS_ITEMS/$NOTIFICACAO"
+            URI_NOTIFICACAO_ESPECIFICO -> "$UNICO_ITEM/$NOTIFICACAO"
+            else -> null
+        }
 
     }
 
@@ -220,12 +231,21 @@ class CotentProviderPessoas : ContentProvider() {
 
         private const val PESSOAS = "pessoas"
         private const val DISTRITO = "distritos"
+        private const val TESTES = "testes"
+        private const val NOTIFICACAO = "notificacao"
 
 
         private const val URI_PESSOAS = 100
         private const val URI_PESSOAS_ESPECIFICA = 101
         private const val URI_DISTRITOS = 200
         private const val URI_DISTRITOS_ESPECIFICO = 201
+        private const val URI_TESTES = 300
+        private const val URI_TESTES_ESPECIFICO = 301
+        private const val URI_NOTIFICACAO = 400
+        private const val URI_NOTIFICACAO_ESPECIFICO = 401
+
+        private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
+        private const val UNICO_ITEM = "vnd.android.cursor.item"
 
         private fun getUriMatcher() : UriMatcher{
             val uriMatcher = UriMatcher (UriMatcher.NO_MATCH)
@@ -234,6 +254,10 @@ class CotentProviderPessoas : ContentProvider() {
             uriMatcher.addURI(AUTHORITY, "$PESSOAS/#", URI_PESSOAS_ESPECIFICA)
             uriMatcher.addURI(AUTHORITY, DISTRITO, URI_DISTRITOS)
             uriMatcher.addURI(AUTHORITY, "$DISTRITO/#", URI_DISTRITOS_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, TESTES, URI_TESTES)
+            uriMatcher.addURI(AUTHORITY, "$TESTES/#", URI_TESTES_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, NOTIFICACAO, URI_NOTIFICACAO)
+            uriMatcher.addURI(AUTHORITY, "$NOTIFICACAO/#", URI_NOTIFICACAO_ESPECIFICO)
 
             return uriMatcher
         }
