@@ -6,8 +6,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
+import ipg.primeiro.projetofinalcovid.basedados.TabelaTestes
 import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
+import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
 
 
 import org.junit.Test
@@ -65,6 +67,27 @@ class TesteBaseDados {
 
     private fun inserePesssoa(tabela: TabelaPessoas, pessoa: Pessoa): Long {
         val id = tabela.insert(pessoa.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+    private fun getTesteBaseDados(tabela: TabelaTestes, id: Long): Teste {
+        val cursor = tabela.query(
+            TabelaTestes.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Teste.fromCursor(cursor)
+    }
+
+    private fun insereTeste(tabela: TabelaTestes, teste: Teste): Long {
+        val id = tabela.insert(teste.toContentValues())
         assertNotEquals(-1, id)
 
         return id
@@ -246,6 +269,13 @@ class TesteBaseDados {
         db.close()
     }
 
+
+
+    //==========================================================
+    //Tabela Teste
+    //=========================================================
+
+   
 
 
 }
