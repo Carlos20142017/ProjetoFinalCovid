@@ -526,6 +526,30 @@ class TesteBaseDados {
     }
 
 
+    @Test
+    fun consegueLerNotificacao() {
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaDistritos = TabelaDistritos(db)
+        val distrito = Distrito(nome_distrito = "Culinária")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento = 0 ,id_estrang_distrito = distrito.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        val tabelaTestes = TabelaTestes(db)
+        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" ,id_estrang_pessoas = pessoa.id)
+        teste.id = insereTeste(tabelaTestes, teste)
+
+        val tabelaNotificacao = TabelaNotificacao(db)
+        val notificacao = Notificacao( alerta = "Verde", descricao = "Não infectado", resultado = "Negativo" ,id_estrang_testes = teste.id)
+        notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
+
+        assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
+
+        db.close()
+    }
 
 
 
