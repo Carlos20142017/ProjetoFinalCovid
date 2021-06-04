@@ -341,6 +341,32 @@ class TesteBaseDados {
         db.close()
     }
 
+    @Test
+    fun consegueEliminarTeste() {
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaDistritos = TabelaDistritos(db)
+        val distrito = Distrito(nome_distrito = "Lisboa")
+        distrito.id = insereDistrito(tabelaDistritos, distrito)
+
+        val tabelaPessoas = TabelaPessoas(db)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= 0, id_estrang_distrito = distrito.id)
+        pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
+
+        val tabelaTeste = TabelaTestes(db)
+        val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?", id_estrang_pessoas = pessoa.id)
+        teste.id = insereTeste(tabelaTeste, teste)
+
+        val registosEliminados = tabelaTeste.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(teste.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
 
 
 
