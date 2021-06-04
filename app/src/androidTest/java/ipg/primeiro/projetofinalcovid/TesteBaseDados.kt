@@ -172,37 +172,39 @@ class TesteBaseDados {
 
 
     @Test
-    fun consegueAlterarPessoas(){
+    fun consegueAlterarPessoas() {
         val db = getBDCovidOpenHelper().writableDatabase
+
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Guarda")
+        val distritoAtual = Distrito(nome_distrito = "Suspense")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Lisboa")
+        val distritoNovo = Distrito(nome_distrito = "Mistério")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
-
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo="?", data_nascimento= 0, id_estrang_distrito=distritoAtual.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento = 0,id_estrang_distrito = distritoAtual.id)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
-        pessoa.nome="Lucas"
-        pessoa.sexo="Masculino"
-        pessoa.data_nascimento=1989
+        pessoa.nome = "Ninfeias negras"
+        pessoa.sexo = "Michel Bussi"
+        pessoa.data_nascimento = 1990
         pessoa.id_estrang_distrito=distritoNovo.id
 
-        val registoAlterados = tabelaPessoas.update(
-            distritoAtual.toContentValues(),
+        val registosAlterados = tabelaPessoas.update(
+            pessoa.toContentValues(),
             "${BaseColumns._ID}=?",
             arrayOf(pessoa.id.toString())
         )
 
-        assertEquals(1, registoAlterados)
+        assertEquals(1, registosAlterados)
 
         assertEquals(pessoa, getPessoaBaseDados(tabelaPessoas, pessoa.id))
+
         db.close()
     }
+
 
     @Test
     fun consegueEliminarPessoas() {
