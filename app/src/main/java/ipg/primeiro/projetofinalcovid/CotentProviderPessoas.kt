@@ -9,7 +9,7 @@ import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
 
 class CotentProviderPessoas : ContentProvider() {
 
-
+        private var bdCovidOpenHelper : BDCovidOpenHelper? = null
 
 
     /**
@@ -41,7 +41,7 @@ class CotentProviderPessoas : ContentProvider() {
      */
     override fun onCreate(): Boolean {
 
-
+        bdCovidOpenHelper = BDCovidOpenHelper(context)
 
         return true
     }
@@ -212,6 +212,7 @@ class CotentProviderPessoas : ContentProvider() {
     ): Int {
         TODO("Not yet implemented")
     }
+
 
 
 }
