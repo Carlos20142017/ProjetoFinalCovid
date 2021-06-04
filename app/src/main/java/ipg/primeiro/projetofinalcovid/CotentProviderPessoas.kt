@@ -214,5 +214,24 @@ class CotentProviderPessoas : ContentProvider() {
     }
 
 
+    companion object{
+
+        private const val AUTHORITY = "ipg.primeiro.projetofinalcovid"
+
+        private const val PESSOAS = "pessoas"
+        private const val DISTRITO = "distritos"
+
+
+        private fun getUriMatcher() : UriMatcher{
+            val uriMatcher = UriMatcher (UriMatcher.NO_MATCH)
+
+            uriMatcher.addURI(AUTHORITY, PESSOAS, 100)
+            uriMatcher.addURI(AUTHORITY, "$PESSOAS/#", 101)
+            uriMatcher.addURI(AUTHORITY, DISTRITO, 200)
+            uriMatcher.addURI(AUTHORITY, "$DISTRITO/#", 201)
+
+            return uriMatcher
+        }
+    }
 
 }
