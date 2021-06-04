@@ -29,7 +29,7 @@ import android.provider.BaseColumns
      }
 
      companion object{
-         const val NOME_TABELA ="distrito"
+         const val NOME_TABELA ="DISTRITO"
          const val CAMPO_NOME_DISTRITO ="nome_distrito"
 
          val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME_DISTRITO)

@@ -31,7 +31,7 @@ class TabelaTestes(db: SQLiteDatabase) {
     }
 
        companion object{
-           const val NOME_TABELA ="testes"
+           const val NOME_TABELA ="TESTES"
            const val CAMPO_TEMPERATURA ="temperatura"
            const val CAMPO_SINTOMAS = "sintomas"
            const val CAMPO_EST_SAUDE = "est_saude"

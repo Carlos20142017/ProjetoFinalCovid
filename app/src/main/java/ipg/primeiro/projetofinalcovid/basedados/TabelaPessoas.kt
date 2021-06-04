@@ -10,7 +10,7 @@ class TabelaPessoas(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABELA ( ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_NOME TEXT NOT NULL, $CAMPO_SEXO TEXT NOT NULL, $CAMPO_DATA_NASCIMENTO INTEGER NOT NULL,${CAMPO_ID_ESTRANG_DISTRITO} INTEGER NOT NULL, FOREIGN KEY ( ${CAMPO_ID_ESTRANG_DISTRITO}) REFERENCES ${TabelaDistritos.NOME_TABELA})")
+        db.execSQL("CREATE TABLE $NOME_TABELA ( ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_NOME TEXT NOT NULL, $CAMPO_SEXO TEXT NOT NULL, $CAMPO_DATA_NASCIMENTO INTEGER NOT NULL, $CAMPO_TELEMOVEL INTEGER NOT NULL, ${CAMPO_ID_ESTRANG_DISTRITO} INTEGER NOT NULL, FOREIGN KEY ( ${CAMPO_ID_ESTRANG_DISTRITO}) REFERENCES ${TabelaDistritos.NOME_TABELA})")
 
     }
 
@@ -31,13 +31,15 @@ class TabelaPessoas(db: SQLiteDatabase) {
     }
 
     companion object{
-        const val NOME_TABELA ="pessoas"
+        const val NOME_TABELA ="PESSOAS"
         const val CAMPO_NOME ="nome"
         const val CAMPO_SEXO ="sexo"
         const val CAMPO_DATA_NASCIMENTO="data_nascimento"
+        const val CAMPO_TELEMOVEL="telemovel"
         const val CAMPO_ID_ESTRANG_DISTRITO ="id_distritos"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_SEXO, CAMPO_DATA_NASCIMENTO, CAMPO_ID_ESTRANG_DISTRITO)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_SEXO, CAMPO_DATA_NASCIMENTO,
+            CAMPO_TELEMOVEL, CAMPO_ID_ESTRANG_DISTRITO)
 
     }
 
