@@ -143,7 +143,7 @@ class CotentProviderPessoas : ContentProvider() {
      * @return a MIME type string, or `null` if there is no type.
      */
     override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
+
     }
 
     /**
@@ -222,13 +222,18 @@ class CotentProviderPessoas : ContentProvider() {
         private const val DISTRITO = "distritos"
 
 
+        private const val URI_PESSOAS = 100
+        private const val URI_PESSOAS_ESPECIFICA = 101
+        private const val URI_DISTRITOS = 200
+        private const val URI_DISTRITOS_ESPECIFICO = 201
+
         private fun getUriMatcher() : UriMatcher{
             val uriMatcher = UriMatcher (UriMatcher.NO_MATCH)
 
-            uriMatcher.addURI(AUTHORITY, PESSOAS, 100)
-            uriMatcher.addURI(AUTHORITY, "$PESSOAS/#", 101)
-            uriMatcher.addURI(AUTHORITY, DISTRITO, 200)
-            uriMatcher.addURI(AUTHORITY, "$DISTRITO/#", 201)
+            uriMatcher.addURI(AUTHORITY, PESSOAS, URI_DISTRITOS)
+            uriMatcher.addURI(AUTHORITY, "$PESSOAS/#", URI_PESSOAS_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, DISTRITO, URI_DISTRITOS)
+            uriMatcher.addURI(AUTHORITY, "$DISTRITO/#", URI_DISTRITOS_ESPECIFICO)
 
             return uriMatcher
         }
