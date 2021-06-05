@@ -13,7 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.AdapterPessoas
 import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
@@ -21,6 +23,8 @@ import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
 
     private lateinit var homeViewModel: ListaPessoasViewModel
+
+    private var adapterPessoas : AdapterPessoas? = null
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -41,7 +45,9 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewPessoas = view.findViewById<RecyclerView>(R.id.recyclerViewPessoas)
-       // recyclerViewPessoas.adapter
+        adapterPessoas = AdapterPessoas()
+        recyclerViewPessoas.adapter = adapterPessoas
+        recyclerViewPessoas.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_PESSOAS,null, this)
