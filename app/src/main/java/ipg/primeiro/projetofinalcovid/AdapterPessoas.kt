@@ -1,12 +1,13 @@
 package ipg.primeiro.projetofinalcovid
 
+import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterPessoas : RecyclerView.Adapter<AdapterPessoas.ViewHolderLivro>() {
+class AdapterPessoas (var cursor: Cursor? = null): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
 
-    class ViewHolderLivro(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderPessoas(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 
@@ -33,7 +34,7 @@ class AdapterPessoas : RecyclerView.Adapter<AdapterPessoas.ViewHolderLivro>() {
      * @see .getItemViewType
      * @see .onBindViewHolder
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderLivro {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPessoas {
         TODO("Not yet implemented")
     }
 
@@ -58,7 +59,7 @@ class AdapterPessoas : RecyclerView.Adapter<AdapterPessoas.ViewHolderLivro>() {
      * item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-    override fun onBindViewHolder(holder: ViewHolderLivro, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderPessoas, position: Int) {
         TODO("Not yet implemented")
     }
 
