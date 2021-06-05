@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ipg.primeiro.projetofinalcovid.R
 
-class HomeFragment : Fragment() {
+class ListaPessoasFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: ListaPessoasViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -20,11 +20,11 @@ class HomeFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+                ViewModelProvider(this).get(ListaPessoasViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_lista_pessoa, container, false)
+
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+
         })
         return root
     }
