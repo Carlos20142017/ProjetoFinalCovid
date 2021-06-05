@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <provider
+            android:authorities="ipg.primeiro.projetofinalcovid"
+            android:name=".CotentProviderPessoas"
+            android:exported="false"/>
     </application>
 
 </manifest>
