@@ -5,7 +5,8 @@ import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
-import ipg.primeiro.projetofinalcovid.basedados.BDCovidOpenHelper
+import android.provider.BaseColumns
+import ipg.primeiro.projetofinalcovid.basedados.*
 
 class CotentProviderPessoas : ContentProvider() {
 
@@ -120,7 +121,79 @@ class CotentProviderPessoas : ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+
+        val bd = bdCovidOpenHelper!!.readableDatabase
+
+        return when  (getUriMatcher().match(uri)){
+            URI_PESSOAS -> TabelaPessoas(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+            URI_PESSOAS_ESPECIFICA ->TabelaPessoas(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+            URI_DISTRITOS -> TabelaDistritos(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_DISTRITOS_ESPECIFICO -> TabelaDistritos(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            URI_TESTES -> TabelaTestes(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+            URI_TESTES_ESPECIFICO ->TabelaTestes(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            URI_NOTIFICACAO -> TabelaNotificacao(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+            URI_NOTIFICACAO_ESPECIFICO -> TabelaNotificacao(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+            else -> null
+        }
     }
 
     /**
