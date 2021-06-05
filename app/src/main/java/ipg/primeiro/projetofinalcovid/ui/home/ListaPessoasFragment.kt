@@ -1,5 +1,6 @@
 package ipg.primeiro.projetofinalcovid.ui.home
 
+import android.content.ContentProvider
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
 import ipg.primeiro.projetofinalcovid.R
+import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 
 class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
 
@@ -50,7 +54,14 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
      * @return Return a new Loader instance that is ready to start loading.
      */
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
+        return CursorLoader(
+            requireContext(),
+            CotentProviderPessoas.ENDERECO_PESSOAS,
+            TabelaPessoas.TODAS_COLUNAS,
+            null, null,
+            TabelaPessoas.CAMPO_NOME
+
+        )
     }
 
     /**

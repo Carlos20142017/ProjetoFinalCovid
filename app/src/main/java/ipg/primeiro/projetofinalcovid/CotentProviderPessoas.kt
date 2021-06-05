@@ -382,6 +382,12 @@ class CotentProviderPessoas : ContentProvider() {
         private const val URI_NOTIFICACAO = 400
         private const val URI_NOTIFICACAO_ESPECIFICO = 401
 
+        private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY/")
+        public val ENDERECO_PESSOAS = Uri.withAppendedPath(ENDERECO_BASE, PESSOAS)
+        public val ENDERECO_DISTRITO = Uri.withAppendedPath(ENDERECO_BASE,DISTRITO)
+        public val ENDERECO_TESTE = Uri.withAppendedPath(ENDERECO_BASE, TESTES)
+        public val ENDERECO_NOTIFICACAO = Uri.withAppendedPath(ENDERECO_BASE, NOTIFICACAO)
+
         private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
 
