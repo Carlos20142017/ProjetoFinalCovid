@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
@@ -38,6 +39,9 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
 
     fun OnViewCreated (view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewPessoas = view.findViewById<RecyclerView>(R.id.recyclerViewPessoas)
+       // recyclerViewPessoas.adapter
 
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_PESSOAS,null, this)
