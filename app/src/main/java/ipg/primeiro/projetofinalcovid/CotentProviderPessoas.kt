@@ -270,7 +270,31 @@ class CotentProviderPessoas : ContentProvider() {
      * @throws SQLException
      */
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
-        TODO("Not yet implemented")
+        val bd = bdCovidOpenHelper!!.writableDatabase
+
+        return when (getUriMatcher().match(uri)) {
+            URI_PESSOAS_ESPECIFICA -> TabelaPessoas(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            URI_DISTRITOS_ESPECIFICO -> TabelaDistritos(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            URI_TESTES_ESPECIFICO -> TabelaTestes(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            URI_NOTIFICACAO_ESPECIFICO -> TabelaNotificacao(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            else -> 0
+        }
     }
 
     /**
