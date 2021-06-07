@@ -41,9 +41,8 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
         return root
     }
 
-    fun OnViewCreated (view: View, savedInstanceState: Bundle?){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val recyclerViewPessoas = view.findViewById<RecyclerView>(R.id.recyclerViewPessoas)
         adapterPessoas = AdapterPessoas()
         recyclerViewPessoas.adapter = adapterPessoas
