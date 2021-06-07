@@ -7,7 +7,7 @@ import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 import java.util.*
 
 
-data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var data_nascimento: Date, var telemovel: Int, var id_estrang_distrito: Long){
+data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var data_nascimento: Date, var telemovel: String, var id_estrang_distrito: Long){
      fun toContentValues(): ContentValues {
        val valores= ContentValues().apply {
            put(TabelaPessoas.CAMPO_NOME, nome)
@@ -33,7 +33,7 @@ data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var da
             val nome = cursor.getString(colNome)
             val sexo = cursor.getString(colSexo)
             val dataNascimento = cursor.getLong(colDataNascimento)
-            val telemovel = cursor.getInt(colTelemovel)
+            val telemovel = cursor.getString(colTelemovel)
             val idDistrito = cursor.getLong(colIdDistrito)
 
             return Pessoa (id, nome, sexo, Date(dataNascimento), telemovel, idDistrito)
