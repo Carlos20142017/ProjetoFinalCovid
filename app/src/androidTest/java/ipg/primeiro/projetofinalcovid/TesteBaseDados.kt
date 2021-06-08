@@ -610,6 +610,23 @@ class TesteBaseDados {
         db.close()
     }
 
+    @Test
+    fun consegueEliminarAlerta(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaAlerta = TabelaAlertas(db)
+
+        val alerta = Alerta(nome_alerta = "Verde", descricao = "Não Infectado")
+        alerta.id = insereAlerta(tabelaAlerta, alerta)
+
+        val registosEliminados= tabelaAlerta.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(alerta.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+        db.close()
+    }
+
 
 
 }
