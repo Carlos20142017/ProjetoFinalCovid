@@ -13,6 +13,7 @@ class BDCovidOpenHelper(context: Context?)
             TabelaTestes(db).cria()
             TabelaNotificacao(db).cria()
             TabelaDistritos(db).cria()
+            TabelaAlertas(db).cria()
         }
     }
 
