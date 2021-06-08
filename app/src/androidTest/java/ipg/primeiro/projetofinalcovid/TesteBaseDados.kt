@@ -4,10 +4,7 @@ import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ipg.primeiro.projetofinalcovid.basedados.*
-import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
-import ipg.primeiro.projetofinalcovid.classedastabelas.Notificacao
-import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
+import ipg.primeiro.projetofinalcovid.classedastabelas.*
 
 
 import org.junit.Test
@@ -111,6 +108,27 @@ class TesteBaseDados {
         assertNotEquals(-1, id)
 
         return id
+    }
+
+    private  fun insereAlerta(tabela: TabelaAlertas, alerta: Alerta): Long {
+        val id = tabela.insert(alerta.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+    private fun getAlertaBaseDados(tabela: TabelaAlertas, id: Long): Alerta {
+        val cursor = tabela.query(
+            TabelaAlertas.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Alerta.fromCursor(cursor)
     }
 
     @Before
@@ -555,6 +573,23 @@ class TesteBaseDados {
 
         db.close()
     }
+
+
+    //==========================================================
+    //Tabela Alerta
+    //=========================================================
+    @Test
+    fun consegueInserirAlertas(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaAlertas = TabelaAlertas(db)
+
+        val alerta = Alerta(nome_alerta = "Verde", descricao = "Não infectado")
+        alerta.id = insereAlerta(tabelaAlertas, alerta)
+
+        db.close()
+
+    }
+
 
 
 }
