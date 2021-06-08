@@ -590,6 +590,26 @@ class TesteBaseDados {
 
     }
 
+    @Test
+    fun consegueAlterarAlerta(){
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaAlerta = TabelaAlertas(db)
+
+        val alerta = Alerta(nome_alerta = "Laranja", descricao = "Esteve perto de um infectado")
+        alerta.id = insereAlerta(tabelaAlerta, alerta)
+        alerta.nome_alerta = "Laranja"
+        alerta.descricao="Não infectado"
+
+        val registoAlterados = tabelaAlerta.update(
+            alerta.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(alerta.id.toString())
+        )
+
+        assertEquals(1, registoAlterados)
+        db.close()
+    }
+
 
 
 }
