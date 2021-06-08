@@ -309,7 +309,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom", id_estrang_pessoas= pessoa.id)
+        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom", data_teste= Date(2020,10,20), id_estrang_pessoas= pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         assertEquals(teste, getTesteBaseDados(tabelaTestes, teste.id))
@@ -341,12 +341,13 @@ class TesteBaseDados {
 
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste(temperatura = 0.0f, sintomas = "?", estado_saude = "?",id_estrang_pessoas = pessoa.id)
+        val teste = Teste(temperatura = 0.0f, sintomas = "?", estado_saude = "?",data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         teste.temperatura = 40.0f
         teste.sintomas = "Gripe"
         teste.estado_saude= "doente"
+        teste.data_teste= Date(2020,10,20)
         teste.id_estrang_pessoas=pessoa.id
 
 
@@ -376,7 +377,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
-        val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?", id_estrang_pessoas = pessoa.id)
+        val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?",data_teste= Date(2020,10,20), id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTeste, teste)
 
         val registosEliminados = tabelaTeste.delete(
@@ -402,7 +403,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" ,id_estrang_pessoas = pessoa.id)
+        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" ,data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         assertEquals(teste, getTesteBaseDados(tabelaTestes,teste.id))
@@ -429,11 +430,11 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "doente", id_estrang_pessoas= pessoa.id)
+        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "doente",data_teste= Date(2020,10,20), id_estrang_pessoas= pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao(alerta = "Amarelo", descricao = "Infectado", resultado = "Positivo", id_estrang_testes= teste.id)
+        val notificacao = Notificacao( resultado = "Positivo", id_estrang_testes= teste.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
@@ -466,20 +467,20 @@ class TesteBaseDados {
 
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste(temperatura = 0.0f, sintomas = "?", estado_saude = "?",id_estrang_pessoas = pessoa.id)
+        val teste = Teste(temperatura = 0.0f, sintomas = "?", estado_saude = "?",data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         teste.temperatura = 40.0f
         teste.sintomas = "Gripe"
         teste.estado_saude= "doente"
+        teste.data_teste= Date(2020,10,20)
         teste.id_estrang_pessoas=pessoa.id
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao(alerta = "?", descricao = "?", resultado = "?",id_estrang_testes = teste.id)
+        val notificacao = Notificacao( resultado = "?",id_estrang_testes = teste.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
-        notificacao.alerta="vermelho"
-        notificacao.descricao="infectado"
+
         notificacao.resultado="Positivo"
         notificacao.id_estrang_testes=teste.id
 
@@ -511,12 +512,12 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
-        val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?", id_estrang_pessoas = pessoa.id)
+        val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?", data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTeste, teste)
 
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao(alerta = "?", descricao = "?", resultado = "?", id_estrang_testes = teste.id)
+        val notificacao = Notificacao( resultado = "?", id_estrang_testes = teste.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao )
 
         val registosEliminados = tabelaNotificacao.delete(
@@ -543,11 +544,11 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" ,id_estrang_pessoas = pessoa.id)
+        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" , data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao( alerta = "Verde", descricao = "Não infectado", resultado = "Negativo" ,id_estrang_testes = teste.id)
+        val notificacao = Notificacao( resultado = "Negativo" ,id_estrang_testes = teste.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))

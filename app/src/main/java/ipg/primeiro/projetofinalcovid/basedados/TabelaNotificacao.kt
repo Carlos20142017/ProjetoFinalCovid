@@ -9,7 +9,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE  $NOME_TABELA ( ${BaseColumns._ID}  INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_ALERTA  TEXT NOT NULL, $CAMPO_DESCRICAO  TEXT NOT NULL,$CAMPO_RESULTADO  TEXT NOT NULL, $CAMPO_ID_ESTRANG_TESTES  INTEGER NOT NULL, FOREIGN KEY ( $CAMPO_ID_ESTRANG_TESTES) REFERENCES ${TabelaTestes.NOME_TABELA})")
+        db.execSQL("CREATE TABLE  $NOME_TABELA ( ${BaseColumns._ID}  INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_RESULTADO  TEXT NOT NULL, $CAMPO_ID_ESTRANG_TESTES  INTEGER NOT NULL, $CAMPO_ID_ESTRANG_ALERTAS  INTEGER NOT NULL, FOREIGN KEY ( $CAMPO_ID_ESTRANG_TESTES) REFERENCES ${TabelaTestes.NOME_TABELA}, FOREIGN KEY ( $CAMPO_ID_ESTRANG_ALERTAS) REFERENCES ${TabelaAlertas.NOME_TABELA})")
 
     }
 
@@ -31,16 +31,14 @@ class TabelaNotificacao(db: SQLiteDatabase) {
 
     companion object{
         const val NOME_TABELA="NOTIFICACAO"
-        const val CAMPO_ALERTA ="alerta"
-        const val CAMPO_DESCRICAO ="descricao"
         const val CAMPO_RESULTADO ="resultado"
         const val CAMPO_ID_ESTRANG_TESTES ="id_testes"
+        const val CAMPO_ID_ESTRANG_ALERTAS ="id_alertas"
 
         val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
-            CAMPO_ALERTA,
-            CAMPO_DESCRICAO,
             CAMPO_RESULTADO,
-            CAMPO_ID_ESTRANG_TESTES
+            CAMPO_ID_ESTRANG_TESTES,
+            CAMPO_ID_ESTRANG_ALERTAS
         )
     }
 }

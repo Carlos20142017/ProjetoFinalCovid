@@ -10,7 +10,7 @@ class TabelaTestes(db: SQLiteDatabase) {
         private val db: SQLiteDatabase = db
 
         fun cria() {
-            db.execSQL("CREATE TABLE $NOME_TABELA ( ${BaseColumns._ID } INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_TEMPERATURA REAL NOT NULL, $CAMPO_SINTOMAS TEXT NOT NULL, $CAMPO_EST_SAUDE TEXT NOT NULL, $CAMPO_ID_ESTRANG_PESSOAS INTEGER NOT NULL, FOREIGN KEY ( $CAMPO_ID_ESTRANG_PESSOAS) REFERENCES ${TabelaPessoas.NOME_TABELA} )")
+            db.execSQL("CREATE TABLE $NOME_TABELA ( ${BaseColumns._ID } INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_TEMPERATURA REAL NOT NULL, $CAMPO_SINTOMAS TEXT NOT NULL, $CAMPO_EST_SAUDE TEXT NOT NULL,$CAMPO_DATA_TESTE INTEGER NOT NULL, $CAMPO_ID_ESTRANG_PESSOAS INTEGER NOT NULL, FOREIGN KEY ( $CAMPO_ID_ESTRANG_PESSOAS) REFERENCES ${TabelaPessoas.NOME_TABELA} )")
 
         }
 
@@ -35,12 +35,14 @@ class TabelaTestes(db: SQLiteDatabase) {
            const val CAMPO_TEMPERATURA ="temperatura"
            const val CAMPO_SINTOMAS = "sintomas"
            const val CAMPO_EST_SAUDE = "est_saude"
+           const val CAMPO_DATA_TESTE = "data_teste"
            const val CAMPO_ID_ESTRANG_PESSOAS ="id_pessoas"
 
            val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
                CAMPO_TEMPERATURA,
                CAMPO_SINTOMAS,
                CAMPO_EST_SAUDE,
+               CAMPO_DATA_TESTE,
                CAMPO_ID_ESTRANG_PESSOAS
            )
        }

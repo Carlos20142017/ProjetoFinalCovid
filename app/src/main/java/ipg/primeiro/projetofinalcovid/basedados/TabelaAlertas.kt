@@ -29,7 +29,7 @@ class TabelaAlertas (db: SQLiteDatabase){
     }
 
     companion object{
-        const val NOME_TABELA ="Alerta"
+        const val NOME_TABELA ="ALERTA"
         const val CAMPO_NOME_ALERTA ="nome_alerta"
         const val CAMPO_DESCRICAO ="nome_descricao"
 
