@@ -451,8 +451,14 @@ class TesteBaseDados {
         val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "doente",data_teste= Date(2020,10,20), id_estrang_pessoas= pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
+        val tabelaAlertas = TabelaAlertas(db)
+
+        val alerta = Alerta(nome_alerta = "Verde", descricao = "Não infectado")
+        alerta.id = insereAlerta(tabelaAlertas, alerta)
+
+
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao( resultado = "Positivo", id_estrang_testes= teste.id)
+        val notificacao = Notificacao( resultado = "Positivo", id_estrang_testes= teste.id, id_estrang_alertas = alerta.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
@@ -472,6 +478,14 @@ class TesteBaseDados {
 
         val distritoNovo = Distrito(nome_distrito = "Mistério")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
+
+        val tabelaAlerta = TabelaAlertas(db)
+
+        val alertaAtual = Alerta(nome_alerta = "Verde",descricao = "Negativo" )
+        distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
+
+        val alertaNovo = Alerta(nome_alerta = "Vermelho", descricao = "Positivo")
+        alertaNovo.id = insereAlerta(tabelaAlerta, alertaNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
         val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20), telemovel ="990257414", id_estrang_distrito = distritoAtual.id)
@@ -495,7 +509,7 @@ class TesteBaseDados {
         teste.id_estrang_pessoas=pessoa.id
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao( resultado = "?",id_estrang_testes = teste.id)
+        val notificacao = Notificacao( resultado = "?",id_estrang_testes = teste.id, id_estrang_alertas = alertaAtual.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
 
@@ -533,9 +547,13 @@ class TesteBaseDados {
         val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?", data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTeste, teste)
 
+        val tabelaAlerta = TabelaAlertas(db)
+        val alerta = Alerta(nome_alerta= "Verde", descricao = "Negativo")
+        alerta.id = insereAlerta(tabelaAlerta, alerta)
+
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao( resultado = "?", id_estrang_testes = teste.id)
+        val notificacao = Notificacao( resultado = "?", id_estrang_testes = teste.id, id_estrang_alertas = alerta.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao )
 
         val registosEliminados = tabelaNotificacao.delete(
@@ -565,8 +583,13 @@ class TesteBaseDados {
         val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" , data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
+        val tabelaAlertas = TabelaAlertas(db)
+        val alerta = Alerta(nome_alerta = "Verde", descricao = "Negativo")
+        alerta.id = insereAlerta(tabelaAlertas, alerta)
+
+
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao( resultado = "Negativo" ,id_estrang_testes = teste.id)
+        val notificacao = Notificacao( resultado = "Negativo" ,id_estrang_testes = teste.id, id_estrang_alertas = alerta.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
@@ -624,6 +647,19 @@ class TesteBaseDados {
         )
 
         assertEquals(1, registosEliminados)
+        db.close()
+    }
+
+    @Test
+    fun consegueLerAlerta() {
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaAlerta = TabelaAlertas(db)
+
+        val alerta = Alerta(nome_alerta = "Amarelo", descricao = "Perto de um infectado")
+        alerta.id = insereAlerta(tabelaAlerta, alerta)
+
+        assertEquals(alerta, getAlertaBaseDados(tabelaAlerta, alerta.id))
+
         db.close()
     }
 
