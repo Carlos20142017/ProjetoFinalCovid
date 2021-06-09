@@ -192,6 +192,23 @@ class CotentProviderPessoas : ContentProvider() {
                 null,
                 null
             )
+
+            URI_ALERTA -> TabelaAlertas(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+            URI_ALERTA_ESPECIFICO -> TabelaAlertas(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
             else -> null
         }
     }
@@ -225,6 +242,8 @@ class CotentProviderPessoas : ContentProvider() {
             URI_TESTES_ESPECIFICO -> "$UNICO_ITEM/$TESTES"
             URI_NOTIFICACAO -> "$MULTIPLOS_ITEMS/$NOTIFICACAO"
             URI_NOTIFICACAO_ESPECIFICO -> "$UNICO_ITEM/$NOTIFICACAO"
+            URI_ALERTA -> "$MULTIPLOS_ITEMS/$ALERTA"
+            URI_ALERTA_ESPECIFICO -> "$UNICO_ITEM/$ALERTA"
             else -> null
         }
 
@@ -251,6 +270,7 @@ class CotentProviderPessoas : ContentProvider() {
             URI_DISTRITOS -> TabelaDistritos(bd).insert(values!!)
             URI_TESTES -> TabelaTestes(bd).insert(values!!)
             URI_NOTIFICACAO -> TabelaNotificacao(bd).insert(values!!)
+            URI_ALERTA -> TabelaAlertas(bd).insert(values!!)
             else -> -1L
         }
 
@@ -302,6 +322,11 @@ class CotentProviderPessoas : ContentProvider() {
             )
 
             URI_NOTIFICACAO_ESPECIFICO -> TabelaNotificacao(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            URI_ALERTA_ESPECIFICO -> TabelaAlertas(bd).delete(
                 "${BaseColumns._ID}=?",
                 arrayOf(uri.lastPathSegment!!)
             )
@@ -358,6 +383,12 @@ class CotentProviderPessoas : ContentProvider() {
                 arrayOf(uri.lastPathSegment!!)
             )
 
+            URI_ALERTA_ESPECIFICO -> TabelaAlertas(bd).update(
+                values!!,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
             else -> 0
         }
     }
@@ -371,6 +402,7 @@ class CotentProviderPessoas : ContentProvider() {
         private const val DISTRITO = "distritos"
         private const val TESTES = "testes"
         private const val NOTIFICACAO = "notificacao"
+        private const val ALERTA = "alerta"
 
 
         private const val URI_PESSOAS = 100
@@ -381,12 +413,15 @@ class CotentProviderPessoas : ContentProvider() {
         private const val URI_TESTES_ESPECIFICO = 301
         private const val URI_NOTIFICACAO = 400
         private const val URI_NOTIFICACAO_ESPECIFICO = 401
+        private const val URI_ALERTA = 500
+        private const val URI_ALERTA_ESPECIFICO = 501
 
         private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY/")
         public val ENDERECO_PESSOAS = Uri.withAppendedPath(ENDERECO_BASE, PESSOAS)
         public val ENDERECO_DISTRITO = Uri.withAppendedPath(ENDERECO_BASE,DISTRITO)
         public val ENDERECO_TESTE = Uri.withAppendedPath(ENDERECO_BASE, TESTES)
         public val ENDERECO_NOTIFICACAO = Uri.withAppendedPath(ENDERECO_BASE, NOTIFICACAO)
+        public val ENDERECO_ALERTA = Uri.withAppendedPath(ENDERECO_BASE, ALERTA)
 
         private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
@@ -402,6 +437,8 @@ class CotentProviderPessoas : ContentProvider() {
             uriMatcher.addURI(AUTHORITY, "$TESTES/#", URI_TESTES_ESPECIFICO)
             uriMatcher.addURI(AUTHORITY, NOTIFICACAO, URI_NOTIFICACAO)
             uriMatcher.addURI(AUTHORITY, "$NOTIFICACAO/#", URI_NOTIFICACAO_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, ALERTA, URI_ALERTA)
+            uriMatcher.addURI(AUTHORITY, "$ALERTA/#", URI_ALERTA_ESPECIFICO)
 
             return uriMatcher
         }
