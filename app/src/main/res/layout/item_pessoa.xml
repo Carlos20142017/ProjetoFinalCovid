@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_campos"
-        android:text="10/1990"
+        android:text="25/10/1990"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <TextView
