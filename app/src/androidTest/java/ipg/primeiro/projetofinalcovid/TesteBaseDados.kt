@@ -36,7 +36,7 @@ class TesteBaseDados {
     private fun getDistritoBaseDados(tabela: TabelaDistritos, id: Long): Distrito {
         val cursor = tabela.query(
             TabelaDistritos.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaDistritos.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -50,7 +50,7 @@ class TesteBaseDados {
     private fun getPessoaBaseDados(tabela: TabelaPessoas, id: Long): Pessoa {
         val cursor = tabela.query(
             TabelaPessoas.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaPessoas.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -133,7 +133,7 @@ class TesteBaseDados {
 
     @Before
     fun apagaBaseDados(){
-       // getAppContext().deleteDatabase(BDCovidOpenHelper.Nome_Base_Dados)
+       getAppContext().deleteDatabase(BDCovidOpenHelper.Nome_Base_Dados)
     }
 
     @Test

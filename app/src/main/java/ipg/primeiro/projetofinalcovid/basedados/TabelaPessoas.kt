@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
-import com.google.android.material.tabs.TabLayout
 
 class TabelaPessoas(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
@@ -27,7 +26,55 @@ class TabelaPessoas(db: SQLiteDatabase) {
     }
 
     fun query(columns: Array<String>, selection: String?, selectionArgs: Array<String>?, groupBy: String?, having: String?, orderBy: String?): Cursor? {
-        return db.query(TabelaPessoas.NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
+        val ultimaColuna = columns.size - 1
+        var posColNomeDistrito = -1 // - 1 indica que a coluna não foi pedido
+        for (i in 0..ultimaColuna) {
+            if (columns[i] == CAMPO_EXTERNO_NOME_DISTRITO) {
+                posColNomeDistrito = i
+                break
+            }
+        }
+
+        if (posColNomeDistrito == -1) {
+
+            return db.query(
+                TabelaPessoas.NOME_TABELA,
+                columns,
+                selection,
+                selectionArgs,
+                groupBy,
+                having,
+                orderBy
+            )
+
+        }
+        var colunas = ""
+        for (i in 0..ultimaColuna){
+
+           if(i > 0) colunas +=","
+
+          colunas += if(i == posColNomeDistrito) {
+                "${TabelaDistritos.NOME_TABELA}.${TabelaDistritos.CAMPO_NOME_DISTRITO} AS $CAMPO_EXTERNO_NOME_DISTRITO"
+            }else{
+              "$NOME_TABELA.${columns[i]}"
+            }
+        }
+
+        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaDistritos.NOME_TABELA} ON ${TabelaDistritos.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_ESTRANG_DISTRITO"
+
+        var sql ="SELECT $colunas FROM $tabelas"
+        if(selection != null) sql += " WHERE $selection"
+
+        if (groupBy != null){
+            sql += " GROUP BY $groupBy"
+            if(having != null) " HAVING $having"
+        }
+
+        if(orderBy != null){
+            sql += " ORDER BY $orderBy"
+        }
+
+       return db.rawQuery(sql, selectionArgs)
     }
 
     companion object{
@@ -37,9 +84,10 @@ class TabelaPessoas(db: SQLiteDatabase) {
         const val CAMPO_DATA_NASCIMENTO="data_nascimento"
         const val CAMPO_TELEMOVEL="telemovel"
         const val CAMPO_ID_ESTRANG_DISTRITO ="id_distritos"
+        const val CAMPO_EXTERNO_NOME_DISTRITO = "nome_distrito"
 
         val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_SEXO, CAMPO_DATA_NASCIMENTO,
-            CAMPO_TELEMOVEL, CAMPO_ID_ESTRANG_DISTRITO)
+            CAMPO_TELEMOVEL, CAMPO_ID_ESTRANG_DISTRITO, CAMPO_EXTERNO_NOME_DISTRITO)
 
     }
 
