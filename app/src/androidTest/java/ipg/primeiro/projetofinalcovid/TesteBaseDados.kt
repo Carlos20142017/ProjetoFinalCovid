@@ -133,7 +133,7 @@ class TesteBaseDados {
 
     @Before
     fun apagaBaseDados(){
-        getAppContext().deleteDatabase(BDCovidOpenHelper.Nome_Base_Dados)
+       // getAppContext().deleteDatabase(BDCovidOpenHelper.Nome_Base_Dados)
     }
 
     @Test

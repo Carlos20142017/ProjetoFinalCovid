@@ -3,12 +3,34 @@ package ipg.primeiro.projetofinalcovid
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.ui.home.ListaPessoasFragment
 
-class AdapterPessoas (val fragment: ListaPessoasFragment, var cursor: Cursor? = null): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
+class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
+
+    var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     class ViewHolderPessoas(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
+        val textViewSexo = itemView.findViewById<TextView>(R.id.textViewSexo)
+        val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
+        val textViewTelemovel = itemView.findViewById<TextView>(R.id.textViewTelemovel)
+
+        fun atualizaPessoa(pessoa: Pessoa) {
+
+            textViewNome.text = pessoa.nome
+            textViewSexo.text = pessoa.sexo
+            textViewDataNascimento.text = pessoa.data_nascimento.toString()
+            textViewTelemovel.text = pessoa.telemovel
+        }
 
     }
 
@@ -63,7 +85,10 @@ class AdapterPessoas (val fragment: ListaPessoasFragment, var cursor: Cursor? = 
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderPessoas, position: Int) {
-        TODO("Not yet implemented")
+
+        cursor!!.moveToPosition(position)
+        holder.atualizaPessoa(Pessoa.fromCursor(cursor!!))
+
     }
 
     /**
