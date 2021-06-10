@@ -4,8 +4,9 @@ import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.ui.home.ListaPessoasFragment
 
-class AdapterPessoas (var cursor: Cursor? = null): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
+class AdapterPessoas (val fragment: ListaPessoasFragment, var cursor: Cursor? = null): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
 
     class ViewHolderPessoas(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -35,7 +36,9 @@ class AdapterPessoas (var cursor: Cursor? = null): RecyclerView.Adapter<AdapterP
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPessoas {
-        TODO("Not yet implemented")
+       val itemPessoa = fragment.layoutInflater.inflate(R.layout.item_pessoa, parent, false)
+
+        return ViewHolderPessoas(itemPessoa)
     }
 
     /**
