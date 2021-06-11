@@ -17,13 +17,17 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
             notifyDataSetChanged()
         }
 
-    class ViewHolderPessoas(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderPessoas(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
 
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
         private val textViewSexo = itemView.findViewById<TextView>(R.id.textViewSexo)
         private val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
         private val textViewTelemovel = itemView.findViewById<TextView>(R.id.textViewTelemovel)
         private val textViewDistrito = itemView.findViewById<TextView>(R.id.textViewDistrito)
+
+        init{
+            itemView.setOnClickListener(this)
+        }
 
         fun atualizaPessoa(pessoa: Pessoa) {
 
@@ -34,6 +38,29 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
             textViewTelemovel.text = pessoa.nomeDistrito
         }
 
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param v The view that was clicked.
+         */
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            selecionado = this
+           itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona(){
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object{
+           var selecionado : ViewHolderPessoas? = null
+        }
     }
 
     /**
