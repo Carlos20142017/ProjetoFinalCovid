@@ -15,4 +15,7 @@
     <string name="masculino">Masculino</string>
     <string name="_25_10_1990">25/10/1990</string>
     <string name="_990205170">990205170</string>
+    <string name="nova_pessoa">Nova Pessoa</string>
+    <string name="alterar_pessoa">Alterar Pessoa</string>
+    <string name="eliminar_pessoa">Eliminar Pessoa</string>
 </resources>
