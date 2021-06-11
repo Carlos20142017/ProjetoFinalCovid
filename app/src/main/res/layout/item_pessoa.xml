@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,37 +8,60 @@
 
     <TextView
         android:id="@+id/textViewNome"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_campos"
         android:layout_marginLeft="@dimen/margin_campos"
         android:layout_marginTop="@dimen/margin_campos"
         android:layout_marginEnd="@dimen/margin_campos"
         android:layout_marginRight="@dimen/margin_campos"
-        android:text="Carlos Cruz"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:text="@string/carlos_cruz"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDistrito"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewSexo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_campos"
-        android:text="Masculino"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        android:layout_marginTop="@dimen/margin_campos"
+        android:text="@string/masculino"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewNome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
 
     <TextView
         android:id="@+id/textViewDataNascimento"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_campos"
-        android:text="25/10/1990"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        android:layout_marginTop="@dimen/margin_campos"
+        android:text="@string/_25_10_1990"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewSexo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSexo" />
 
     <TextView
         android:id="@+id/textViewTelemovel"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_campos"
-        android:text="990205170"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-</LinearLayout>
+        android:layout_marginTop="8dp"
+        android:paddingBottom="@dimen/margin_campos"
+        android:text="@string/_990205170"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewDataNascimento"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataNascimento" />
+
+    <TextView
+        android:id="@+id/textViewDistrito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:layout_marginEnd="@dimen/margin_campos"
+        android:layout_marginRight="@dimen/margin_campos"
+        android:text="@string/guarda"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
