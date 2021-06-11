@@ -19,10 +19,11 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
 
     class ViewHolderPessoas(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
-        val textViewSexo = itemView.findViewById<TextView>(R.id.textViewSexo)
-        val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
-        val textViewTelemovel = itemView.findViewById<TextView>(R.id.textViewTelemovel)
+        private val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
+        private val textViewSexo = itemView.findViewById<TextView>(R.id.textViewSexo)
+        private val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
+        private val textViewTelemovel = itemView.findViewById<TextView>(R.id.textViewTelemovel)
+        private val textViewDistrito = itemView.findViewById<TextView>(R.id.textViewDistrito)
 
         fun atualizaPessoa(pessoa: Pessoa) {
 
@@ -30,6 +31,7 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
             textViewSexo.text = pessoa.sexo
             textViewDataNascimento.text = pessoa.data_nascimento.toString()
             textViewTelemovel.text = pessoa.telemovel
+            textViewTelemovel.text = pessoa.nomeDistrito
         }
 
     }
