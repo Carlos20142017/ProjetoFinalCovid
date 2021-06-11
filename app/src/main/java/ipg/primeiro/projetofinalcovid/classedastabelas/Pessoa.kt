@@ -9,7 +9,7 @@ import java.util.*
 
 
 data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var data_nascimento: Date,
-                   var telemovel: String, var id_estrang_distrito: Long, var nomeDistrito: String?){
+                   var telemovel: String, var id_estrang_distrito: Long, var nomeDistrito: String? = null){
      fun toContentValues(): ContentValues {
        val valores= ContentValues().apply {
            put(TabelaPessoas.CAMPO_NOME, nome)
@@ -21,6 +21,20 @@ data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var da
 
        return valores
    }
+
+    /*
+    override fun equals(other: Any?): Boolean {
+        if(!(other is Pessoa )) return false
+        if(id != other.id) return false
+        if(nome != other.nome) return false
+        if(sexo != other.sexo) return false
+        if(data_nascimento!= other.data_nascimento) return false
+        if(telemovel != other.telemovel) return false
+
+        return true
+    }
+
+     */
 
     companion object {
         fun fromCursor(cursor: Cursor): Pessoa {

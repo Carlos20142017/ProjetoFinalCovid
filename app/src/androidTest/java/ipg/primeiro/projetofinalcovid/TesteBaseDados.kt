@@ -223,7 +223,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20), telemovel = "990257414", id_estrang_distrito=distrito.id)
+        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),
+            telemovel = "990257414", id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         assertEquals(pessoa, getPessoaBaseDados(tabelaPessoas, pessoa.id))
@@ -245,7 +246,8 @@ class TesteBaseDados {
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20) ,telemovel ="990257414", id_estrang_distrito = distritoAtual.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20) ,telemovel ="990257414",
+            id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         pessoa.nome = "Ninfeias negras"
@@ -253,6 +255,7 @@ class TesteBaseDados {
         pessoa.data_nascimento = Date(2020,10,20)
         pessoa.telemovel ="990257414"
         pessoa.id_estrang_distrito=distritoNovo.id
+        pessoa.nomeDistrito = distritoNovo.nome_distrito
 
         val registosAlterados = tabelaPessoas.update(
             pessoa.toContentValues(),
@@ -277,7 +280,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20),telemovel ="990257414", id_estrang_distrito = distrito.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+            id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val registosEliminados = tabelaPessoas.delete(
@@ -300,7 +304,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414", id_estrang_distrito = distrito.id)
+        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414",
+            id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         assertEquals(pessoa, getPessoaBaseDados(tabelaPessoas, pessoa.id))
@@ -323,7 +328,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414", id_estrang_distrito=distrito.id)
+        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+            id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
@@ -348,7 +354,8 @@ class TesteBaseDados {
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20),telemovel ="990257414", id_estrang_distrito = distritoAtual.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+            id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         pessoa.nome = "Ninfeias negras"
@@ -356,6 +363,7 @@ class TesteBaseDados {
         pessoa.data_nascimento = Date(2020,10,20)
         pessoa.telemovel ="990257414"
         pessoa.id_estrang_distrito=distritoNovo.id
+        pessoa.nomeDistrito = distritoNovo.nome_distrito
 
 
         val tabelaTestes = TabelaTestes(db)
@@ -391,7 +399,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20),telemovel ="990257414", id_estrang_distrito = distrito.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+            id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
@@ -417,7 +426,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414", id_estrang_distrito = distrito.id)
+        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414",
+            id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
@@ -444,7 +454,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414", id_estrang_distrito=distrito.id)
+        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+            id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
@@ -488,7 +499,8 @@ class TesteBaseDados {
         alertaNovo.id = insereAlerta(tabelaAlerta, alertaNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20), telemovel ="990257414", id_estrang_distrito = distritoAtual.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?", data_nascimento= Date(2020,10,20), telemovel ="990257414",
+            id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         pessoa.nome = "Ninfeias negras"
@@ -496,6 +508,7 @@ class TesteBaseDados {
         pessoa.data_nascimento =Date(2020,10,20)
         pessoa.telemovel ="990257414"
         pessoa.id_estrang_distrito=distritoNovo.id
+        pessoa.nomeDistrito = distritoNovo.nome_distrito
 
 
         val tabelaTestes = TabelaTestes(db)
@@ -540,7 +553,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?",data_nascimento= Date(2020,10,20), telemovel ="990257414", id_estrang_distrito = distrito.id)
+        val pessoa = Pessoa(nome = "?", sexo = "?",data_nascimento= Date(2020,10,20), telemovel ="990257414",
+            id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
@@ -576,7 +590,8 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414", id_estrang_distrito = distrito.id)
+        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414",
+            id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
