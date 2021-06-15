@@ -71,7 +71,7 @@ class TesteBaseDados {
     private fun getTesteBaseDados(tabela: TabelaTestes, id: Long): Teste {
         val cursor = tabela.query(
             TabelaTestes.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaTestes.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -85,7 +85,7 @@ class TesteBaseDados {
     private fun getNotificacaoBaseDados(tabela: TabelaNotificacao, id: Long): Notificacao {
         val cursor = tabela.query(
             TabelaNotificacao.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaNotificacao.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -120,7 +120,7 @@ class TesteBaseDados {
     private fun getAlertaBaseDados(tabela: TabelaAlertas, id: Long): Alerta {
         val cursor = tabela.query(
             TabelaAlertas.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaAlertas.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -164,9 +164,9 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distrito = Distrito(nome_distrito = "Lisboa")
+        val distrito = Distrito(nome_distrito = "Guarda")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
-        distrito.nome_distrito = "LISBOA-PORTO"
+        distrito.nome_distrito = "PORTO"
 
         val registoAlterados = tabelaDistritos.update(
             distrito.toContentValues(),
@@ -183,7 +183,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distrito = Distrito(nome_distrito = "teste")
+        val distrito = Distrito(nome_distrito = "Porto")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val registosEliminados= tabelaDistritos.delete(
@@ -239,10 +239,10 @@ class TesteBaseDados {
 
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Suspense")
+        val distritoAtual = Distrito(nome_distrito = "Guarda")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Mistério")
+        val distritoNovo = Distrito(nome_distrito = "Aveiro")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
@@ -250,8 +250,8 @@ class TesteBaseDados {
             id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
-        pessoa.nome = "Ninfeias negras"
-        pessoa.sexo = "Michel Bussi"
+        pessoa.nome = "Marcos Sousa"
+        pessoa.sexo = "Masculino"
         pessoa.data_nascimento = Date(2020,10,20)
         pessoa.telemovel ="990257414"
         pessoa.id_estrang_distrito=distritoNovo.id
@@ -276,7 +276,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Lisboa")
+        val distrito = Distrito(nome_distrito = "Aveiro")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
@@ -300,7 +300,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Culinária")
+        val distrito = Distrito(nome_distrito = "Lisboa")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
@@ -324,11 +324,11 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Guarda")
+        val distrito = Distrito(nome_distrito = "Faro")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Maria", sexo="Feminino", data_nascimento= Date(2020,10,20),telemovel ="990257414",
             id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -347,10 +347,10 @@ class TesteBaseDados {
 
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Suspense")
+        val distritoAtual = Distrito(nome_distrito = "Faro")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Mistério")
+        val distritoNovo = Distrito(nome_distrito = "Leiria")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
@@ -358,8 +358,8 @@ class TesteBaseDados {
             id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
-        pessoa.nome = "Ninfeias negras"
-        pessoa.sexo = "Michel Bussi"
+        pessoa.nome = "Tomé"
+        pessoa.sexo = "Masculino"
         pessoa.data_nascimento = Date(2020,10,20)
         pessoa.telemovel ="990257414"
         pessoa.id_estrang_distrito=distritoNovo.id
@@ -395,7 +395,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Lisboa")
+        val distrito = Distrito(nome_distrito = "Leiria")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
@@ -422,7 +422,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Culinária")
+        val distrito = Distrito(nome_distrito = "Beja")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
@@ -454,7 +454,7 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Castro", sexo="Masculino", data_nascimento= Date(2020,10,20),telemovel ="990257414",
             id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -464,7 +464,7 @@ class TesteBaseDados {
 
         val tabelaAlertas = TabelaAlertas(db)
 
-        val alerta = Alerta(nome_alerta = "Verde", descricao = "Não infectado")
+        val alerta = Alerta(nome_alerta = "Vermelho", descricao = "Infectado")
         alerta.id = insereAlerta(tabelaAlertas, alerta)
 
 
@@ -484,10 +484,10 @@ class TesteBaseDados {
 
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Suspense")
+        val distritoAtual = Distrito(nome_distrito = "Guarda")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Mistério")
+        val distritoNovo = Distrito(nome_distrito = "Almada")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaAlerta = TabelaAlertas(db)
@@ -503,8 +503,8 @@ class TesteBaseDados {
             id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
-        pessoa.nome = "Ninfeias negras"
-        pessoa.sexo = "Michel Bussi"
+        pessoa.nome = "Guilherme Costa"
+        pessoa.sexo = "Masculino"
         pessoa.data_nascimento =Date(2020,10,20)
         pessoa.telemovel ="990257414"
         pessoa.id_estrang_distrito=distritoNovo.id
@@ -562,7 +562,7 @@ class TesteBaseDados {
         teste.id = insereTeste(tabelaTeste, teste)
 
         val tabelaAlerta = TabelaAlertas(db)
-        val alerta = Alerta(nome_alerta= "Verde", descricao = "Negativo")
+        val alerta = Alerta(nome_alerta= "Verde", descricao = "Não Infectivo")
         alerta.id = insereAlerta(tabelaAlerta, alerta)
 
 
@@ -586,11 +586,11 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Culinária")
+        val distrito = Distrito(nome_distrito = "Lisboa")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414",
+        val pessoa = Pessoa( nome = "Josias", sexo = "Masculino",data_nascimento= Date(2020,10,20) ,telemovel ="990257414",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -599,7 +599,7 @@ class TesteBaseDados {
         teste.id = insereTeste(tabelaTestes, teste)
 
         val tabelaAlertas = TabelaAlertas(db)
-        val alerta = Alerta(nome_alerta = "Verde", descricao = "Negativo")
+        val alerta = Alerta(nome_alerta = "Verde", descricao = "Não Infectado")
         alerta.id = insereAlerta(tabelaAlertas, alerta)
 
 
@@ -635,7 +635,7 @@ class TesteBaseDados {
 
         val alerta = Alerta(nome_alerta = "Laranja", descricao = "Esteve perto de um infectado")
         alerta.id = insereAlerta(tabelaAlerta, alerta)
-        alerta.nome_alerta = "Laranja"
+        alerta.nome_alerta = "Verde"
         alerta.descricao="Não infectado"
 
         val registoAlterados = tabelaAlerta.update(
@@ -670,7 +670,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
         val tabelaAlerta = TabelaAlertas(db)
 
-        val alerta = Alerta(nome_alerta = "Amarelo", descricao = "Perto de um infectado")
+        val alerta = Alerta(nome_alerta = "Amarelo", descricao = "Esteve Perto de um infectado")
         alerta.id = insereAlerta(tabelaAlerta, alerta)
 
         assertEquals(alerta, getAlertaBaseDados(tabelaAlerta, alerta.id))
