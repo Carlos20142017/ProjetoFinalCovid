@@ -429,7 +429,7 @@ class CotentProviderPessoas : ContentProvider() {
         private fun getUriMatcher() : UriMatcher{
             val uriMatcher = UriMatcher (UriMatcher.NO_MATCH)
 
-            uriMatcher.addURI(AUTHORITY, PESSOAS, URI_DISTRITOS)
+            uriMatcher.addURI(AUTHORITY, PESSOAS, URI_PESSOAS)
             uriMatcher.addURI(AUTHORITY, "$PESSOAS/#", URI_PESSOAS_ESPECIFICA)
             uriMatcher.addURI(AUTHORITY, DISTRITO, URI_DISTRITOS)
             uriMatcher.addURI(AUTHORITY, "$DISTRITO/#", URI_DISTRITOS_ESPECIFICO)
