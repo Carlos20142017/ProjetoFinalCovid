@@ -18,4 +18,9 @@
     <string name="nova_pessoa">Nova Pessoa</string>
     <string name="alterar_pessoa">Alterar Pessoa</string>
     <string name="eliminar_pessoa">Eliminar Pessoa</string>
+    <string name="nome">Nome</string>
+    <string name="sexo">Sexo</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="telemovel">Telemovel</string>
+    <string name="distrito">Distrito</string>
 </resources>
