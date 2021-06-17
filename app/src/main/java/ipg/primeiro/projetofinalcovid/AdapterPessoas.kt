@@ -25,11 +25,15 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
         private val textViewTelemovel = itemView.findViewById<TextView>(R.id.textViewTelemovel)
         private val textViewDistrito = itemView.findViewById<TextView>(R.id.textViewDistrito)
 
+        private lateinit var pessoa : Pessoa
+
         init{
             itemView.setOnClickListener(this)
         }
 
         fun atualizaPessoa(pessoa: Pessoa) {
+
+            this.pessoa = pessoa
 
             textViewNome.text = pessoa.nome
             textViewSexo.text = pessoa.sexo
@@ -51,6 +55,7 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
         private fun seleciona() {
             selecionado = this
            itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.pessoaSelecionada = pessoa
         }
 
         private fun desSeleciona(){
