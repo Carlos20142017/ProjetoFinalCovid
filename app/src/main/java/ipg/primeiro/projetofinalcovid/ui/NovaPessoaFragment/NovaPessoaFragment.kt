@@ -22,9 +22,9 @@ class NovaPessoaFragment : Fragment() {
         galleryViewModel =
                 ViewModelProvider(this).get(NovaPessoaViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_nova_pessoa, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
+       // val textView: TextView = root.findViewById(R.id.textView)
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+          //  textView.text = it
         })
         return root
     }

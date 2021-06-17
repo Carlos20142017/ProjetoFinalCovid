@@ -2,6 +2,7 @@ package ipg.primeiro.projetofinalcovid
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private lateinit var menu: Menu
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
+                R.id.ListaPessoaFragment, R.id.NovaPessoaFragment, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -50,6 +53,24 @@ class MainActivity : AppCompatActivity() {
         atualizaMenuListaPessoas(false)
 
         return true
+    }
+
+    //Acrescentei esse codigo
+    //::::::::::::::::::::::
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.action_settings -> true
+
+            else ->{
+               if( DadosApp.listaPessoasFragment.processaOpcaoMenu(item)){
+                   return true
+               }else{
+                   return super.onOptionsItemSelected(item)
+               }
+
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

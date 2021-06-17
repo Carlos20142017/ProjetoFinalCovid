@@ -3,19 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    android:label="@string/menu_pessoa"
+    app:startDestination="@id/ListaPessoaFragment">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/ListaPessoaFragment"
         android:name="ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_lista_pessoa" />
+        android:label="@string/menu_pessoa"
+        tools:layout="@layout/fragment_lista_pessoa">
+        <action
+            android:id="@+id/action_ListaPessoaFragment_to_NovaPessoaFragment"
+            app:destination="@id/NovaPessoaFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/NovaPessoaFragment"
         android:name="ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment.NovaPessoaFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_nova_pessoa" />
+        android:label="@string/menu_nova_pessoa"
+        tools:layout="@layout/fragment_nova_pessoa">
+        <action
+            android:id="@+id/action_NovaPessoaFragment_to_ListaPessoaFragment"
+            app:destination="@id/ListaPessoaFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"

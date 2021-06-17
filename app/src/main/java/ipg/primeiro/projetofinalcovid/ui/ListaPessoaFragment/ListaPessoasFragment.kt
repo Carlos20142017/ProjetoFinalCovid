@@ -3,6 +3,7 @@ package ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -11,10 +12,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.AdapterPessoas
 import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 
@@ -36,6 +39,9 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
 
         })
+
+        DadosApp.listaPessoasFragment = this
+
         return root
     }
 
@@ -48,6 +54,28 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
 
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_PESSOAS,null, this)
+
+    }
+
+    fun navegaNovaPessoa(){
+        findNavController().navigate(R.id.action_ListaPessoaFragment_to_NovaPessoaFragment)
+    }
+    fun navegaAlterarPessoa(){
+         //todo: navegar para o fragmento de alteração de pessoa
+     }
+
+    fun navegaEliminarPessoa(){
+        //todo: navegar para o fragmento para confirmar eliminação de pessoa
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean{
+        when(item.itemId){
+            R.id.action_nova_pessoa -> navegaNovaPessoa()
+            R.id.action_alterar_pessoa -> navegaAlterarPessoa()
+            R.id.action_eliminar_pessoa -> navegaEliminarPessoa()
+            else -> return false
+        }
+        return true
     }
 
     /**
