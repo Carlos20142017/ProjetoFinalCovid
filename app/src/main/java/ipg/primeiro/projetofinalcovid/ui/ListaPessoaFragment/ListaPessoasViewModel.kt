@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid.ui.home
+package ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

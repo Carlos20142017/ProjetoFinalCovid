@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.ui.home.ListaPessoasFragment
+import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
 
 class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
 

@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="ipg.primeiro.projetofinalcovid.ui.home.ListaPessoasFragment"
+        android:name="ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_lista_pessoa" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="ipg.primeiro.projetofinalcovid.ui.gallery.GalleryFragment"
+        android:name="ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment.NovaPessoaFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_nova_pessoa" />
 
     <fragment
         android:id="@+id/nav_slideshow"

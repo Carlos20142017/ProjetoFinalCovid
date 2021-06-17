@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid.ui.gallery
+package ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ipg.primeiro.projetofinalcovid.R
 
-class GalleryFragment : Fragment() {
+class NovaPessoaFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var galleryViewModel: NovaPessoaViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -20,8 +20,8 @@ class GalleryFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         galleryViewModel =
-                ViewModelProvider(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+                ViewModelProvider(this).get(NovaPessoaViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_nova_pessoa, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
