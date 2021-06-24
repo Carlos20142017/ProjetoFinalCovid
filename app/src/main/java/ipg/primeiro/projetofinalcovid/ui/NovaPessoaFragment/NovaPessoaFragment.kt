@@ -2,6 +2,7 @@ package ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -32,4 +33,23 @@ class NovaPessoaFragment : Fragment() {
         (activity as MainActivity).menuAtual = R.menu.menu_nova_pessoa
         return root
     }
+
+    fun navegaListaLivros(){
+        // todo: guardar livro
+    }
+
+    fun guardar(){
+        // todo: livro
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean{
+        when(item.itemId){
+            R.id.action_guardar_nova_pessoa -> guardar()
+            R.id.action_cancelar_nova_pessoa -> navegaListaLivros()
+
+            else -> return false
+        }
+        return true
+    }
+    
 }

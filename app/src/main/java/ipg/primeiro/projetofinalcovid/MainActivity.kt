@@ -3,6 +3,7 @@ package ipg.primeiro.projetofinalcovid
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -73,18 +74,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return when (item.itemId) {
-            R.id.action_settings -> true
+        val opcaoProcessada = when (item.itemId) {
+            R.id.action_settings -> {
+                Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
+                true
+            }
 
-            else ->{
-               if( DadosApp.listaPessoasFragment!!.processaOpcaoMenu(item)){
-                   return true
-               }else{
-                   return super.onOptionsItemSelected(item)
-               }
+            else -> when (menuAtual){
+                R.menu.menu_lista_pessoas -> DadosApp.listaPessoasFragment!!.processaOpcaoMenu(item)
+                R.menu.menu_nova_pessoa -> DadosApp.novaPessoaFragment!!.processaOpcaoMenu(item)
+               else -> false
 
             }
         }
+        return if(opcaoProcessada) true else super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
