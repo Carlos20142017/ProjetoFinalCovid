@@ -23,4 +23,6 @@
     <string name="data_de_nascimento">Data de Nascimento</string>
     <string name="telemovel">Telemovel</string>
     <string name="distrito">Distrito</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
