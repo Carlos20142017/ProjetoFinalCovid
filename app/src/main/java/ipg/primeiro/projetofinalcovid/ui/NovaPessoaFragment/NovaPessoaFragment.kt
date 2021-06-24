@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
@@ -35,7 +36,7 @@ class NovaPessoaFragment : Fragment() {
     }
 
     fun navegaListaLivros(){
-        // todo: guardar livro
+        findNavController().navigate(R.id.action_NovaPessoaFragment_to_ListaPessoaFragment)
     }
 
     fun guardar(){
