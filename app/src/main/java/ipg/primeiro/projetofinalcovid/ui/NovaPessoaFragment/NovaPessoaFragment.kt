@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
 
 class NovaPessoaFragment : Fragment() {
@@ -26,6 +28,8 @@ class NovaPessoaFragment : Fragment() {
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
           //  textView.text = it
         })
+        DadosApp.novaPessoaFragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_nova_pessoa
         return root
     }
 }

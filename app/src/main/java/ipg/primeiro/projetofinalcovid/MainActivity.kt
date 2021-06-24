@@ -14,12 +14,22 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import java.lang.reflect.Array.set
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private lateinit var menu: Menu
+
+    var menuAtual = R.menu.menu_lista_pessoas
+
+
+
+        set(value) {
+            field = value
+            invalidateOptionsMenu()
+        }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,22 +58,26 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_lista_pessoas, menu)
+
+
+        menuInflater.inflate(menuAtual, menu)
         this.menu = menu
-        atualizaMenuListaPessoas(false)
+
+        if(menuAtual == R.menu.menu_lista_pessoas){
+            atualizaMenuListaPessoas(false)
+        }
 
         return true
     }
 
-    //Acrescentei esse codigo
-    //::::::::::::::::::::::
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
             R.id.action_settings -> true
 
             else ->{
-               if( DadosApp.listaPessoasFragment.processaOpcaoMenu(item)){
+               if( DadosApp.listaPessoasFragment!!.processaOpcaoMenu(item)){
                    return true
                }else{
                    return super.onOptionsItemSelected(item)

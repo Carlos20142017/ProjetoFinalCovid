@@ -15,10 +15,7 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ipg.primeiro.projetofinalcovid.AdapterPessoas
-import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
-import ipg.primeiro.projetofinalcovid.DadosApp
-import ipg.primeiro.projetofinalcovid.R
+import ipg.primeiro.projetofinalcovid.*
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 
 class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
@@ -41,6 +38,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
         })
 
         DadosApp.listaPessoasFragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_pessoas
 
         return root
     }
