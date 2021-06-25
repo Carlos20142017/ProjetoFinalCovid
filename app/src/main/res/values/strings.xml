@@ -26,4 +26,9 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="versao">Pessoa v. 1.0</string>
+    <string name="preencha_nome">Preencha o nome</string>
+    <string name="preencha_sexo">Preencha o campo sexo</string>
+    <string name="preencha_data_nascimento">Preencha data de nascimento</string>
+    <string name="preencha_contacto_telemovel">Coloque o seu numero de telemovel</string>
+    <string name="erro_ao_inserir_pessoa">Erro ao inserir pessoa</string>
 </resources>

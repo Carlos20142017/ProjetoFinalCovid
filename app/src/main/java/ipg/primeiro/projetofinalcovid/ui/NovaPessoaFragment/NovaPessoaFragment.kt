@@ -14,12 +14,14 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
 import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
+import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
 
 class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
@@ -67,7 +69,45 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     }
 
     fun guardar(){
-        // todo: livro
+
+       val nome = editTextNome.text.toString()
+        if(nome.isEmpty()){
+            editTextNome.setError(getString(R.string.preencha_nome))
+            return
+        }
+
+        val sexo = editTextSexo.text.toString()
+        if(sexo.isEmpty()){
+            editTextSexo.setError(getString(R.string.preencha_sexo))
+            return
+        }
+
+        val dataNascimento = editTextDataNascimento.text.toString().toInt()
+        if(dataNascimento == null){
+            editTextDataNascimento.setError(getString(R.string.preencha_data_nascimento))
+            return
+        }
+
+        val telemovel = editTextTelemovel.text.toString()
+        if(telemovel.isEmpty()){
+            editTextTelemovel.setError(getString(R.string.preencha_contacto_telemovel))
+            return
+        }
+
+        val idDistrito = spinnerDistrito.selectedItemId
+
+        val pessoa = Pessoa(nome = nome, sexo = sexo, data_nascimento = dataNascimento, telemovel = telemovel, id_estrang_distrito = idDistrito)
+        val uri = activity?.contentResolver?.insert(
+            CotentProviderPessoas.ENDERECO_PESSOAS, pessoa.toContentValues()
+        )
+        if(uri == null){
+        Snackbar.make(editTextNome,
+            getString(R.string.erro_ao_inserir_pessoa),
+            Snackbar.LENGTH_LONG).show()
+            return
+        }
+
+        navegaListaLivros()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
