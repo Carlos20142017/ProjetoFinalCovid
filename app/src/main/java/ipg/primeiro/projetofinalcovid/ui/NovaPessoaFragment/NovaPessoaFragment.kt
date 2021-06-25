@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -168,7 +166,14 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     }
 
     private fun atualizaSpinnerDistrito(data: Cursor?) {
-
+        spinnerDistrito.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaDistritos.CAMPO_NOME_DISTRITO),
+            intArrayOf(android.R.id.text1),
+            0
+        )
     }
 
     companion object{
