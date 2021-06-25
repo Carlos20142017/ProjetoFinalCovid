@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -17,6 +19,12 @@ import ipg.primeiro.projetofinalcovid.R
 class NovaPessoaFragment : Fragment() {
 
     private lateinit var galleryViewModel: NovaPessoaViewModel
+
+    private lateinit var editTextNome: EditText
+    private lateinit var editTextSexo: EditText
+    private lateinit var editTextDataNascimento: EditText
+    private lateinit var editTextTelemovel: EditText
+    private lateinit var spinnerDistrito: Spinner
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,6 +41,16 @@ class NovaPessoaFragment : Fragment() {
         DadosApp.novaPessoaFragment = this
         (activity as MainActivity).menuAtual = R.menu.menu_nova_pessoa
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextNome)
+        editTextSexo = view.findViewById(R.id.editTextSexo)
+        editTextDataNascimento = view.findViewById(R.id.editTextDataNascimento)
+        editTextTelemovel = view.findViewById(R.id.editTextTelemovel)
+        spinnerDistrito = view.findViewById(R.id.spinnerDistrito)
     }
 
     fun navegaListaLivros(){
