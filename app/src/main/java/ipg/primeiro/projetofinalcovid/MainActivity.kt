@@ -15,7 +15,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import java.lang.reflect.Array.set
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.ListaPessoaFragment, R.id.NovaPessoaFragment, R.id.nav_slideshow), drawerLayout)
+                R.id.listaPessoaFragment, R.id.novaPessoaFragment, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 

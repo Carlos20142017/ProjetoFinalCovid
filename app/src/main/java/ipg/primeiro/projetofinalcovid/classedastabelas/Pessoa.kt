@@ -3,7 +3,6 @@ package ipg.primeiro.projetofinalcovid.classedastabelas
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
-import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 import java.util.*
 
@@ -18,6 +17,7 @@ data class Pessoa (var id: Long = -1, var nome: String, var sexo: String, var da
            put(TabelaPessoas.CAMPO_TELEMOVEL, telemovel)
            put(TabelaPessoas.CAMPO_ID_ESTRANG_DISTRITO, id_estrang_distrito)
        }
+
 
        return valores
    }

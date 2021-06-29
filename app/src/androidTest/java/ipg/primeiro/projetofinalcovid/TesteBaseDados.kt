@@ -585,12 +585,13 @@ class TesteBaseDados {
     fun consegueLerNotificacao() {
         val db = getBDCovidOpenHelper().writableDatabase
 
+
         val tabelaDistritos = TabelaDistritos(db)
         val distrito = Distrito(nome_distrito = "Lisboa")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Josias", sexo = "Masculino",data_nascimento= Date(1993,10,7) ,telemovel ="927456345",
+        val pessoa = Pessoa( nome = "Josias", sexo = "Masculino",data_nascimento = Date(1993,10,7) ,telemovel ="927456345",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 

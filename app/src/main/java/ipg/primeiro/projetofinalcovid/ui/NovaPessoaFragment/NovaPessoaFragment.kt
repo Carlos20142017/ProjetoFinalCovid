@@ -20,9 +20,8 @@ import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
-import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
+import java.util.*
 
 class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
@@ -64,7 +63,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
             .initLoader(ID_LOADER_MANAGER_DISTRITOS,null, this)
     }
 
-    fun navegaListaLivros(){
+    fun navegaListaPessoas(){
         findNavController().navigate(R.id.action_NovaPessoaFragment_to_ListaPessoaFragment)
     }
 
@@ -96,7 +95,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
         val idDistrito = spinnerDistrito.selectedItemId
 
-        val pessoa = Pessoa(nome = nome, sexo = sexo, data_nascimento = dataNascimento, telemovel = telemovel, id_estrang_distrito = idDistrito)
+        val pessoa = Pessoa(nome = nome, sexo = sexo, data_nascimento = Date(2021,10,20), telemovel = telemovel, id_estrang_distrito = idDistrito)
         val uri = activity?.contentResolver?.insert(
             CotentProviderPessoas.ENDERECO_PESSOAS, pessoa.toContentValues()
         )
@@ -107,13 +106,13 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
             return
         }
 
-        navegaListaLivros()
+        navegaListaPessoas()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
         when(item.itemId){
             R.id.action_guardar_nova_pessoa -> guardar()
-            R.id.action_cancelar_nova_pessoa -> navegaListaLivros()
+            R.id.action_cancelar_nova_pessoa -> navegaListaPessoas()
 
             else -> return false
         }

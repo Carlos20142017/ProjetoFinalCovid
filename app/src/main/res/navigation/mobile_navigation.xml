@@ -4,26 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     android:label="@string/menu_pessoa"
-    app:startDestination="@id/ListaPessoaFragment">
+    app:startDestination="@id/listaPessoaFragment">
 
     <fragment
-        android:id="@+id/ListaPessoaFragment"
+        android:id="@+id/listaPessoaFragment"
         android:name="ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment"
         android:label="@string/menu_pessoa"
         tools:layout="@layout/fragment_lista_pessoa">
         <action
             android:id="@+id/action_ListaPessoaFragment_to_NovaPessoaFragment"
-            app:destination="@id/NovaPessoaFragment" />
+            app:destination="@id/novaPessoaFragment" />
+        <action
+            android:id="@+id/action_listaPessoaFragment_to_editPessoaFragment"
+            app:destination="@id/editPessoaFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/NovaPessoaFragment"
+        android:id="@+id/novaPessoaFragment"
         android:name="ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment.NovaPessoaFragment"
         android:label="@string/menu_nova_pessoa"
         tools:layout="@layout/fragment_nova_pessoa">
         <action
             android:id="@+id/action_NovaPessoaFragment_to_ListaPessoaFragment"
-            app:destination="@id/ListaPessoaFragment" />
+            app:destination="@id/listaPessoaFragment" />
     </fragment>
 
     <fragment
@@ -31,4 +34,13 @@
         android:name="ipg.primeiro.projetofinalcovid.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/editPessoaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EditPessoaFragment"
+        android:label="@string/menu_edita_pessoa"
+        tools:layout="@layout/fragment_edit_pessoa">
+        <action
+            android:id="@+id/action_editPessoaFragment_to_listaPessoaFragment"
+            app:destination="@id/listaPessoaFragment" />
+    </fragment>
 </navigation>
