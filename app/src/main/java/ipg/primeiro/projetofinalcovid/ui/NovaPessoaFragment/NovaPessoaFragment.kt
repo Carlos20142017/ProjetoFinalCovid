@@ -72,12 +72,14 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
        val nome = editTextNome.text.toString()
         if(nome.isEmpty()){
             editTextNome.setError(getString(R.string.preencha_nome))
+            editTextNome.requestFocus()
             return
         }
 
         val sexo = editTextSexo.text.toString()
         if(sexo.isEmpty()){
             editTextSexo.setError(getString(R.string.preencha_sexo))
+            editTextSexo.requestFocus()
             return
         }
 
@@ -90,6 +92,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         val telemovel = editTextTelemovel.text.toString()
         if(telemovel.isEmpty()){
             editTextTelemovel.setError(getString(R.string.preencha_contacto_telemovel))
+            editTextTelemovel.requestFocus()
             return
         }
 
