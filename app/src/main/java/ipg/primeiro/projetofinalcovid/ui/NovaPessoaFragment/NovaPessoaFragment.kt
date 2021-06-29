@@ -45,7 +45,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
           //  textView.text = it
         })
-        DadosApp.novaPessoaFragment = this
+        DadosApp.fragment = this
         (activity as MainActivity).menuAtual = R.menu.menu_nova_pessoa
         return root
     }
