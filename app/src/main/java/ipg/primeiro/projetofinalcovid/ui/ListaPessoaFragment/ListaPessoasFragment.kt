@@ -59,7 +59,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
         findNavController().navigate(R.id.action_ListaPessoaFragment_to_NovaPessoaFragment)
     }
     fun navegaAlterarPessoa(){
-         //todo: navegar para o fragmento de alteração de pessoa
+        findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
      }
 
     fun navegaEliminarPessoa(){
@@ -89,7 +89,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            CotentProviderPessoas.ENDERECO_PESSOAS,
+            ContentProviderPessoas.ENDERECO_PESSOAS,
             TabelaPessoas.TODAS_COLUNAS,
             null, null,
             TabelaPessoas.CAMPO_NOME

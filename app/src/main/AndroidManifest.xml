@@ -22,7 +22,7 @@
         
         <provider
             android:authorities="ipg.primeiro.projetofinalcovid"
-            android:name=".CotentProviderPessoas"
+            android:name=".ContentProviderPessoas"
             android:exported="false"/>
     </application>
 
