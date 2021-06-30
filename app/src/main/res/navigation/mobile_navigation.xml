@@ -38,7 +38,7 @@
         android:id="@+id/editPessoaFragment"
         android:name="ipg.primeiro.projetofinalcovid.EditPessoaFragment"
         android:label="@string/menu_edita_pessoa"
-        tools:layout="@layout/fragment_edit_pessoa">
+        tools:layout="@layout/fragment_edita_pessoa">
         <action
             android:id="@+id/action_editPessoaFragment_to_listaPessoaFragment"
             app:destination="@id/listaPessoaFragment" />

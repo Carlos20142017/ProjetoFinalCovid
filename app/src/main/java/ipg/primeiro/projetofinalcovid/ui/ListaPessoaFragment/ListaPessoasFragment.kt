@@ -37,7 +37,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
 
         })
 
-        DadosApp.listaPessoasFragment = this
+        DadosApp.fragment = this
         (activity as MainActivity).menuAtual = R.menu.menu_lista_pessoas
 
         return root
