@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
+import java.util.*
 
 class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {
 
@@ -35,9 +36,14 @@ class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<
 
             this.pessoa = pessoa
 
+            val dataHoje : Date = Date()
+            val dataNascimento = pessoa.data_nascimento
+            val calcular_idade = dataHoje.getTime() - dataNascimento.getTime()
+            val idade = calcular_idade/ (1000L * 60 * 60 * 24 * 365)
+
             textViewNome.text = pessoa.nome
             textViewSexo.text = pessoa.sexo
-            textViewDataNascimento.text = pessoa.data_nascimento.toString()
+            textViewDataNascimento.text = idade.toString()
             textViewTelemovel.text = pessoa.telemovel
             textViewDistrito.text = pessoa.nomeDistrito
         }
