@@ -51,7 +51,7 @@
         android:name="ipg.primeiro.projetofinalcovid.EliminaPessoaFragment"
         tools:layout="@layout/fragment_elimina_pessoa" >
         <action
-            android:id="@+id/action_eliminaPessoaFragment_to_listaPessoaFragment2"
+            android:id="@+id/action_eliminaPessoaFragment_to_listaPessoaFragment"
             app:destination="@id/listaPessoaFragment" />
     </fragment>
 </navigation>

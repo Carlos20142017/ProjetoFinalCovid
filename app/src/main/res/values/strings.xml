@@ -36,5 +36,7 @@
     <string name="pessoa_alterada_sucesso">Pessoa alterada com sucesso</string>
 
     <string name="elimina_pessoa_fragment_label">Eliminar Pessoa?</string>
+    <string name="erro_eliminar_pessoa">Erro ao eliminar pessoa</string>
+    <string name="pessoa_eliminada_com_sucesso">Pessoa eliminada com sucesso</string>
 
 </resources>
