@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_listaPessoaFragment_to_editPessoaFragment"
             app:destination="@id/editPessoaFragment" />
+        <action
+            android:id="@+id/action_listaPessoaFragment_to_eliminaPessoaFragment"
+            app:destination="@id/eliminaPessoaFragment" />
     </fragment>
 
     <fragment
@@ -41,6 +44,14 @@
         tools:layout="@layout/fragment_edita_pessoa">
         <action
             android:id="@+id/action_editPessoaFragment_to_listaPessoaFragment"
+            app:destination="@id/listaPessoaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaPessoaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EliminaPessoaFragment"
+        tools:layout="@layout/fragment_elimina_pessoa" >
+        <action
+            android:id="@+id/action_eliminaPessoaFragment_to_listaPessoaFragment2"
             app:destination="@id/listaPessoaFragment" />
     </fragment>
 </navigation>

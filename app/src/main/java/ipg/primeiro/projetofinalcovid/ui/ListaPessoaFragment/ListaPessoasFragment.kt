@@ -63,7 +63,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
      }
 
     fun navegaEliminarPessoa(){
-        //todo: navegar para o fragmento para confirmar eliminação de pessoa
+        findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
