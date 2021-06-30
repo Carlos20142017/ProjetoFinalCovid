@@ -8,7 +8,7 @@ import android.net.Uri
 import android.provider.BaseColumns
 import ipg.primeiro.projetofinalcovid.basedados.*
 
-class CotentProviderPessoas : ContentProvider() {
+class ContentProviderPessoas : ContentProvider() {
 
         private var bdCovidOpenHelper : BDCovidOpenHelper? = null
 

@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/editPessoaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EditPessoaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EditaPessoaFragment"
         android:label="@string/menu_edita_pessoa"
         tools:layout="@layout/fragment_edita_pessoa">
         <action

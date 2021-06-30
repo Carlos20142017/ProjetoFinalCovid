@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
             else -> when (menuAtual){
                 R.menu.menu_lista_pessoas -> (DadosApp.fragment as ListaPessoasFragment).processaOpcaoMenu(item)
                 R.menu.menu_nova_pessoa -> (DadosApp.fragment as NovaPessoaFragment).processaOpcaoMenu(item)
-                R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditPessoaFragment).processaOpcaoMenu(item)
+                R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
                else -> false
 
             }

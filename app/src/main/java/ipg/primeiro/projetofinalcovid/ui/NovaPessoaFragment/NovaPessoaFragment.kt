@@ -15,14 +15,12 @@ import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import ipg.primeiro.projetofinalcovid.CotentProviderPessoas
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
 import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
-import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
 import java.util.*
 
 class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
@@ -103,7 +101,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
         val pessoa = Pessoa(nome = nome, sexo = sexo, data_nascimento = Date(dataNascimento), telemovel = telemovel, id_estrang_distrito = idDistrito)
         val uri = activity?.contentResolver?.insert(
-            CotentProviderPessoas.ENDERECO_PESSOAS, pessoa.toContentValues()
+            ContentProviderPessoas.ENDERECO_PESSOAS, pessoa.toContentValues()
         )
         if(uri == null){
             Snackbar.make(editTextNome,
@@ -138,7 +136,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            CotentProviderPessoas.ENDERECO_DISTRITO,
+            ContentProviderPessoas.ENDERECO_DISTRITO,
             TabelaDistritos.TODAS_COLUNAS,
             null, null,
             TabelaDistritos.CAMPO_NOME_DISTRITO

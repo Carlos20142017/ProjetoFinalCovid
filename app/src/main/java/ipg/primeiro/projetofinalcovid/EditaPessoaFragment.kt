@@ -1,6 +1,7 @@
 package ipg.primeiro.projetofinalcovid
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,23 +11,21 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.SimpleCursorAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
-import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment.NovaPessoaFragment
 import java.util.*
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [EditPessoaFragment.newInstance] factory method to
+ * Use the [EditaPessoaFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EditPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
+class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
     private lateinit var editTextNome: EditText
     private lateinit var editTextSexo: EditText
@@ -68,39 +67,68 @@ class EditPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         val nome = editTextNome.text.toString()
         if(nome.isEmpty()){
             editTextNome.setError(getString(R.string.preencha_nome))
+            editTextNome.requestFocus()
             return
         }
 
         val sexo = editTextSexo.text.toString()
         if(sexo.isEmpty()){
             editTextSexo.setError(getString(R.string.preencha_sexo))
+            editTextSexo.requestFocus()
             return
         }
 
         val dataNascimento = editTextDataNascimento.text.toString()
         if(dataNascimento == null){
             editTextDataNascimento.setError(getString(R.string.preencha_data_nascimento))
+            editTextDataNascimento.requestFocus()
             return
         }
 
         val telemovel = editTextTelemovel.text.toString()
         if(telemovel.isEmpty()){
             editTextTelemovel.setError(getString(R.string.preencha_contacto_telemovel))
+            editTextTelemovel.requestFocus()
             return
         }
 
         val idDistrito = spinnerDistrito.selectedItemId
 
-        val pessoa = Pessoa(nome = nome, sexo = sexo, data_nascimento = Date(dataNascimento), telemovel = telemovel, id_estrang_distrito = idDistrito)
-        val uri = activity?.contentResolver?.insert(
-            CotentProviderPessoas.ENDERECO_PESSOAS, pessoa.toContentValues()
+        val pessoa = DadosApp.pessoaSelecionada!!
+
+        pessoa.nome = nome
+        pessoa.sexo = sexo
+        pessoa.data_nascimento = Date(dataNascimento)
+        pessoa.telemovel = telemovel
+        pessoa.id_estrang_distrito = idDistrito
+
+
+        val uriPessoa = Uri.withAppendedPath(
+            ContentProviderPessoas.ENDERECO_PESSOAS,
+            pessoa.id.toString()
         )
-        if(uri == null){
-            Snackbar.make(editTextNome,
-                getString(R.string.erro_ao_inserir_pessoa),
-                Snackbar.LENGTH_LONG).show()
+
+        val registos = activity?.contentResolver?.update(
+            uriPessoa,
+            pessoa.toContentValues(),
+            null,
+            null
+        )
+        if(registos != 1){
+            Toast.makeText(
+                requireContext(),
+                R.string.erro_alterar_pessoa,
+                Toast.LENGTH_LONG
+            ).show()
+
             return
         }
+
+        Toast.makeText(
+            requireContext(),
+            R.string.pessoa_alterada_sucesso,
+            Toast.LENGTH_LONG
+        ).show()
 
         navegaListaLivros()
     }
@@ -128,7 +156,7 @@ class EditPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            CotentProviderPessoas.ENDERECO_DISTRITO,
+            ContentProviderPessoas.ENDERECO_DISTRITO,
             TabelaDistritos.TODAS_COLUNAS,
             null, null,
             TabelaDistritos.CAMPO_NOME_DISTRITO

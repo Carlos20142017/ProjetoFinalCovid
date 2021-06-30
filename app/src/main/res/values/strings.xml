@@ -32,5 +32,7 @@
     <string name="preencha_data_nascimento">Preencha data de nascimento</string>
     <string name="preencha_contacto_telemovel">Coloque o seu numero de telemovel</string>
     <string name="erro_ao_inserir_pessoa">Erro ao inserir pessoa</string>
+    <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>
+    <string name="pessoa_alterada_sucesso">Pessoa alterada com sucesso</string>
 
 </resources>
