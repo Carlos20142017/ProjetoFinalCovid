@@ -140,8 +140,8 @@ class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
         when(item.itemId){
-            R.id.action_guardar_nova_pessoa -> guardar()
-            R.id.action_cancelar_nova_pessoa -> navegaListaLivros()
+            R.id.action_guardar_edita_pessoa -> guardar()
+            R.id.action_cancelar_edita_pessoa -> navegaListaLivros()
 
             else -> return false
         }
