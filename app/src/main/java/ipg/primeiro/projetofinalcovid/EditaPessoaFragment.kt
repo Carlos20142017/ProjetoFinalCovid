@@ -56,6 +56,11 @@ class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_DISTRITOS,null, this)
+
+        editTextNome.setText(DadosApp.pessoaSelecionada!!.nome)
+        editTextSexo.setText(DadosApp.pessoaSelecionada!!.sexo)
+        editTextDataNascimento.setText(DadosApp.pessoaSelecionada!!.data_nascimento.toString())
+        editTextTelemovel.setText(DadosApp.pessoaSelecionada!!.telemovel)
     }
 
     fun navegaListaLivros(){
@@ -210,7 +215,9 @@ class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
 
         atualizaSpinnerDistrito(data)
+        atualizaPessoaSelecionada()
     }
+
 
 
 
@@ -237,6 +244,18 @@ class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
             intArrayOf(android.R.id.text1),
             0
         )
+    }
+
+    private fun atualizaPessoaSelecionada() {
+        val idDistrito = DadosApp.pessoaSelecionada!!.id_estrang_distrito
+
+        val ultimoDistrito = spinnerDistrito.count - 1
+        for (i in 0..ultimoDistrito){
+            if(idDistrito == spinnerDistrito.getItemIdAtPosition(i)){
+                spinnerDistrito.setSelection(i)
+                return
+            }
+        }
     }
 
     companion object{

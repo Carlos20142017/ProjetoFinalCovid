@@ -61,6 +61,8 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_DISTRITOS,null, this)
+
+
     }
 
     fun navegaListaLivros(){
