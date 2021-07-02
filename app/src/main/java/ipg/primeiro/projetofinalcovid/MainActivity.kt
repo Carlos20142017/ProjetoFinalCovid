@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menu: Menu
 
     var menuAtual = R.menu.menu_lista_pessoas
+    var menuAtualDistrito = R.menu.menu_lista_distrito
 
 
 
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
 
 
         menuInflater.inflate(menuAtual, menu)
+
         this.menu = menu
 
         if(menuAtual == R.menu.menu_lista_pessoas){
@@ -84,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_pessoa -> (DadosApp.fragment as EliminaPessoaFragment).processaOpcaoMenu(item)
 
-                R.menu.menu_lista_distrito ->(DadosApp.fragment as ListaDistritoFragment).processaOpcaoMenu(item)
+
                else -> false
 
             }
@@ -101,5 +103,7 @@ class MainActivity : AppCompatActivity() {
 
         menu.findItem(R.id.action_alterar_pessoa).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_pessoa).setVisible(mostraBotoesAlterarEliminar)
+
+
     }
 }

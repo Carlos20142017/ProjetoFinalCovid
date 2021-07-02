@@ -8,8 +8,14 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
+import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
+import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
 
 
 /**
@@ -19,25 +25,50 @@ import androidx.navigation.fragment.findNavController
  */
 class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
+    private var adapterDistrito : AdapterDistrito? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_pessoas
+
         return inflater.inflate(R.layout.fragment_lista_distrito, container, false)
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerViewDistrito = view.findViewById<RecyclerView>(R.id.recyclerViewDistrito)
+        adapterDistrito = AdapterDistrito(this)
+        recyclerViewDistrito.adapter = adapterDistrito
+        recyclerViewDistrito.layoutManager = LinearLayoutManager(requireContext())
+
+        LoaderManager.getInstance(this)
+            .initLoader(ID_LOADER_MANAGER_PESSOAS,null, this)
+    }
+
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
+        return CursorLoader(
+            requireContext(),
+            ContentProviderPessoas.ENDERECO_DISTRITO,
+            TabelaDistritos.TODAS_COLUNAS,
+            null, null,
+            TabelaDistritos.CAMPO_NOME_DISTRITO
+
+        )
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+
+        adapterDistrito!!.cursor = data
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-
+        adapterDistrito!!.cursor = null
     }
 
 
@@ -62,6 +93,9 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
         return true
     }
 
+    companion object{
+        const val ID_LOADER_MANAGER_PESSOAS = 0
+    }
 
 
 }

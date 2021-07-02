@@ -40,7 +40,7 @@ android:layout_margin="@dimen/margin_ecran">
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_campos"
             android:hint="@string/data_de_nascimento"
-            android:inputType="date|datetime" />
+            android:inputType="phone" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

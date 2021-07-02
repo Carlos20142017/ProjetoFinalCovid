@@ -591,7 +591,7 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Josias", sexo = "Masculino",data_nascimento = Date(1993,10,7) ,telemovel ="927456345",
+        val pessoa = Pessoa( nome = "Josias Afonso", sexo = "Masculino",data_nascimento = Date(1993,10,7) ,telemovel ="927456345",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 

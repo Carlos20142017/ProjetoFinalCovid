@@ -28,7 +28,7 @@ class AdapterDistrito (val fragment: ListaDistritoFragment): RecyclerView.Adapte
             itemView.setOnClickListener(this)
         }
 
-        fun atualizaPessoa(distrito: Distrito) {
+        fun atualizaDistrito(distrito: Distrito) {
 
             this.distrito = distrito
 
@@ -116,7 +116,7 @@ class AdapterDistrito (val fragment: ListaDistritoFragment): RecyclerView.Adapte
     override fun onBindViewHolder(holder: ViewHolderDistrito, position: Int) {
 
         cursor!!.moveToPosition(position)
-        holder.atualizaPessoa(Distrito.fromCursor(cursor!!))
+        holder.atualizaDistrito(Distrito.fromCursor(cursor!!))
 
     }
 
