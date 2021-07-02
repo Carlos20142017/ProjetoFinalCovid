@@ -8,14 +8,8 @@
             android:id="@+id/listaPessoaFragment"
             android:icon="@drawable/ic_baseline_emoji_people_24"
             android:title="@string/menu_pessoa" />
-        <item
-            android:id="@+id/novaPessoaFragment"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_nova_pessoa" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+
+       
 
         <item
             android:id="@+id/nav_distrito"
