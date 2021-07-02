@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menu: Menu
 
     var menuAtual = R.menu.menu_lista_pessoas
-    var menuAtualDistrito = R.menu.menu_lista_distrito
+
 
 
 
