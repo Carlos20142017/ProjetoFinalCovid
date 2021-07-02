@@ -55,7 +55,7 @@ class EliminaPessoaFragment : Fragment() {
         textViewDistrito.setText(pessoa.nomeDistrito)
     }
 
-    fun navegaListaLivros(){
+    fun navegaListaPessoas(){
         findNavController().navigate(R.id.action_eliminaPessoaFragment_to_listaPessoaFragment)
     }
 
@@ -87,14 +87,14 @@ class EliminaPessoaFragment : Fragment() {
             Toast.LENGTH_LONG
         ).show()
 
-        navegaListaLivros()
+        navegaListaPessoas()
 
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
         when(item.itemId){
             R.id.action_confirma_eliminar_pessoa -> elimina()
-            R.id.action_cancelar_eliminar_pessoa -> navegaListaLivros()
+            R.id.action_cancelar_eliminar_pessoa -> navegaListaPessoas()
 
             else -> return false
         }

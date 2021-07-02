@@ -17,6 +17,7 @@ import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -57,14 +58,18 @@ class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_DISTRITOS,null, this)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val dataNascimento = sdf.format(DadosApp.pessoaSelecionada!!.data_nascimento)
+
+
         editTextNome.setText(DadosApp.pessoaSelecionada!!.nome)
         editTextSexo.setText(DadosApp.pessoaSelecionada!!.sexo)
-        editTextDataNascimento.setText(DadosApp.pessoaSelecionada!!.data_nascimento.toString())
+        editTextDataNascimento.setText(dataNascimento)
         editTextTelemovel.setText(DadosApp.pessoaSelecionada!!.telemovel)
     }
 
-    fun navegaListaLivros(){
-        findNavController().navigate(R.id.action_NovaPessoaFragment_to_ListaPessoaFragment)
+    fun navegaListaPessoas(){
+        findNavController().navigate(R.id.action_editPessoaFragment_to_listaPessoaFragment)
     }
 
     fun guardar(){
@@ -135,13 +140,13 @@ class EditaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
             Toast.LENGTH_LONG
         ).show()
 
-        navegaListaLivros()
+        navegaListaPessoas()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
         when(item.itemId){
             R.id.action_guardar_edita_pessoa -> guardar()
-            R.id.action_cancelar_edita_pessoa -> navegaListaLivros()
+            R.id.action_cancelar_edita_pessoa -> navegaListaPessoas()
 
             else -> return false
         }
