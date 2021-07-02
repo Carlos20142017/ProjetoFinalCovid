@@ -11,7 +11,7 @@
     <string name="menu_nova_pessoa">Nova Pessoa</string>
     <string name="menu_edita_pessoa">Editar Pessoa</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="guarda">Guarda</string>
+
     <string name="carlos_cruz">Carlos Cruz</string>
     <string name="masculino">Masculino</string>
     <string name="_25_10_1990">25/10/1990</string>
@@ -40,5 +40,11 @@
     <string name="pessoa_eliminada_com_sucesso">Pessoa eliminada com sucesso</string>
     <string name="nav_distrito_menu">Distrito</string>
     <string name="nome_distrito">Nome do Distrito</string>
+    <string name="guarda">Guarda</string>
+    <string name="eliminar_distrito">Eliminar Distrito</string>
+    <string name="alterar_distrito">Alterar Distrito</string>
+    <string name="novo_distrito">Novo Distrito</string>
+
+
 
 </resources>

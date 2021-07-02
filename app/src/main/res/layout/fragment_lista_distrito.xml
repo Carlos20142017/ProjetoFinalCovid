@@ -7,7 +7,7 @@
     tools:context=".ui.ListaPessoaFragment.ListaPessoasFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPessoas"
+        android:id="@+id/recyclerViewDistrito"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margin_ecran" />

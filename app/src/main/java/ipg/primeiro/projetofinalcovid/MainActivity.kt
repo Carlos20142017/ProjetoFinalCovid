@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -25,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menu: Menu
 
     var menuAtual = R.menu.menu_lista_pessoas
+
 
 
 
@@ -48,9 +47,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.listaPessoaFragment,
-                R.id.novaPessoaFragment,
-                R.id.nav_slideshow,
-                R.id.nav_distrito
+                R.id.listaDistritoFragment
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -86,6 +83,8 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_nova_pessoa -> (DadosApp.fragment as NovaPessoaFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_pessoa -> (DadosApp.fragment as EliminaPessoaFragment).processaOpcaoMenu(item)
+
+                R.menu.menu_lista_distrito ->(DadosApp.fragment as ListaDistritoFragment).processaOpcaoMenu(item)
                else -> false
 
             }
