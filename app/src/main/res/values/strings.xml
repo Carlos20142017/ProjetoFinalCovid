@@ -39,5 +39,6 @@
     <string name="erro_eliminar_pessoa">Erro ao eliminar pessoa</string>
     <string name="pessoa_eliminada_com_sucesso">Pessoa eliminada com sucesso</string>
     <string name="nav_distrito_menu">Distrito</string>
+    <string name="nome_distrito">Nome do Distrito</string>
 
 </resources>
