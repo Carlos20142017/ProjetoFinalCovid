@@ -51,7 +51,21 @@
     </fragment>
     <fragment
         android:id="@+id/listaDistritoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.ListaDistritoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment"
         android:label="fragment_lista_distrito"
-        tools:layout="@layout/fragment_lista_distrito" />
+        tools:layout="@layout/fragment_lista_distrito" >
+        <action
+            android:id="@+id/action_listaDistritoFragment_to_novoDistritoFragment"
+            app:destination="@id/novoDistritoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novoDistritoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment"
+        android:label="fragment_novo_distrito"
+        tools:layout="@layout/fragment_novo_distrito" >
+        <action
+            android:id="@+id/action_novoDistritoFragment_to_listaDistritoFragment"
+            app:destination="@id/listaDistritoFragment" />
+    </fragment>
+
 </navigation>

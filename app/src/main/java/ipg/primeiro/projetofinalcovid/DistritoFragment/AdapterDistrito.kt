@@ -1,10 +1,12 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.DistritoFragment
 
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
 import java.util.*
 
@@ -50,7 +52,7 @@ class AdapterDistrito (val fragment: ListaDistritoFragment): RecyclerView.Adapte
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
             DadosApp.distritoSelecionado = distrito
-            DadosApp.activity.atualizaMenuListaPessoas(true)
+            DadosApp.activity.atualizaMenuListaDistrito(true)
         }
 
         private fun desSeleciona(){

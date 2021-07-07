@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.DistritoFragment
 
 import android.database.Cursor
 import android.os.Bundle
@@ -7,15 +7,20 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
-import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
-import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
+import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasViewModel
 
 
 /**
@@ -25,18 +30,28 @@ import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragmen
  */
 class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
+    private lateinit var distritoViewModel: ListaDistritoViewModel
     private var adapterDistrito : AdapterDistrito? = null
 
+
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+           distritoViewModel =
+                ViewModelProvider(this).get(ListaDistritoViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_lista_distrito, container, false)
+
+        distritoViewModel.text.observe(viewLifecycleOwner, Observer {
+
+        })
 
         DadosApp.fragment = this
-        (activity as MainActivity).menuAtual = R.menu.menu_lista_pessoas
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_distrito
 
-        return inflater.inflate(R.layout.fragment_lista_distrito, container, false)
+        return root
     }
 
 

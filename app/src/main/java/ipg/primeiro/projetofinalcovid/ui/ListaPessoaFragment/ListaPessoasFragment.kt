@@ -30,7 +30,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>{
             savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProvider(this).get(ListaPessoasViewModel::class.java)
+               ViewModelProvider(this).get(ListaPessoasViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_lista_pessoa, container, false)
 
         homeViewModel.text.observe(viewLifecycleOwner, Observer {

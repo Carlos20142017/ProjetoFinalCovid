@@ -44,7 +44,9 @@
     <string name="eliminar_distrito">Eliminar Distrito</string>
     <string name="alterar_distrito">Alterar Distrito</string>
     <string name="novo_distrito">Novo Distrito</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="erro_inserir_distrito">Erro ao inserir distrito</string>
 
 
 </resources>

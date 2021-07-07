@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     var menuAtual = R.menu.menu_lista_pessoas
 
+    var menuAtualDistrito = R.menu.menu_lista_distrito
+
 
 
 
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.listaPessoaFragment,
                 R.id.listaDistritoFragment
+
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -74,6 +77,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+
         val opcaoProcessada = when (item.itemId) {
             R.id.action_settings -> {
                 Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
@@ -92,6 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return if(opcaoProcessada) true else super.onOptionsItemSelected(item)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -106,4 +111,12 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun atualizaMenuListaDistrito(mostraBotoesAlterarEliminar: Boolean) {
+
+      //  menu.findItem(R.id.action_alterar_pessoa).setVisible(mostraBotoesAlterarEliminar)
+      //  menu.findItem(R.id.action_eliminar_pessoa).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+
 }
