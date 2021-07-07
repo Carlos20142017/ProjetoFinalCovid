@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment
+package ipg.primeiro.projetofinalcovid.ui.PessoasFragment
 
 import android.database.Cursor
 import android.os.Bundle
@@ -65,7 +65,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
     }
 
-    fun navegaListaLivros(){
+    fun navegaListaPessoas(){
         findNavController().navigate(R.id.action_NovaPessoaFragment_to_ListaPessoaFragment)
     }
 
@@ -112,13 +112,13 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
             return
         }
 
-        navegaListaLivros()
+        navegaListaPessoas()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
         when(item.itemId){
             R.id.action_guardar_nova_pessoa -> guardar()
-            R.id.action_cancelar_nova_pessoa -> navegaListaLivros()
+            R.id.action_cancelar_nova_pessoa -> navegaListaPessoas()
 
             else -> return false
         }

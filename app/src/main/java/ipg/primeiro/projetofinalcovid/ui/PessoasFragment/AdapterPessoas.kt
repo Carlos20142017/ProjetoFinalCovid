@@ -1,12 +1,13 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.ui.PessoasFragment
 
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
 import java.util.*
 
 class AdapterPessoas (val fragment: ListaPessoasFragment): RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoas>() {

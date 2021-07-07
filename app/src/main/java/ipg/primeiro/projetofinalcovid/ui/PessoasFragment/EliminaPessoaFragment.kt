@@ -1,15 +1,21 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.ui.PessoasFragment
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -40,6 +46,8 @@ class EliminaPessoaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         textViewNome = view.findViewById(R.id.textViewNome)
         textViewSexo = view.findViewById(R.id.textViewSexo)
         textViewDataNascimento = view.findViewById(R.id.textViewDataNascimento)
@@ -48,9 +56,13 @@ class EliminaPessoaFragment : Fragment() {
 
 
         val pessoa = DadosApp.pessoaSelecionada!!
+
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val dataNascimento = sdf.format(pessoa.data_nascimento)
+
         textViewNome.setText(pessoa.nome)
         textViewSexo.setText(pessoa.sexo)
-        textViewDataNascimento.setText(pessoa.data_nascimento.toString())
+        textViewDataNascimento.setText(dataNascimento)
         textViewTelemovel.setText(pessoa.telemovel)
         textViewDistrito.setText(pessoa.nomeDistrito)
     }

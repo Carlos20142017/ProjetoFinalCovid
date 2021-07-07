@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment
+package ipg.primeiro.projetofinalcovid.ui.PessoasFragment
 
 import android.database.Cursor
 import android.os.Bundle

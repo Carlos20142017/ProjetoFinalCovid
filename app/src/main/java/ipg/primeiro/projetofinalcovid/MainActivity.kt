@@ -13,8 +13,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment
-import ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment.NovaPessoaFragment
+import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
+import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EditaPessoaFragment
+import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EliminaPessoaFragment
+import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.NovaPessoaFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     var menuAtual = R.menu.menu_lista_pessoas
 
-    var menuAtualDistrito = R.menu.menu_lista_distrito
+   // var menuAtualDistrito = R.menu.menu_lista_distrito
 
 
 
@@ -50,7 +52,8 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.listaPessoaFragment,
-                R.id.listaDistritoFragment
+                R.id.listaDistritoFragment,
+               // R.id.listaTesteFragment
 
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -114,8 +117,8 @@ class MainActivity : AppCompatActivity() {
 
     fun atualizaMenuListaDistrito(mostraBotoesAlterarEliminar: Boolean) {
 
-      //  menu.findItem(R.id.action_alterar_pessoa).setVisible(mostraBotoesAlterarEliminar)
-      //  menu.findItem(R.id.action_eliminar_pessoa).setVisible(mostraBotoesAlterarEliminar)
+       menu.findItem(R.id.action_alterar_pessoa).setVisible(mostraBotoesAlterarEliminar)
+       menu.findItem(R.id.action_eliminar_pessoa).setVisible(mostraBotoesAlterarEliminar)
     }
 
 

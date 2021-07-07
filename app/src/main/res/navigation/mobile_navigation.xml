@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/listaPessoaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.ui.ListaPessoaFragment.ListaPessoasFragment"
+        android:name="ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment"
         android:label="@string/menu_pessoa"
         tools:layout="@layout/fragment_lista_pessoa">
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/novaPessoaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.ui.NovaPessoaFragment.NovaPessoaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.ui.PessoasFragment.NovaPessoaFragment"
         android:label="@string/menu_nova_pessoa"
         tools:layout="@layout/fragment_nova_pessoa">
         <action
@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/editPessoaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EditaPessoaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EditaPessoaFragment"
         android:label="@string/menu_edita_pessoa"
         tools:layout="@layout/fragment_edita_pessoa">
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/eliminaPessoaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EliminaPessoaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EliminaPessoaFragment"
         tools:layout="@layout/fragment_elimina_pessoa" >
         <action
             android:id="@+id/action_eliminaPessoaFragment_to_listaPessoaFragment"
@@ -52,8 +52,8 @@
     <fragment
         android:id="@+id/listaDistritoFragment"
         android:name="ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment"
-        android:label="fragment_lista_distrito"
-        tools:layout="@layout/fragment_lista_distrito" >
+        android:label="@string/nome_lista_distrito"
+        tools:layout="@layout/fragment_lista_distrito">
         <action
             android:id="@+id/action_listaDistritoFragment_to_novoDistritoFragment"
             app:destination="@id/novoDistritoFragment" />
