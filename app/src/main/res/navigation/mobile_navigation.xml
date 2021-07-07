@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/novoDistritoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NovoDistritoFragment"
         android:label="fragment_novo_distrito"
         tools:layout="@layout/fragment_novo_distrito" >
         <action
