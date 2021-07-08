@@ -15,6 +15,6 @@ class DadosApp {
         var distritoSelecionado: Distrito? = null
 
 
-      //  var testeSelecionado: Teste? = null
+       var testeSelecionado: Teste? = null
     }
 }

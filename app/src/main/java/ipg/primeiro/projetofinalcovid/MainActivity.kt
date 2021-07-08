@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_edita_distrito -> (DadosApp.fragment as EditaDistritoFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_distrito -> (DadosApp.fragment as EliminaDistritoFragment).processaOpcaoMenu(item)
 
+                //Menu Testes
                else -> false
 
             }
