@@ -90,14 +90,12 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
         findNavController().navigate(R.id.action_listaDistritoFragment_to_novoDistritoFragment)
     }
     fun navegaAlterarDistrito(){
-     //   findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
+        findNavController().navigate(R.id.action_listaDistritoFragment_to_editaDistritoFragment)
     }
 
     fun navegaEliminarDistrito(){
       //  findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
     }
-
-
 
 
 
