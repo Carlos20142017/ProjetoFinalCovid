@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewTemperatura"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_campos"
+        android:layout_marginLeft="@dimen/margin_campos"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:layout_marginEnd="@dimen/margin_campos"
+        android:layout_marginRight="@dimen/margin_campos"
+        android:text="Temperatura"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDistrito"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSintomas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:text="Nenhum"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewTemperatura"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTemperatura" />
+
+    <TextView
+        android:id="@+id/textViewEstadoSaude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:text="Bom"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewSintomas"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSintomas" />
+
+    <TextView
+        android:id="@+id/textViewDataTeste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="@dimen/margin_campos"
+        android:text="20/03/2021"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewEstadoSaude"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEstadoSaude" />
+
+    <TextView
+        android:id="@+id/textViewNomePessoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:layout_marginEnd="@dimen/margin_campos"
+        android:layout_marginRight="@dimen/margin_campos"
+        android:text="Claudia"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

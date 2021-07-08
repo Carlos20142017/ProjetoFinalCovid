@@ -57,9 +57,10 @@
     <string name="erro_alterar_distrito">Error changing district</string>
     <string name="distrito_alterado_sucesso">District successfully changed</string>
     <string name="titulo_edita_distrito">Edit District</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titulo_elimina_distrito">Eliminar Distrito</string>
+
+    <string name="titulo_elimina_distrito">Delete District</string>
+    <string name="erro_eliminar_distrito">Error deleting district</string>
+    <string name="distrito_eliminado_sucesso">District successfully eliminated</string>
 
 
 </resources>
