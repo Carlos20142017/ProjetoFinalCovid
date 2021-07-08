@@ -44,4 +44,7 @@
     <string name="distrito_alterado_sucesso">District changé avec succès</string>
     <string name="erro_alterar_distrito">Erreur lors du changement de district</string>
     <string name="titulo_edita_distrito">Edit district</string>
+    <string name="titulo_elimina_distrito">Supprimer le district</string>
+    <string name="erro_eliminar_distrito">Erreur lors de la suppression du district</string>
+    <string name="distrito_eliminado_sucesso">District éliminé avec succès</string>
 </resources>

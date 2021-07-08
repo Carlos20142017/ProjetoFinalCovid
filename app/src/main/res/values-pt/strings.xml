@@ -44,4 +44,7 @@
     <string name="erro_alterar_distrito">Erro ao alterar distrito</string>
     <string name="distrito_alterado_sucesso">Distrito alterado com sucesso</string>
     <string name="titulo_edita_distrito">Edita Distrito</string>
+    <string name="titulo_elimina_distrito">Eliminar Distrito</string>
+    <string name="erro_eliminar_distrito">"Erro ao eliminar distrito "</string>
+    <string name="distrito_eliminado_sucesso">Distrito eliminado com sucesso</string>
 </resources>
