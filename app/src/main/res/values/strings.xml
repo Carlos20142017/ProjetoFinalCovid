@@ -61,6 +61,17 @@
     <string name="titulo_elimina_distrito">Delete District</string>
     <string name="erro_eliminar_distrito">Error deleting district</string>
     <string name="distrito_eliminado_sucesso">District successfully eliminated</string>
+    <string name="Titulo_novo_teste">New Test</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="sintomas">Sintomas</string>
+    <string name="estado_sa_de">Estado Saúde</string>
+    <string name="data_do_teste_dd_mm_yyyy">Data do Teste (dd/mm/yyyy)</string>
+    <string name="nome_da_pessoa">Nome da Pessoa</string>
+    <string name="preencha_temperatura">Preencha Temperatura</string>
+    <string name="preencha_sintoma">Preencha Sintomas</string>
+    <string name="preencha_estado_saude">Preencha estado de saude</string>
+    <string name="preencha_data_teste">Preencha data do teste</string>
+    <string name="erro_inserir_teste">Erro ao inserir teste</string>
 
 
 </resources>

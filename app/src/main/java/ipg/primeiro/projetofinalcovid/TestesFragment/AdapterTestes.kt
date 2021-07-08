@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AdapterTestes (val fragment: ListaTestesFragment): RecyclerView.Adapter<AdapterTestes.ViewHolderTestes>() {
@@ -37,11 +38,13 @@ class AdapterTestes (val fragment: ListaTestesFragment): RecyclerView.Adapter<Ad
 
             this.teste = teste
 
+            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val dataTeste = sdf.format(teste.data_teste)
 
             textViewTemperatura.text = teste.temperatura.toString()
             textViewSintomas.text = teste.sintomas
             textViewEstadoSaude.text = teste.estado_saude
-            textViewDataTeste.text = teste.data_teste.toString()
+            textViewDataTeste.text = dataTeste.toString()
             textViewNomePessoa.text = teste.nomePessoa
         }
 

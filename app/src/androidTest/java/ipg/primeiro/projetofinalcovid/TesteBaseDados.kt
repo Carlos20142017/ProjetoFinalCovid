@@ -333,7 +333,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom", data_teste= Date(2020,10,20),
+        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom", data_teste= Date(2020-1900,10,20),
             id_estrang_pessoas= pessoa.id, nomePessoa = pessoa.nome)
         teste.id = insereTeste(tabelaTestes, teste)
 
@@ -367,13 +367,13 @@ class TesteBaseDados {
 
         val tabelaTestes = TabelaTestes(db)
         val teste = Teste(temperatura = 30.0f, sintomas = "Nenhum", estado_saude = "Bom",
-            data_teste= Date(2020,10,20),id_estrang_pessoas = pessoaNova.id, nomePessoa = pessoaNova.nome)
+            data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoaNova.id, nomePessoa = pessoaNova.nome)
         teste.id = insereTeste(tabelaTestes, teste)
 
         teste.temperatura = 40.0f
         teste.sintomas = "Gripe"
         teste.estado_saude= "doente"
-        teste.data_teste= Date(2020,10,20)
+        teste.data_teste= Date(2020-1900,10,20)
         teste.id_estrang_pessoas=pessoaNova.id
         teste.nomePessoa = pessoaNova.nome
 
@@ -405,7 +405,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
-        val teste = Teste(temperatura=39.0f, sintomas = "Febre", estado_saude = "Doente",data_teste= Date(2020,10,20),
+        val teste = Teste(temperatura=39.0f, sintomas = "Febre", estado_saude = "Doente",data_teste= Date(2020-1900,10,20),
             id_estrang_pessoas = pessoa.id,nomePessoa = pessoa.nome)
         teste.id = insereTeste(tabelaTeste, teste)
 
@@ -433,7 +433,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" ,data_teste= Date(2020,10,20),
+        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" ,data_teste= Date(2020-1900,10,20),
             id_estrang_pessoas = pessoa.id, nomePessoa = pessoa.nome)
         teste.id = insereTeste(tabelaTestes, teste)
 
@@ -463,7 +463,7 @@ class TesteBaseDados {
 
         val tabelaTestes = TabelaTestes(db)
         val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "doente",
-            data_teste= Date(2020,10,20), id_estrang_pessoas= pessoa.id,nomePessoa = pessoa.nome)
+            data_teste= Date(2020-1900,10,20), id_estrang_pessoas= pessoa.id,nomePessoa = pessoa.nome)
         teste.id = insereTeste(tabelaTestes, teste)
 
         val tabelaAlertas = TabelaAlertas(db)
@@ -515,11 +515,11 @@ class TesteBaseDados {
 
         val tabelaTestes = TabelaTestes(db)
         val testeAtual = Teste(temperatura = 30.0f, sintomas = "Nenhum", estado_saude = "Bom",
-            data_teste= Date(2020,10,20),id_estrang_pessoas = pessoaAtual.id, nomePessoa = pessoaAtual.nome)
+            data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoaAtual.id, nomePessoa = pessoaAtual.nome)
            testeAtual.id = insereTeste(tabelaTestes, testeAtual)
 
         val testeNovo = Teste(temperatura = 50.0f, sintomas = "Tosse", estado_saude = "Doente",
-            data_teste= Date(2019,11,28),id_estrang_pessoas = pessoaNova.id, nomePessoa = pessoaNova.nome)
+            data_teste= Date(2019-1900,11,28),id_estrang_pessoas = pessoaNova.id, nomePessoa = pessoaNova.nome)
         testeNovo.id = insereTeste(tabelaTestes, testeNovo)
 
 
@@ -561,7 +561,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
-        val teste = Teste(temperatura=0.0f, sintomas = "?", estado_saude = "?", data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
+        val teste = Teste(temperatura=29.0f, sintomas = "?", estado_saude = "?", data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTeste, teste)
 
         val tabelaAlerta = TabelaAlertas(db)
@@ -599,7 +599,7 @@ class TesteBaseDados {
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" , data_teste= Date(2020,10,20),id_estrang_pessoas = pessoa.id)
+        val teste = Teste( temperatura = 36.5f, sintomas = "nenhum",estado_saude = "bom" , data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTestes, teste)
 
         val tabelaAlertas = TabelaAlertas(db)

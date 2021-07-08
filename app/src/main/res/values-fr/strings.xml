@@ -47,4 +47,5 @@
     <string name="titulo_elimina_distrito">Supprimer le district</string>
     <string name="erro_eliminar_distrito">Erreur lors de la suppression du district</string>
     <string name="distrito_eliminado_sucesso">District éliminé avec succès</string>
+    <string name="Titulo_novo_teste">Nouveau test</string>
 </resources>

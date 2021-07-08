@@ -47,4 +47,5 @@
     <string name="titulo_elimina_distrito">Eliminar Distrito</string>
     <string name="erro_eliminar_distrito">"Erro ao eliminar distrito "</string>
     <string name="distrito_eliminado_sucesso">Distrito eliminado com sucesso</string>
+    <string name="Titulo_novo_teste">Novo Teste</string>
 </resources>

@@ -7,67 +7,118 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.SimpleCursorAdapter
+import android.widget.Spinner
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
 import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
-import ipg.primeiro.projetofinalcovid.basedados.TabelaTestes
+
+import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
+import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
+import java.util.*
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ListaTestesFragment.newInstance] factory method to
+ * Use the [NovoTesteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ListaTestesFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
+class NovoTesteFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>  {
 
-    private var adapterTestes : AdapterTestes? = null
+    private lateinit var editTextTemperatura: EditText
+    private lateinit var editTextSintomas: EditText
+    private lateinit var editTextEstadoSaude: EditText
+    private lateinit var editTextDataTeste: EditText
+    private lateinit var spinnerNomePessoa: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         DadosApp.fragment = this
-        (activity as MainActivity).menuAtual = R.menu.menu_lista_testes
-        return inflater.inflate(R.layout.fragment_lista_testes, container, false)
+        (activity as MainActivity).menuAtual = R.menu.menu_novo_teste
+
+        return inflater.inflate(R.layout.fragment_novo_teste, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerViewTestes = view.findViewById<RecyclerView>(R.id.recyclerViewTestes)
-        adapterTestes = AdapterTestes(this)
-        recyclerViewTestes.adapter = adapterTestes
-        recyclerViewTestes.layoutManager = LinearLayoutManager(requireContext())
+
+        editTextTemperatura = view.findViewById(R.id.editTextTemperatura)
+        editTextSintomas = view.findViewById(R.id.editTextSintomas)
+        editTextEstadoSaude = view.findViewById(R.id.editTextEstadoSaude)
+        editTextDataTeste = view.findViewById(R.id.editTextDataTeste)
+        spinnerNomePessoa = view.findViewById(R.id.spinnerNomePessoa)
 
         LoaderManager.getInstance(this)
-            .initLoader(ID_LOADER_MANAGER_TESTES,null, this)
+            .initLoader(ID_LOADER_MANAGER_Pessoas,null, this)
+
 
     }
 
-    fun navegaNovoTeste(){
-        findNavController().navigate(R.id.action_listaTestesFragment_to_novoTesteFragment)
-    }
-    fun navegaAlterarTeste(){
-       // findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
+    fun navegaListaTestes(){
+        findNavController().navigate(R.id.action_novoTesteFragment_to_listaTestesFragment)
     }
 
-    fun navegaEliminarTeste(){
-      //  findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
+    fun guardar(){
+
+        val temperatura = editTextTemperatura.text.toString()
+        if(temperatura.isEmpty()){
+            editTextTemperatura.setError(getString(R.string.preencha_temperatura))
+            editTextTemperatura.requestFocus()
+            return
+        }
+
+        val sintomas= editTextSintomas.text.toString()
+        if(sintomas.isEmpty()){
+            editTextSintomas.setError(getString(R.string.preencha_sintoma))
+            editTextSintomas.requestFocus()
+            return
+        }
+
+        val dataTeste = editTextDataTeste.text.toString()
+        if(dataTeste == null){
+            editTextDataTeste.setError(getString(R.string.preencha_data_teste))
+            editTextDataTeste.requestFocus()
+            return
+        }
+
+        val estadoSaude = editTextEstadoSaude.text.toString()
+        if(estadoSaude.isEmpty()){
+            editTextEstadoSaude.setError(getString(R.string.preencha_estado_saude))
+            editTextEstadoSaude.requestFocus()
+            return
+        }
+
+        val idPessoa = spinnerNomePessoa.selectedItemId
+
+        val teste = Teste(temperatura = temperatura.toFloat(), sintomas = sintomas,estado_saude = estadoSaude, data_teste = Date(dataTeste), id_estrang_pessoas = idPessoa)
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderPessoas.ENDERECO_TESTE, teste.toContentValues()
+        )
+        if(uri == null){
+            Snackbar.make(editTextTemperatura,
+                getString(R.string.erro_inserir_teste),
+                Snackbar.LENGTH_LONG).show()
+            return
+        }
+
+        navegaListaTestes()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
         when(item.itemId){
-            R.id.action_novo_teste -> navegaNovoTeste()
-            R.id.action_alterar_teste -> navegaAlterarTeste()
-            R.id.action_eliminar_teste -> navegaEliminarTeste()
+            R.id.action_guardar_novo_teste -> guardar()
+            R.id.action_cancelar_novo_teste -> navegaListaTestes()
+
             else -> return false
         }
         return true
@@ -86,10 +137,10 @@ class ListaTestesFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderPessoas.ENDERECO_TESTE,
-            TabelaTestes.TODAS_COLUNAS,
+            ContentProviderPessoas.ENDERECO_PESSOAS,
+            TabelaPessoas.TODAS_COLUNAS,
             null, null,
-            TabelaTestes.CAMPO_TEMPERATURA
+            TabelaPessoas.CAMPO_NOME
 
         )
     }
@@ -138,8 +189,11 @@ class ListaTestesFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
      * @param data The data generated by the Loader.
      */
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        adapterTestes!!.cursor = data
+
+        atualizaSpinnerPessoas(data)
     }
+
+
 
     /**
      * Called when a previously created loader is being reset, and thus
@@ -152,11 +206,24 @@ class ListaTestesFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        adapterTestes!!.cursor = null
+        atualizaSpinnerPessoas(null)
+    }
+
+    private fun atualizaSpinnerPessoas(data: Cursor?) {
+        spinnerNomePessoa.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaPessoas.CAMPO_NOME),
+            intArrayOf(android.R.id.text1),
+            0
+        )
     }
 
     companion object{
-        const val ID_LOADER_MANAGER_TESTES = 0
+        const val ID_LOADER_MANAGER_Pessoas = 0
     }
+
+
 
 }

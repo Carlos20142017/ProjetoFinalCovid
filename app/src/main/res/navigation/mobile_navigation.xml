@@ -77,7 +77,11 @@
         android:id="@+id/listaTestesFragment"
         android:name="ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment"
         android:label="@string/nome_lista_testes"
-        tools:layout="@layout/fragment_lista_testes" />
+        tools:layout="@layout/fragment_lista_testes" >
+        <action
+            android:id="@+id/action_listaTestesFragment_to_novoTesteFragment"
+            app:destination="@id/novoTesteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editaDistritoFragment"
         android:name="ipg.primeiro.projetofinalcovid.DistritoFragment.EditaDistritoFragment"
@@ -95,6 +99,15 @@
         <action
             android:id="@+id/action_eliminaDistritoFragment_to_listaDistritoFragment"
             app:destination="@id/listaDistritoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novoTesteFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NovoTesteFragment"
+        android:label="@string/Titulo_novo_teste"
+        tools:layout="@layout/fragment_novo_teste">
+        <action
+            android:id="@+id/action_novoTesteFragment_to_listaTestesFragment"
+            app:destination="@id/listaTestesFragment" />
     </fragment>
 
 </navigation>
