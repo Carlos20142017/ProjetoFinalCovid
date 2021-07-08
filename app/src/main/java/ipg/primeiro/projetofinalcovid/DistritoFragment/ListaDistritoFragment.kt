@@ -48,7 +48,7 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
         })
 
         DadosApp.fragment = this
-        (activity as MainActivity).menuAtual = R.menu.menu_lista_distrito
+       (activity as MainActivity).menuAtual = R.menu.menu_lista_distrito
 
         return root
     }
@@ -62,7 +62,7 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
         recyclerViewDistrito.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this)
-            .initLoader(ID_LOADER_MANAGER_PESSOAS,null, this)
+            .initLoader(ID_LOADER_MANAGER_DISTRITOS,null, this)
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
@@ -87,15 +87,19 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
 
 
     fun navegaNovoDistrito(){
-        findNavController().navigate(R.id.action_ListaPessoaFragment_to_NovaPessoaFragment)
+        findNavController().navigate(R.id.action_listaDistritoFragment_to_novoDistritoFragment)
     }
     fun navegaAlterarDistrito(){
-        findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
+     //   findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
     }
 
     fun navegaEliminarDistrito(){
-        findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
+      //  findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
     }
+
+
+
+
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when(item.itemId){
@@ -108,7 +112,7 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
     }
 
     companion object{
-        const val ID_LOADER_MANAGER_PESSOAS = 0
+        const val ID_LOADER_MANAGER_DISTRITOS = 0
     }
 
 

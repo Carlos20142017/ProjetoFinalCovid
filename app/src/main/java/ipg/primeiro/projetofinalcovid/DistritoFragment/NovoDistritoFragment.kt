@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.DistritoFragment
 
 import android.database.Cursor
 import android.os.Bundle
@@ -9,11 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
+import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
-import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.NovaPessoaFragment
 
 
 /**
@@ -87,8 +92,19 @@ class NovoDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> 
         return true
     }
 
+
+
+
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
+        return CursorLoader(
+            requireContext(),
+            ContentProviderPessoas.ENDERECO_DISTRITO,
+            TabelaDistritos.TODAS_COLUNAS,
+            null, null,
+            TabelaDistritos.CAMPO_NOME_DISTRITO
+
+        )
+
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {

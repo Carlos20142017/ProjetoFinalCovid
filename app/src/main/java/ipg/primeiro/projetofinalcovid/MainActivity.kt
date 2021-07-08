@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.listaPessoaFragment,
                 R.id.listaDistritoFragment,
-               // R.id.listaTesteFragment
+                R.id.listaTestesFragment
 
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)

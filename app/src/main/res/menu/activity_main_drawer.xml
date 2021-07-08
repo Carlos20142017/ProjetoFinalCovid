@@ -17,7 +17,7 @@
             android:title="@string/nav_distrito_menu" />
 
         <item
-            android:id="@+id/listaTesteFragment"
+            android:id="@+id/listaTestesFragment"
             android:icon="@drawable/ic_baseline_clean_hands_24"
             android:title="@string/titulo_testes" />
 </group>
