@@ -17,6 +17,7 @@ import ipg.primeiro.projetofinalcovid.DistritoFragment.EditaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment
+import ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EditaPessoaFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EliminaPessoaFragment
@@ -74,6 +75,9 @@ class MainActivity : AppCompatActivity() {
         if(menuAtual == R.menu.menu_lista_distrito){
             atualizaMenuListaDistrito(false)
         }
+        if(menuAtual == R.menu.menu_lista_testes){
+            atualizaMenuListaTeste(false)
+        }
 
         return true
     }
@@ -102,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_elimina_distrito -> (DadosApp.fragment as EliminaDistritoFragment).processaOpcaoMenu(item)
 
                 //Menu Testes
+                R.menu.menu_lista_testes -> (DadosApp.fragment as ListaTestesFragment).processaOpcaoMenu(item)
                else -> false
 
             }
@@ -127,6 +132,12 @@ class MainActivity : AppCompatActivity() {
 
        menu.findItem(R.id.action_alterar_distrito).setVisible(mostraBotoesAlterarEliminar)
        menu.findItem(R.id.action_eliminar_distrito).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaTeste(mostraBotoesAlterarEliminar: Boolean) {
+
+        menu.findItem(R.id.action_alterar_teste).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_teste).setVisible(mostraBotoesAlterarEliminar)
     }
 
 
