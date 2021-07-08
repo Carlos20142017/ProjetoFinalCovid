@@ -89,7 +89,7 @@
     </fragment>
     <fragment
         android:id="@+id/eliminaDistritoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EliminaDistritoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment"
         android:label="@string/titulo_elimina_distrito"
         tools:layout="@layout/fragment_elimina_distrito">
         <action

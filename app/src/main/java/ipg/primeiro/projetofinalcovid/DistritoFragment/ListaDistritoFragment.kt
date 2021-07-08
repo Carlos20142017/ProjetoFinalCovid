@@ -94,7 +94,7 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
     }
 
     fun navegaEliminarDistrito(){
-      //  findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
+        findNavController().navigate(R.id.action_listaDistritoFragment_to_eliminaDistritoFragment)
     }
 
 

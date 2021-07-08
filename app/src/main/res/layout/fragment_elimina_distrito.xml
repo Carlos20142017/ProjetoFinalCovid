@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EliminaDistritoFragment">
+    android:orientation="vertical"
+    tools:context=".ui.PessoasFragment.EliminaPessoaFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_ecran"
+        android:layout_marginLeft="@dimen/margin_ecran"
+        android:layout_marginTop="@dimen/margin_ecran"
+        android:layout_marginEnd="@dimen/margin_ecran"
+        android:layout_marginRight="@dimen/margin_ecran"
+        android:text="@string/nome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_destaque" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textViewNomeDistrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_ecran"
+        android:layout_marginLeft="@dimen/margin_ecran"
+        android:layout_marginTop="@dimen/margin_ecran"
+        android:layout_marginEnd="@dimen/margin_ecran"
+        android:layout_marginRight="@dimen/margin_ecran"
+        tools:text="Guarda"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+</LinearLayout>

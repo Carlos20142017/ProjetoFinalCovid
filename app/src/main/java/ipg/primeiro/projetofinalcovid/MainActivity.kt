@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import ipg.primeiro.projetofinalcovid.DistritoFragment.EditaDistritoFragment
+import ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
@@ -96,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_lista_distrito -> (DadosApp.fragment as ListaDistritoFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_distrito -> (DadosApp.fragment as NovoDistritoFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_distrito -> (DadosApp.fragment as EditaDistritoFragment).processaOpcaoMenu(item)
+                R.menu.menu_elimina_distrito -> (DadosApp.fragment as EliminaDistritoFragment).processaOpcaoMenu(item)
 
                else -> false
 
