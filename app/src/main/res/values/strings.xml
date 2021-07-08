@@ -10,7 +10,7 @@
     <string name="menu_pessoa">People</string>
     <string name="menu_nova_pessoa">New person</string>
     <string name="menu_edita_pessoa">Edit Person</string>
-    <string name="menu_slideshow">Slideshow</string>
+
 
     <string name="carlos_cruz" translatable="false">Carlos Cruz</string>
     <string name="masculino">Male</string>
@@ -52,8 +52,8 @@
     <string name="titulo_testes">Test</string>
     <string name="projeto_final">Final project</string>
     <string name="covid_19" translatable="false">Covid19</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="titulo_novo_distrito">New District</string>
 
 
 </resources>

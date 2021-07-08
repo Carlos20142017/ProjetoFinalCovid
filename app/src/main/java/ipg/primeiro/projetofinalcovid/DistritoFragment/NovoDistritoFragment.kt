@@ -45,15 +45,13 @@ class NovoDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> 
         super.onViewCreated(view, savedInstanceState)
 
         editTextNomeDistrito = view.findViewById(R.id.editTextNomeDistrito)
-        LoaderManager.getInstance(this)
-            .initLoader(ID_LOADER_MANAGER_DISTRITOS,null, this)
 
     }
 
 
 
     fun navegaListaDistritos(){
-        findNavController().navigate(R.id.action_NovaPessoaFragment_to_ListaPessoaFragment)
+        findNavController().navigate(R.id.action_novoDistritoFragment_to_listaDistritoFragment)
     }
 
     fun guardar(){
@@ -115,8 +113,6 @@ class NovoDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> 
         TODO("Not yet implemented")
     }
 
-    companion object{
-        const val ID_LOADER_MANAGER_DISTRITOS = 0
-    }
+
 
 }

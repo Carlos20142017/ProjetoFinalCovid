@@ -40,4 +40,5 @@
     <string name="nome_lista_testes">Essais</string>
     <string name="titulo_testes">Test</string>
     <string name="projeto_final">Projet final</string>
+    <string name="titulo_novo_distrito">Nom du district</string>
 </resources>

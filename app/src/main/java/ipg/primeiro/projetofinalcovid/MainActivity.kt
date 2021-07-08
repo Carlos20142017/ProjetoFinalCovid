@@ -13,6 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment
+import ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EditaPessoaFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EliminaPessoaFragment
@@ -24,14 +26,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var menu: Menu
 
-    var menuAtual = R.menu.menu_lista_pessoas
+
 
    // var menuAtualDistrito = R.menu.menu_lista_distrito
 
 
-
-
-
+    var menuAtual = R.menu.menu_lista_pessoas
         set(value) {
             field = value
             invalidateOptionsMenu()
@@ -93,6 +93,8 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_pessoa -> (DadosApp.fragment as EliminaPessoaFragment).processaOpcaoMenu(item)
 
+                R.menu.menu_lista_distrito -> (DadosApp.fragment as ListaDistritoFragment).processaOpcaoMenu(item)
+                R.menu.menu_novo_distrito -> (DadosApp.fragment as NovoDistritoFragment).processaOpcaoMenu(item)
 
                else -> false
 
@@ -117,8 +119,8 @@ class MainActivity : AppCompatActivity() {
 
     fun atualizaMenuListaDistrito(mostraBotoesAlterarEliminar: Boolean) {
 
-       menu.findItem(R.id.action_alterar_pessoa).setVisible(mostraBotoesAlterarEliminar)
-       menu.findItem(R.id.action_eliminar_pessoa).setVisible(mostraBotoesAlterarEliminar)
+       menu.findItem(R.id.action_alterar_distrito).setVisible(mostraBotoesAlterarEliminar)
+       menu.findItem(R.id.action_eliminar_distrito).setVisible(mostraBotoesAlterarEliminar)
     }
 
 

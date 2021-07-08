@@ -103,9 +103,9 @@ class ListaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.action_nova_pessoa -> navegaNovoDistrito()
-            R.id.action_alterar_pessoa -> navegaAlterarDistrito()
-            R.id.action_eliminar_pessoa -> navegaEliminarDistrito()
+            R.id.action_novo_distrito -> navegaNovoDistrito()
+            R.id.action_alterar_distrito -> navegaAlterarDistrito()
+            R.id.action_eliminar_distrito -> navegaEliminarDistrito()
             else -> return false
         }
         return true
