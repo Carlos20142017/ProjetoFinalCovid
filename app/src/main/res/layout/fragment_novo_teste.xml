@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/temperatura"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_campos"
                 android:hint="@string/sintomas"
-                android:inputType="textPersonName|text" />
+                android:inputType="textMultiLine" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_campos"
                     android:hint="@string/estado_sa_de"
-                    android:inputType="phone" />
+                    android:inputType="text" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_campos"
                         android:hint="@string/data_do_teste_dd_mm_yyyy"
-                        android:inputType="phone" />
+                        android:inputType="date" />
 
                     <TextView
                         android:id="@+id/textView2"

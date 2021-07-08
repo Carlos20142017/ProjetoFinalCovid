@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/novoTesteFragment"
-        android:name="ipg.primeiro.projetofinalcovid.NovoTesteFragment"
+        android:name="ipg.primeiro.projetofinalcovid.TestesFragment.NovoTesteFragment"
         android:label="@string/Titulo_novo_teste"
         tools:layout="@layout/fragment_novo_teste">
         <action
