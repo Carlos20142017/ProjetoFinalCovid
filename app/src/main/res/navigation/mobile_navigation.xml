@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_listaDistritoFragment_to_editaDistritoFragment"
             app:destination="@id/editaDistritoFragment" />
+        <action
+            android:id="@+id/action_listaDistritoFragment_to_eliminaDistritoFragment"
+            app:destination="@id/eliminaDistritoFragment" />
     </fragment>
     <fragment
         android:id="@+id/novoDistritoFragment"
@@ -82,6 +85,15 @@
         tools:layout="@layout/fragment_edita_distrito">
         <action
             android:id="@+id/action_editaDistritoFragment_to_listaDistritoFragment"
+            app:destination="@id/listaDistritoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaDistritoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EliminaDistritoFragment"
+        android:label="@string/titulo_elimina_distrito"
+        tools:layout="@layout/fragment_elimina_distrito">
+        <action
+            android:id="@+id/action_eliminaDistritoFragment_to_listaDistritoFragment"
             app:destination="@id/listaDistritoFragment" />
     </fragment>
 
