@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/listaTestesFragment"
-        android:name="ipg.primeiro.projetofinalcovid.ListaTestesFragment"
+        android:name="ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment"
         android:label="@string/nome_lista_testes"
         tools:layout="@layout/fragment_lista_testes" />
     <fragment

@@ -1,11 +1,11 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.TestesFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import ipg.primeiro.projetofinalcovid.R
 
 
 /**

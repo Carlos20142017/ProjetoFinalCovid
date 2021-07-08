@@ -89,11 +89,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             else -> when (menuAtual){
+                //Menu Pessoas
                 R.menu.menu_lista_pessoas -> (DadosApp.fragment as ListaPessoasFragment).processaOpcaoMenu(item)
                 R.menu.menu_nova_pessoa -> (DadosApp.fragment as NovaPessoaFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_pessoa -> (DadosApp.fragment as EliminaPessoaFragment).processaOpcaoMenu(item)
 
+                //Menu Distrito
                 R.menu.menu_lista_distrito -> (DadosApp.fragment as ListaDistritoFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_distrito -> (DadosApp.fragment as NovoDistritoFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_distrito -> (DadosApp.fragment as EditaDistritoFragment).processaOpcaoMenu(item)
