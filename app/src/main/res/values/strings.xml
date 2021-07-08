@@ -54,9 +54,9 @@
     <string name="covid_19" translatable="false">Covid19</string>
 
     <string name="titulo_novo_distrito">New District</string>
-    <string name="erro_alterar_distrito">Erro ao alterar distrito</string>
-    <string name="distrito_alterado_sucesso">Distrito alterado com sucesso</string>
-    <string name="titulo_edita_distrito">Edita Distrito</string>
+    <string name="erro_alterar_distrito">Error changing district</string>
+    <string name="distrito_alterado_sucesso">District successfully changed</string>
+    <string name="titulo_edita_distrito">Edit District</string>
 
 
 </resources>

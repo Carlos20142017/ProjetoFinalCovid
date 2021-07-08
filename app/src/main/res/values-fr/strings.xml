@@ -41,4 +41,7 @@
     <string name="titulo_testes">Test</string>
     <string name="projeto_final">Projet final</string>
     <string name="titulo_novo_distrito">Nom du district</string>
+    <string name="distrito_alterado_sucesso">District changé avec succès</string>
+    <string name="erro_alterar_distrito">Erreur lors du changement de district</string>
+    <string name="titulo_edita_distrito">Edit district</string>
 </resources>

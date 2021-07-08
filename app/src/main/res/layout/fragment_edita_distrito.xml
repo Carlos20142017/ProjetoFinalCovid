@@ -13,7 +13,7 @@
         android:layout_margin="@dimen/margin_ecran">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNomeDistrito"
+            android:id="@+id/editTextNomeDistritoAltera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nome_distrito"

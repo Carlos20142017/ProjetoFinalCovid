@@ -48,10 +48,9 @@ class EditaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNomeDistrito = view.findViewById(R.id.editTextNomeDistrito)
+        editTextNomeDistrito = view.findViewById(R.id.editTextNomeDistritoAltera)
 
-        LoaderManager.getInstance(this)
-            .initLoader(EditaPessoaFragment.ID_LOADER_MANAGER_DISTRITOS,null, this)
+
 
 
         editTextNomeDistrito.setText(DadosApp.distritoSelecionado!!.nome_distrito)
@@ -134,12 +133,13 @@ class EditaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+       // TODO("Not yet implemented")
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+       // TODO("Not yet implemented")
     }
+
 
 
 

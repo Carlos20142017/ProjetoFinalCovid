@@ -41,4 +41,7 @@
     <string name="navigation_drawer_open">Abra a gaveta de navegação</string>
     <string name="action_settings">Definições</string>
     <string name="titulo_novo_distrito">Novo Distrito</string>
+    <string name="erro_alterar_distrito">Erro ao alterar distrito</string>
+    <string name="distrito_alterado_sucesso">Distrito alterado com sucesso</string>
+    <string name="titulo_edita_distrito">Edita Distrito</string>
 </resources>
