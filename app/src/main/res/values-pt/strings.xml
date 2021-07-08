@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projeto Final Covid</string>
+    <string name="alterar_distrito">Alterar Distrito</string>
+    <string name="alterar_pessoa">Alterar Pessoa</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="preencha_contacto_telemovel">Coloque o seu numero de telemovel</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="distrito">Distrito</string>
+    <string name="nav_distrito_menu">Distrito</string>
+    <string name="nome_lista_distrito">Distritos</string>
+    <string name="menu_edita_pessoa">Editar Pessoa</string>
+    <string name="eliminar_distrito">Eliminar Distrito</string>
+    <string name="eliminar_pessoa">Eliminar Pessoa</string>
+    <string name="elimina_pessoa_fragment_label">Eliminar Pessoa?</string>
+    <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>
+    <string name="erro_eliminar_pessoa">Erro ao eliminar pessoa</string>
+    <string name="erro_inserir_distrito">Erro ao inserir distrito</string>
+    <string name="erro_ao_inserir_pessoa">Erro ao inserir pessoa</string>
+    <string name="guardar">Guardar</string>
+    <string name="masculino">Masculino</string>
+    <string name="nome">Nome</string>
+    <string name="nome_distrito">Nome do Distrito</string>
+    <string name="menu_nova_pessoa">Nova Pessoa</string>
+    <string name="nova_pessoa">Nova Pessoa</string>
+    <string name="novo_distrito">Novo Distrito</string>
+    <string name="pessoa_alterada_sucesso">Pessoa alterada com sucesso</string>
+    <string name="pessoa_eliminada_com_sucesso">Pessoa eliminada com sucesso</string>
+    <string name="menu_pessoa">Pessoas</string>
+    <string name="versao">Pessoa v. 1.0</string>
+    <string name="preencha_data_nascimento">Preencha data de nascimento</string>
+    <string name="preencha_sexo">Preencha o campo sexo</string>
+    <string name="preencha_nome">Preencha o nome</string>
+    <string name="projeto_final">Projeto Final</string>
+    <string name="sexo">Sexo</string>
+    <string name="telemovel">Telemovel</string>
+    <string name="titulo_testes">Teste</string>
+    <string name="nome_lista_testes">Testes</string>
+    <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
+    <string name="nav_header_desc">Cabeçalho de navegação</string>
+    <string name="navigation_drawer_open">Abra a gaveta de navegação</string>
+    <string name="action_settings">Definições</string>
+</resources>

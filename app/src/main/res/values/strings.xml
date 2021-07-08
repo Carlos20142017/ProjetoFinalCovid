@@ -1,57 +1,57 @@
 <resources>
-    <string name="app_name">Projeto Final Covid</string>
+    <string name="app_name">Covid Final Project</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_pessoa">Pessoas</string>
-    <string name="menu_nova_pessoa">Nova Pessoa</string>
-    <string name="menu_edita_pessoa">Editar Pessoa</string>
+    <string name="menu_pessoa">People</string>
+    <string name="menu_nova_pessoa">New person</string>
+    <string name="menu_edita_pessoa">Edit Person</string>
     <string name="menu_slideshow">Slideshow</string>
 
-    <string name="carlos_cruz">Carlos Cruz</string>
-    <string name="masculino">Masculino</string>
-    <string name="_25_10_1990">25/10/1990</string>
-    <string name="_990205170">990205170</string>
-    <string name="nova_pessoa">Nova Pessoa</string>
-    <string name="alterar_pessoa">Alterar Pessoa</string>
-    <string name="eliminar_pessoa">Eliminar Pessoa</string>
-    <string name="nome">Nome</string>
-    <string name="sexo">Sexo</string>
-    <string name="data_de_nascimento">Data de Nascimento</string>
-    <string name="telemovel">Telemovel</string>
-    <string name="distrito">Distrito</string>
-    <string name="guardar">Guardar</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="versao">Pessoa v. 1.0</string>
-    <string name="preencha_nome">Preencha o nome</string>
-    <string name="preencha_sexo">Preencha o campo sexo</string>
-    <string name="preencha_data_nascimento">Preencha data de nascimento</string>
-    <string name="preencha_contacto_telemovel">Coloque o seu numero de telemovel</string>
-    <string name="erro_ao_inserir_pessoa">Erro ao inserir pessoa</string>
-    <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>
-    <string name="pessoa_alterada_sucesso">Pessoa alterada com sucesso</string>
+    <string name="carlos_cruz" translatable="false">Carlos Cruz</string>
+    <string name="masculino">Male</string>
+    <string name="_25_10_1990" translatable="false">25/10/1990</string>
+    <string name="_990205170" translatable="false">990205170</string>
+    <string name="nova_pessoa">New person</string>
+    <string name="alterar_pessoa">Change Person</string>
+    <string name="eliminar_pessoa">Delete person</string>
+    <string name="nome">Name</string>
+    <string name="sexo">Sex</string>
+    <string name="data_de_nascimento">Birth date</string>
+    <string name="telemovel">Mobile phone</string>
+    <string name="distrito">District</string>
+    <string name="guardar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="versao">People v. 1.0</string>
+    <string name="preencha_nome">Fill in the name</string>
+    <string name="preencha_sexo">Fill in the sex field</string>
+    <string name="preencha_data_nascimento">Fill in date of birth</string>
+    <string name="preencha_contacto_telemovel">Enter your mobile number</string>
+    <string name="erro_ao_inserir_pessoa">Error entering person</string>
+    <string name="erro_alterar_pessoa">Error when changing person</string>
+    <string name="pessoa_alterada_sucesso">Successfully changed person</string>
 
-    <string name="elimina_pessoa_fragment_label">Eliminar Pessoa?</string>
-    <string name="erro_eliminar_pessoa">Erro ao eliminar pessoa</string>
-    <string name="pessoa_eliminada_com_sucesso">Pessoa eliminada com sucesso</string>
-    <string name="nav_distrito_menu">Distrito</string>
-    <string name="nome_distrito">Nome do Distrito</string>
-    <string name="guarda">Guarda</string>
-    <string name="eliminar_distrito">Eliminar Distrito</string>
-    <string name="alterar_distrito">Alterar Distrito</string>
-    <string name="novo_distrito">Novo Distrito</string>
+    <string name="elimina_pessoa_fragment_label">Delete person?</string>
+    <string name="erro_eliminar_pessoa">Error deleting person</string>
+    <string name="pessoa_eliminada_com_sucesso">Person successfully deleted</string>
+    <string name="nav_distrito_menu">District</string>
+    <string name="nome_distrito">District Name</string>
+    <string name="guarda" translatable="false">Guarda</string>
+    <string name="eliminar_distrito">Eliminate District</string>
+    <string name="alterar_distrito">Change District</string>
+    <string name="novo_distrito">New District</string>
 
 
-    <string name="erro_inserir_distrito">Erro ao inserir distrito</string>
-    <string name="nome_lista_distrito">Distritos</string>
-    <string name="nome_lista_testes">Testes</string>
-    <string name="titulo_testes">Teste</string>
-    <string name="projeto_final">Projeto Final</string>
-    <string name="covid_19">Covid19</string>
+    <string name="erro_inserir_distrito">Error entering district</string>
+    <string name="nome_lista_distrito">Districts</string>
+    <string name="nome_lista_testes">Tests</string>
+    <string name="titulo_testes">Test</string>
+    <string name="projeto_final">Final project</string>
+    <string name="covid_19" translatable="false">Covid19</string>
 
 
 </resources>

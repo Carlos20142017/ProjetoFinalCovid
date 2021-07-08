@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet final Covid</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="nav_header_desc">En-tête de navigation</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="menu_pessoa">Gens</string>
+    <string name="menu_nova_pessoa">Nouvelle personne</string>
+    <string name="menu_edita_pessoa">Modifier la personne</string>
+    <string name="masculino">Mâle</string>
+    <string name="nova_pessoa">Nouvelle personne</string>
+    <string name="alterar_pessoa">Changer de personne</string>
+    <string name="eliminar_pessoa">Supprimer la personne</string>
+    <string name="nome">Nom</string>
+    <string name="sexo">Sexe</string>
+    <string name="data_de_nascimento">Date de naissance</string>
+    <string name="telemovel">Téléphone mobile</string>
+    <string name="distrito">Quartier</string>
+    <string name="guardar">Sauvegarder</string>
+    <string name="cancelar">Annuler</string>
+    <string name="versao">Gens v. 1.0</string>
+    <string name="preencha_nome">Remplissez le nom</string>
+    <string name="preencha_sexo">Remplissez le champ sexe</string>
+    <string name="preencha_data_nascimento">Remplissez la date de naissance</string>
+    <string name="preencha_contacto_telemovel">Entrez votre numéro de mobile</string>
+    <string name="erro_ao_inserir_pessoa">Erreur lors de la saisie de la personne</string>
+    <string name="erro_alterar_pessoa">Erreur lors du changement de personne</string>
+    <string name="pessoa_alterada_sucesso">Personne changée avec succès</string>
+    <string name="elimina_pessoa_fragment_label">Supprimer la personne ?</string>
+    <string name="erro_eliminar_pessoa">Erreur lors de la suppression de la personne</string>
+    <string name="pessoa_eliminada_com_sucesso">Personne supprimée avec succès</string>
+    <string name="nav_distrito_menu">Quartier</string>
+    <string name="nome_distrito">Nom du district</string>
+    <string name="eliminar_distrito">Éliminer le quartier</string>
+    <string name="alterar_distrito">Changer de quartier</string>
+    <string name="novo_distrito">Nouveau quartier</string>
+    <string name="erro_inserir_distrito">Erreur lors de la saisie du quartier</string>
+    <string name="nome_lista_distrito">Les quartiers</string>
+    <string name="nome_lista_testes">Essais</string>
+    <string name="titulo_testes">Test</string>
+    <string name="projeto_final">Projet final</string>
+</resources>
