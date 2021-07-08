@@ -9,7 +9,7 @@ import ipg.primeiro.projetofinalcovid.basedados.TabelaTestes
 import java.util.*
 
 data class Teste(var id: Long = -1, var temperatura: Float, var sintomas: String, var estado_saude: String, var data_teste: Date,
-                 var id_estrang_pessoas: Long, var nomeDistrito: String? = null) {
+                 var id_estrang_pessoas: Long, var nomePessoa: String? = null) {
     fun toContentValues(): ContentValues {
         val valores= ContentValues().apply {
             put(TabelaTestes.CAMPO_TEMPERATURA, temperatura)
@@ -30,7 +30,7 @@ data class Teste(var id: Long = -1, var temperatura: Float, var sintomas: String
             val colSaude = cursor.getColumnIndex(TabelaTestes.CAMPO_EST_SAUDE)
             val colIdPessoas = cursor.getColumnIndex(TabelaTestes.CAMPO_ID_ESTRANG_PESSOAS)
             val colDataTeste = cursor.getColumnIndex(TabelaTestes.CAMPO_DATA_TESTE)
-            val colNomeDistrito = cursor.getColumnIndex(TabelaPessoas.CAMPO_EXTERNO_NOME_DISTRITO)
+            val colNomePessoas = cursor.getColumnIndex(TabelaTestes.CAMPO_EXTERNO_NOME_Pessoas)
 
             val id = cursor.getLong(colId)
             val temperatura = cursor.getFloat(colTemperatura)
@@ -38,8 +38,9 @@ data class Teste(var id: Long = -1, var temperatura: Float, var sintomas: String
             val estadoSaude = cursor.getString(colSaude)
             val dataTeste = cursor.getLong(colDataTeste)
             val idPessoas = cursor.getLong(colIdPessoas)
+            val nomePessoas = if(colNomePessoas != -1) cursor.getString(colNomePessoas) else null
 
-            return Teste(id, temperatura, sintomas, estadoSaude, Date(dataTeste), idPessoas)
+            return Teste(id, temperatura, sintomas, estadoSaude, Date(dataTeste), idPessoas, nomePessoas)
         }
     }
 }
