@@ -72,6 +72,9 @@
     <string name="preencha_estado_saude">Preencha estado de saude</string>
     <string name="preencha_data_teste">Preencha data do teste</string>
     <string name="erro_inserir_teste">Erro ao inserir teste</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titulo_edita_teste">Editar Teste</string>
 
 
 </resources>
