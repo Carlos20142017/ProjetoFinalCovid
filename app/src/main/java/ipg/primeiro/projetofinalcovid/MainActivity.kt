@@ -109,6 +109,9 @@ class MainActivity : AppCompatActivity() {
                 //Menu Testes
                 R.menu.menu_lista_testes -> (DadosApp.fragment as ListaTestesFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_teste -> (DadosApp.fragment as NovoTesteFragment).processaOpcaoMenu(item)
+                R.menu.menu_edita_teste -> (DadosApp.fragment as EditaTesteFragment).processaOpcaoMenu(item)
+
+
                else -> false
 
             }

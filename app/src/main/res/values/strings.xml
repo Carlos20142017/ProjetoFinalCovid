@@ -21,7 +21,7 @@
     <string name="eliminar_pessoa">Delete person</string>
     <string name="nome">Name</string>
     <string name="sexo">Sex</string>
-    <string name="data_de_nascimento">Birth date</string>
+    <string name="data_de_nascimento">Birth date (dd/mm/yyyy)</string>
     <string name="telemovel">Mobile phone</string>
     <string name="distrito">District</string>
     <string name="guardar">Save</string>
@@ -62,21 +62,20 @@
     <string name="erro_eliminar_distrito">Error deleting district</string>
     <string name="distrito_eliminado_sucesso">District successfully eliminated</string>
     <string name="Titulo_novo_teste">New Test</string>
-    <string name="temperatura">Temperatura</string>
-    <string name="sintomas">Sintomas</string>
-    <string name="estado_sa_de">Estado Saúde</string>
-    <string name="data_do_teste_dd_mm_yyyy">Data do Teste (dd/mm/yyyy)</string>
-    <string name="nome_da_pessoa">Nome da Pessoa</string>
-    <string name="preencha_temperatura">Preencha Temperatura</string>
-    <string name="preencha_sintoma">Preencha Sintomas</string>
-    <string name="preencha_estado_saude">Preencha estado de saude</string>
-    <string name="preencha_data_teste">Preencha data do teste</string>
-    <string name="erro_inserir_teste">Erro ao inserir teste</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titulo_edita_teste">Editar Teste</string>
-    <string name="erro_alterar_teste">Erro ao alterar teste</string>
-    <string name="teste_alterado_sucesso">Teste alterado com sucesso</string>
+
+    <string name="titulo_edita_teste">Edit Test</string>
+    <string name="temperatura">Temperature</string>
+    <string name="sintomas">Symptoms</string>
+    <string name="estado_sa_de">Health state</string>
+    <string name="data_do_teste_dd_mm_yyyy">Test Date (dd/mm/yyyy)</string>
+    <string name="nome_da_pessoa">Persons name</string>
+    <string name="preencha_temperatura">Fill in Temperature</string>
+    <string name="preencha_sintoma">Fill in Symptoms</string>
+    <string name="preencha_estado_saude">Fill in health status</string>
+    <string name="preencha_data_teste">Fill in test date</string>
+    <string name="erro_inserir_teste">Error inserting test</string>
+    <string name="erro_alterar_teste">Error changing test</string>
+    <string name="teste_alterado_sucesso">Test successfully changed</string>
 
 
 </resources>

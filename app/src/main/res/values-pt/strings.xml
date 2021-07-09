@@ -5,7 +5,7 @@
     <string name="alterar_pessoa">Alterar Pessoa</string>
     <string name="cancelar">Cancelar</string>
     <string name="preencha_contacto_telemovel">Coloque o seu numero de telemovel</string>
-    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="data_de_nascimento">Data de Nascimento (dd/mm/yyyy)</string>
     <string name="distrito">Distrito</string>
     <string name="nav_distrito_menu">Distrito</string>
     <string name="nome_lista_distrito">Distritos</string>
@@ -48,4 +48,17 @@
     <string name="erro_eliminar_distrito">"Erro ao eliminar distrito "</string>
     <string name="distrito_eliminado_sucesso">Distrito eliminado com sucesso</string>
     <string name="Titulo_novo_teste">Novo Teste</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="sintomas">Sintomas</string>
+    <string name="estado_sa_de">Estado Saúde</string>
+    <string name="data_do_teste_dd_mm_yyyy">Data do Teste (dd/mm/yyyy)</string>
+    <string name="nome_da_pessoa">Nome da Pessoa</string>
+    <string name="preencha_temperatura">Preencha Temperatura</string>
+    <string name="preencha_sintoma">Preencha Sintomas</string>
+    <string name="preencha_estado_saude">Preencha estado de saude</string>
+    <string name="preencha_data_teste">Preencha data do teste</string>
+    <string name="erro_inserir_teste">Erro ao inserir teste</string>
+    <string name="titulo_edita_teste">Editar Teste</string>
+    <string name="erro_alterar_teste">Erro ao alterar teste</string>
+    <string name="teste_alterado_sucesso">Teste alterado com sucesso</string>
 </resources>

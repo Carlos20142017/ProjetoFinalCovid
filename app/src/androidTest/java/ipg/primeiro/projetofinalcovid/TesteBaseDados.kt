@@ -164,7 +164,7 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distrito = Distrito(nome_distrito = "Guarda")
+        val distrito = Distrito(nome_distrito = "Viana do Castelo")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
         distrito.nome_distrito = "PORTO"
 
@@ -219,11 +219,11 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Guarda")
+        val distrito = Distrito(nome_distrito = "Guimarães")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Carlos", sexo="Masculino", data_nascimento= Date(2020-1900,10,20),
+        val pessoa = Pessoa(nome = "Carlos Miguel", sexo="Masculino", data_nascimento= Date(1990-1900,10,20),
             telemovel = "990257414", id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -239,21 +239,21 @@ class TesteBaseDados {
 
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Guarda")
+        val distritoAtual = Distrito(nome_distrito = "Beja")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Aveiro")
+        val distritoNovo = Distrito(nome_distrito = "Castelo Branco")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Maria", sexo = "Feminino", data_nascimento= Date(2020-1900,10,20) ,telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Maria Madalena", sexo = "Feminino", data_nascimento= Date(1989-1900,10,20) ,telemovel ="960257414",
             id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         pessoa.nome = "Marcos Sousa"
         pessoa.sexo = "Masculino"
         pessoa.data_nascimento = Date(2020-1900,10,20)
-        pessoa.telemovel ="990257414"
+        pessoa.telemovel ="990252489"
         pessoa.id_estrang_distrito=distritoNovo.id
         pessoa.nomeDistrito = distritoNovo.nome_distrito
 
@@ -276,11 +276,11 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Aveiro")
+        val distrito = Distrito(nome_distrito = "Bragança")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "José Gama", sexo = "Masculino", data_nascimento= Date(2020-1900,10,20),telemovel ="990257414",
+        val pessoa = Pessoa(nome = "José Gama", sexo = "Masculino", data_nascimento= Date(1975-1900,12,29),telemovel ="990257414",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -300,11 +300,12 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Lisboa")
+        val distrito = Distrito(nome_distrito = "Leiria")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020-1900,10,20) ,telemovel ="990257414",
+        val pessoa = Pessoa( nome = "Joaquim Magico", sexo = "Masculino",
+            data_nascimento= Date(1987-1900,7,20) ,telemovel ="990259012",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -328,12 +329,14 @@ class TesteBaseDados {
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Maria", sexo="Feminino", data_nascimento= Date(2020-1900,10,20),telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Francisca Visconde", sexo="Feminino",
+            data_nascimento= Date(1997-1900,10,20),telemovel ="927257460",
             id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTestes = TabelaTestes(db)
-        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom", data_teste= Date(2020-1900,10,20),
+        val teste = Teste(temperatura = 38.0F, sintomas= "Febre", estado_saude= "bom",
+            data_teste= Date(2020-1900,10,20),
             id_estrang_pessoas= pessoa.id, nomePessoa = pessoa.nome)
         teste.id = insereTeste(tabelaTestes, teste)
 
@@ -348,14 +351,15 @@ class TesteBaseDados {
 
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Faro")
+        val distritoAtual = Distrito(nome_distrito = "Seixal")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Leiria")
+        val distritoNovo = Distrito(nome_distrito = "Setubal")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoaAtual = Pessoa(nome = "Matias", sexo = "Masculino", data_nascimento= Date(2010-1900,10,20),telemovel ="990257414",
+        val pessoaAtual = Pessoa(nome = "Matias", sexo = "Masculino",
+            data_nascimento= Date(1990-1900,10,20),telemovel ="990257414",
             id_estrang_distrito = distritoAtual.id, nomeDistrito = distritoAtual.nome_distrito)
         pessoaAtual.id = inserePesssoa(tabelaPessoas, pessoaAtual)
 
@@ -373,7 +377,7 @@ class TesteBaseDados {
         teste.temperatura = 40.0f
         teste.sintomas = "Gripe"
         teste.estado_saude= "doente"
-        teste.data_teste= Date(2020-1900,10,20)
+        teste.data_teste= Date(2021-1900,4,29)
         teste.id_estrang_pessoas=pessoaNova.id
         teste.nomePessoa = pessoaNova.nome
 
@@ -396,16 +400,18 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Leiria")
+        val distrito = Distrito(nome_distrito = "Figueira da Foz")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Lucio", sexo = "Masculino", data_nascimento= Date(1970-1900,10,20),telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Lucio", sexo = "Masculino",
+            data_nascimento= Date(1970-1900,10,20),telemovel ="990257237",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
-        val teste = Teste(temperatura=39.0f, sintomas = "Febre", estado_saude = "Doente",data_teste= Date(2020-1900,10,20),
+        val teste = Teste(temperatura=39.0f, sintomas = "Febre",
+            estado_saude = "Doente",data_teste= Date(2020-1900,10,20),
             id_estrang_pessoas = pessoa.id,nomePessoa = pessoa.nome)
         teste.id = insereTeste(tabelaTeste, teste)
 
@@ -424,11 +430,12 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Beja")
+        val distrito = Distrito(nome_distrito = "Santarém")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa( nome = "Jose", sexo = "Masculino",data_nascimento= Date(2020-1900,10,20) ,telemovel ="990257814",
+        val pessoa = Pessoa( nome = "Pedro Cardoso", sexo = "Masculino",
+            data_nascimento= Date(1999-1900,10,20) ,telemovel ="990257814",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -453,11 +460,11 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Guarda")
+        val distrito = Distrito(nome_distrito = "Terras Novas")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "Castro", sexo="Masculino", data_nascimento= Date(2020-1900,10,20),telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Castro Gomes", sexo="Masculino", data_nascimento= Date(2004-1900,10,20),telemovel ="990257414",
             id_estrang_distrito=distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
@@ -488,10 +495,10 @@ class TesteBaseDados {
 
         val tabelaDistritos = TabelaDistritos(db)
 
-        val distritoAtual = Distrito(nome_distrito = "Guarda")
+        val distritoAtual = Distrito(nome_distrito = "Abrantes")
         distritoAtual.id = insereDistrito(tabelaDistritos, distritoAtual)
 
-        val distritoNovo = Distrito(nome_distrito = "Almada")
+        val distritoNovo = Distrito(nome_distrito = "Braga")
         distritoNovo.id = insereDistrito(tabelaDistritos, distritoNovo)
 
         val tabelaAlerta = TabelaAlertas(db)
@@ -552,16 +559,16 @@ class TesteBaseDados {
         val db = getBDCovidOpenHelper().writableDatabase
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Lisboa")
+        val distrito = Distrito(nome_distrito = "Tomar")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)
-        val pessoa = Pessoa(nome = "?", sexo = "?",data_nascimento= Date(2020-1900,10,20), telemovel ="990257414",
+        val pessoa = Pessoa(nome = "Celiza Silva", sexo = "Feminino",data_nascimento= Date(1994-1900,1,15), telemovel ="990257414",
             id_estrang_distrito = distrito.id, nomeDistrito = distrito.nome_distrito)
         pessoa.id = inserePesssoa(tabelaPessoas, pessoa)
 
         val tabelaTeste = TabelaTestes(db)
-        val teste = Teste(temperatura=29.0f, sintomas = "?", estado_saude = "?", data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoa.id)
+        val teste = Teste(temperatura=29.0f, sintomas = "Nenhum", estado_saude = "Bom", data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoa.id)
         teste.id = insereTeste(tabelaTeste, teste)
 
         val tabelaAlerta = TabelaAlertas(db)
@@ -570,7 +577,7 @@ class TesteBaseDados {
 
 
         val tabelaNotificacao = TabelaNotificacao(db)
-        val notificacao = Notificacao( resultado = "?", id_estrang_testes = teste.id, id_estrang_alertas = alerta.id)
+        val notificacao = Notificacao( resultado = "Negativo", id_estrang_testes = teste.id, id_estrang_alertas = alerta.id)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao )
 
         val registosEliminados = tabelaNotificacao.delete(
@@ -590,7 +597,7 @@ class TesteBaseDados {
 
 
         val tabelaDistritos = TabelaDistritos(db)
-        val distrito = Distrito(nome_distrito = "Lisboa")
+        val distrito = Distrito(nome_distrito = "Évora")
         distrito.id = insereDistrito(tabelaDistritos, distrito)
 
         val tabelaPessoas = TabelaPessoas(db)

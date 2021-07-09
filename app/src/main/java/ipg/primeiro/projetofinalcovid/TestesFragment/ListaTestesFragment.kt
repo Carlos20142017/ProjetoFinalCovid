@@ -56,7 +56,7 @@ class ListaTestesFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         findNavController().navigate(R.id.action_listaTestesFragment_to_novoTesteFragment)
     }
     fun navegaAlterarTeste(){
-     //   findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
+        findNavController().navigate(R.id.action_listaTestesFragment_to_editaTesteFragment)
     }
 
     fun navegaEliminarTeste(){

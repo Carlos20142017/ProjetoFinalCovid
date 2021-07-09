@@ -14,7 +14,7 @@
     <string name="eliminar_pessoa">Supprimer la personne</string>
     <string name="nome">Nom</string>
     <string name="sexo">Sexe</string>
-    <string name="data_de_nascimento">Date de naissance</string>
+    <string name="data_de_nascimento">Date de naissance (jj/mm/aaaa)</string>
     <string name="telemovel">Téléphone mobile</string>
     <string name="distrito">Quartier</string>
     <string name="guardar">Sauvegarder</string>
@@ -48,4 +48,17 @@
     <string name="erro_eliminar_distrito">Erreur lors de la suppression du district</string>
     <string name="distrito_eliminado_sucesso">District éliminé avec succès</string>
     <string name="Titulo_novo_teste">Nouveau test</string>
+    <string name="temperatura">Température</string>
+    <string name="sintomas">Symptômes</string>
+    <string name="estado_sa_de">État de santé</string>
+    <string name="data_do_teste_dd_mm_yyyy">Date du test (jj/mm/aaaa)</string>
+    <string name="nome_da_pessoa">Nom de la personne</string>
+    <string name="preencha_temperatura">Remplir la température</string>
+    <string name="preencha_sintoma">Remplissez les symptômes</string>
+    <string name="preencha_estado_saude">Remplir l\'état de santé</string>
+    <string name="preencha_data_teste">Renseigner la date du test</string>
+    <string name="erro_inserir_teste">Erreur lors de l\'insertion du test</string>
+    <string name="titulo_edita_teste">Modifier le test</string>
+    <string name="erro_alterar_teste">Erreur lors du changement de test</string>
+    <string name="teste_alterado_sucesso">Test modifié avec succès</string>
 </resources>
