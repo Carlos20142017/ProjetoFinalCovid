@@ -148,5 +148,11 @@ class MainActivity : AppCompatActivity() {
         menu.findItem(R.id.action_eliminar_teste).setVisible(mostraBotoesAlterarEliminar)
     }
 
+    fun atualizaMenuListaAlerta(mostraBotoesAlterarEliminar: Boolean) {
+
+        menu.findItem(R.id.action_alterar_alerta).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_alerta).setVisible(mostraBotoesAlterarEliminar)
+    }
+
 
 }

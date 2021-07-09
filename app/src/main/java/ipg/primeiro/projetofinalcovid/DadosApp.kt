@@ -1,6 +1,7 @@
 package ipg.primeiro.projetofinalcovid
 
 import androidx.fragment.app.Fragment
+import ipg.primeiro.projetofinalcovid.classedastabelas.Alerta
 import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
@@ -14,7 +15,8 @@ class DadosApp {
 
         var distritoSelecionado: Distrito? = null
 
-
        var testeSelecionado: Teste? = null
+
+        var alertaSelecionado: Alerta? = null
     }
 }
