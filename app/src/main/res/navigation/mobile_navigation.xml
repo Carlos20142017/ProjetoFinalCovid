@@ -44,7 +44,8 @@
     <fragment
         android:id="@+id/eliminaPessoaFragment"
         android:name="ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EliminaPessoaFragment"
-        tools:layout="@layout/fragment_elimina_pessoa" >
+        android:label="@string/eliminar_pessoa"
+        tools:layout="@layout/fragment_elimina_pessoa">
         <action
             android:id="@+id/action_eliminaPessoaFragment_to_listaPessoaFragment"
             app:destination="@id/listaPessoaFragment" />
@@ -126,9 +127,9 @@
     </fragment>
     <fragment
         android:id="@+id/eliminaTesteFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EliminaTesteFragment"
-        android:label="fragment_elimina_teste"
-        tools:layout="@layout/fragment_elimina_teste" >
+        android:name="ipg.primeiro.projetofinalcovid.TestesFragment.EliminaTesteFragment"
+        android:label="@string/titulo_elimina_teste"
+        tools:layout="@layout/fragment_elimina_teste">
         <action
             android:id="@+id/action_eliminaTesteFragment_to_listaTestesFragment"
             app:destination="@id/listaTestesFragment" />

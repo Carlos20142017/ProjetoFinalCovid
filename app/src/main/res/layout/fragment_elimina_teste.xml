@@ -70,7 +70,7 @@
         android:textColor="@color/cor_destaque" />
 
     <TextView
-        android:id="@+id/textViewDataNascimento"
+        android:id="@+id/textViewEstadoSaude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_ecran"
@@ -95,7 +95,7 @@
         android:textColor="@color/cor_destaque" />
 
     <TextView
-        android:id="@+id/textViewTelemovel"
+        android:id="@+id/textViewDataTeste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_ecran"
@@ -120,7 +120,7 @@
         android:textColor="@color/cor_destaque" />
 
     <TextView
-        android:id="@+id/textViewDistrito"
+        android:id="@+id/textViewNomePessoa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_ecran"

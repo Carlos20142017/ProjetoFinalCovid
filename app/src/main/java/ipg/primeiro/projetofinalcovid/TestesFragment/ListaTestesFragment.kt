@@ -60,7 +60,7 @@ class ListaTestesFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     }
 
     fun navegaEliminarTeste(){
-      //  findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
+        findNavController().navigate(R.id.action_listaTestesFragment_to_eliminaTesteFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{

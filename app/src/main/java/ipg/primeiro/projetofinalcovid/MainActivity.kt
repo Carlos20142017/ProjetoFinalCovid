@@ -18,6 +18,7 @@ import ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.EditaTesteFragment
+import ipg.primeiro.projetofinalcovid.TestesFragment.EliminaTesteFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.NovoTesteFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
@@ -111,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_lista_testes -> (DadosApp.fragment as ListaTestesFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_teste -> (DadosApp.fragment as NovoTesteFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_teste -> (DadosApp.fragment as EditaTesteFragment).processaOpcaoMenu(item)
+                R.menu.menu_elimina_teste -> (DadosApp.fragment as EliminaTesteFragment).processaOpcaoMenu(item)
 
 
                else -> false
