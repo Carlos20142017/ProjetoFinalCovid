@@ -20,5 +20,10 @@
             android:id="@+id/listaTestesFragment"
             android:icon="@drawable/ic_baseline_clean_hands_24"
             android:title="@string/titulo_testes" />
+
+        <item
+            android:id="@+id/listaAlertaFragment"
+            android:icon="@drawable/ic_baseline_clean_hands_24"
+            android:title="@string/alerta" />
 </group>
 </menu>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewNomeAlerta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_campos"
+        android:layout_marginLeft="@dimen/margin_campos"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:layout_marginEnd="@dimen/margin_campos"
+        android:layout_marginRight="@dimen/margin_campos"
+        android:text="Verde"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_campos"
+        android:text="Não Infectado"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/textViewNomeAlerta"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomeAlerta" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

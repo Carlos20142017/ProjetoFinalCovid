@@ -134,5 +134,10 @@
             android:id="@+id/action_eliminaTesteFragment_to_listaTestesFragment"
             app:destination="@id/listaTestesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listaAlertaFragment2"
+        android:name="ipg.primeiro.projetofinalcovid.ListaAlertaFragment"
+        android:label="@string/titulo_lista_alerta"
+        tools:layout="@layout/fragment_lista_alerta" />
 
 </navigation>

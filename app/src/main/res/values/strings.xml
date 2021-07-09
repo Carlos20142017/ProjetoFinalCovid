@@ -76,11 +76,12 @@
     <string name="erro_inserir_teste">Error inserting test</string>
     <string name="erro_alterar_teste">Error changing test</string>
     <string name="teste_alterado_sucesso">Test successfully changed</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titulo_elimina_teste">Eliminar Teste?</string>
+
+    <string name="titulo_elimina_teste">Eliminar Teste</string>
     <string name="erro_eliminar_teste">Erro ao eliminar teste</string>
     <string name="teste_eliminado_sucesso">Teste eliminado com sucesso</string>
+    <string name="alerta">Alerta</string>
+    <string name="titulo_lista_alerta" >Alertas</string>
 
 
 </resources>
