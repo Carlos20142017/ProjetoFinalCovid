@@ -84,6 +84,9 @@
         <action
             android:id="@+id/action_listaTestesFragment_to_editaTesteFragment"
             app:destination="@id/editaTesteFragment" />
+        <action
+            android:id="@+id/action_listaTestesFragment_to_eliminaTesteFragment"
+            app:destination="@id/eliminaTesteFragment" />
     </fragment>
     <fragment
         android:id="@+id/editaDistritoFragment"
@@ -119,6 +122,15 @@
         tools:layout="@layout/fragment_edita_teste">
         <action
             android:id="@+id/action_editaTesteFragment_to_listaTestesFragment"
+            app:destination="@id/listaTestesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaTesteFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EliminaTesteFragment"
+        android:label="fragment_elimina_teste"
+        tools:layout="@layout/fragment_elimina_teste" >
+        <action
+            android:id="@+id/action_eliminaTesteFragment_to_listaTestesFragment"
             app:destination="@id/listaTestesFragment" />
     </fragment>
 
