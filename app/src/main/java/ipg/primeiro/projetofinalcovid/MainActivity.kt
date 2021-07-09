@@ -17,6 +17,7 @@ import ipg.primeiro.projetofinalcovid.DistritoFragment.EditaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment
+import ipg.primeiro.projetofinalcovid.TestesFragment.EditaTesteFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.NovoTesteFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment

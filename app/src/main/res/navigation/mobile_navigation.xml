@@ -114,7 +114,7 @@
     </fragment>
     <fragment
         android:id="@+id/editaTesteFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EditaTesteFragment"
+        android:name="ipg.primeiro.projetofinalcovid.TestesFragment.EditaTesteFragment"
         android:label="@string/titulo_edita_teste"
         tools:layout="@layout/fragment_edita_teste">
         <action
