@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.basedados.TabelaAlertas
@@ -68,10 +69,10 @@ class ListaAlertaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
 
     fun navegaNovoAlerta(){
-       // findNavController().navigate(R.id.action_listaDistritoFragment_to_novoDistritoFragment)
+        findNavController().navigate(R.id.action_listaAlertaFragment_to_novoAlertaFragment)
     }
     fun navegaAlterarAlerta(){
-      //  findNavController().navigate(R.id.action_listaDistritoFragment_to_editaDistritoFragment)
+      // findNavController().navigate(R.id.action_listaDistritoFragment_to_editaDistritoFragment)
     }
 
     fun navegaEliminarAlerta(){

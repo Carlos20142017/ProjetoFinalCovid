@@ -106,11 +106,11 @@ class NovoDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> 
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+       // TODO("Not yet implemented")
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+      //  TODO("Not yet implemented")
     }
 
 
