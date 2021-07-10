@@ -72,7 +72,7 @@ class ListaAlertaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         findNavController().navigate(R.id.action_listaAlertaFragment_to_novoAlertaFragment)
     }
     fun navegaAlterarAlerta(){
-      // findNavController().navigate(R.id.action_listaDistritoFragment_to_editaDistritoFragment)
+       findNavController().navigate(R.id.action_listaAlertaFragment_to_editaAlertaFragment)
     }
 
     fun navegaEliminarAlerta(){

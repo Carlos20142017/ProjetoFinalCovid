@@ -50,9 +50,6 @@ class EditaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
 
         editTextNomeDistrito = view.findViewById(R.id.editTextNomeDistritoAltera)
 
-
-
-
         editTextNomeDistrito.setText(DadosApp.distritoSelecionado!!.nome_distrito)
     }
 

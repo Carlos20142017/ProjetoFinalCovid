@@ -1,59 +1,139 @@
 package ipg.primeiro.projetofinalcovid
 
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
+import ipg.primeiro.projetofinalcovid.basedados.TabelaAlertas
+import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
  * Use the [EditaAlertaFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EditaAlertaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class EditaAlertaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private lateinit var editTextNomeAlerta: EditText
+    private lateinit var editTextDescricao: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_edita_alerta
         return inflater.inflate(R.layout.fragment_edita_alerta, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EditaAlertaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EditaAlertaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        editTextNomeAlerta = view.findViewById(R.id.editTextNomeAlerta)
+        editTextDescricao = view.findViewById(R.id.editTextDescricao)
+
+        editTextNomeAlerta.setText(DadosApp.alertaSelecionado!!.nome_alerta)
+        editTextDescricao.setText(DadosApp.alertaSelecionado!!.descricao)
     }
+
+    fun navegaListaAlerta(){
+        findNavController().navigate(R.id.action_editaAlertaFragment_to_listaAlertaFragment)
+    }
+
+    fun guardar(){
+
+        val nomeAlerta = editTextNomeAlerta.text.toString()
+        if(nomeAlerta.isEmpty()){
+            editTextNomeAlerta.setError(getString(R.string.preencha_campo_alerta))
+            editTextNomeAlerta.requestFocus()
+            return
+        }
+
+        val descricao = editTextDescricao.text.toString()
+        if(descricao.isEmpty()){
+            editTextDescricao.setError(getString(R.string.preencha_campo_descricao))
+            editTextDescricao.requestFocus()
+            return
+        }
+
+
+        val alerta = DadosApp.alertaSelecionado!!
+
+        alerta.nome_alerta = nomeAlerta
+        alerta.descricao = descricao
+
+        val uriAlerta = Uri.withAppendedPath(
+            ContentProviderPessoas.ENDERECO_ALERTA,
+            alerta.id.toString()
+        )
+
+        val registos = activity?.contentResolver?.update(
+            uriAlerta,
+            alerta.toContentValues(),
+            null,
+            null
+        )
+        if(registos != 1){
+            Toast.makeText(
+                requireContext(),
+                R.string.erro_alterar_alerta,
+                Toast.LENGTH_LONG
+            ).show()
+
+            return
+        }
+
+        Toast.makeText(
+            requireContext(),
+            R.string.alerta_alterado_sucesso,
+            Toast.LENGTH_LONG
+        ).show()
+
+        navegaListaAlerta()
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean{
+        when(item.itemId){
+            R.id.action_guardar_edita_alerta -> guardar()
+            R.id.action_cancelar_edita_alerta -> navegaListaAlerta()
+
+            else -> return false
+        }
+        return true
+    }
+
+
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+        return CursorLoader(
+            requireContext(),
+            ContentProviderPessoas.ENDERECO_ALERTA,
+            TabelaAlertas.TODAS_COLUNAS,
+            null, null,
+            TabelaAlertas.CAMPO_NOME_ALERTA
+
+        )
+    }
+
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        // TODO("Not yet implemented")
+    }
+
+    override fun onLoaderReset(loader: Loader<Cursor>) {
+        // TODO("Not yet implemented")
+    }
+
+
 }

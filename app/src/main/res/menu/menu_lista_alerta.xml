@@ -4,17 +4,17 @@
     <item
         android:id="@+id/action_novo_alerta"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="Novo Alerta"
+        android:title="@string/novo_alerta"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_alterar_alerta"
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="Alterar Alerta"
+        android:title="@string/alterar_alerta"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_eliminar_alerta"
         android:icon="@android:drawable/ic_menu_delete"
-        android:title="Eliminar Alerta"
+        android:title="@string/eliminar_alerta"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"

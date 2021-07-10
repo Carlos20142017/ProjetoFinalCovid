@@ -121,6 +121,7 @@ class MainActivity : AppCompatActivity() {
                 //Alerta
                 R.menu.menu_lista_alerta -> (DadosApp.fragment as ListaAlertaFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_alerta -> (DadosApp.fragment as NovoAlertaFragment).processaOpcaoMenu(item)
+                R.menu.menu_edita_alerta -> (DadosApp.fragment as EditaAlertaFragment).processaOpcaoMenu(item)
 
 
 
