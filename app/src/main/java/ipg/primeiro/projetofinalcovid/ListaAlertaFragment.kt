@@ -76,7 +76,7 @@ class ListaAlertaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     }
 
     fun navegaEliminarAlerta(){
-      //  findNavController().navigate(R.id.action_listaDistritoFragment_to_eliminaDistritoFragment)
+        findNavController().navigate(R.id.action_listaAlertaFragment_to_eliminaAlertaFragment)
     }
 
 
