@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.AlertaFragment
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +10,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
 
 
 /**

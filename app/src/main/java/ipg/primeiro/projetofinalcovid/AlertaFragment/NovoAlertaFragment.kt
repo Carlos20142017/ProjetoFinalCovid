@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.AlertaFragment
 
 import android.database.Cursor
 import android.os.Bundle
@@ -8,16 +8,17 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.SimpleCursorAdapter
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaAlertas
-import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.classedastabelas.Alerta
-import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.NovaPessoaFragment
 import java.util.*
 

@@ -1,12 +1,13 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.AlertaFragment
 
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.classedastabelas.Alerta
-import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
 
 class AdapterAlertas  (val fragment: ListaAlertaFragment): RecyclerView.Adapter<AdapterAlertas.ViewHolderAlertas>() {
 

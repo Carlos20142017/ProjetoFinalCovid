@@ -136,7 +136,7 @@
     </fragment>
     <fragment
         android:id="@+id/listaAlertaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.ListaAlertaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.AlertaFragment.ListaAlertaFragment"
         android:label="@string/titulo_lista_alerta"
         tools:layout="@layout/fragment_lista_alerta" >
         <action
@@ -151,7 +151,7 @@
     </fragment>
     <fragment
         android:id="@+id/novoAlertaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.NovoAlertaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.AlertaFragment.NovoAlertaFragment"
         android:label="@string/titutlo_novo_alerta"
         tools:layout="@layout/fragment_novo_alerta">
         <action
@@ -160,7 +160,7 @@
     </fragment>
     <fragment
         android:id="@+id/editaAlertaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EditaAlertaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.AlertaFragment.EditaAlertaFragment"
         android:label="@string/titulo_edita_alerta"
         tools:layout="@layout/fragment_edita_alerta">
         <action
@@ -169,9 +169,9 @@
     </fragment>
     <fragment
         android:id="@+id/eliminaAlertaFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EliminaAlertaFragment"
-        android:label="fragment_elimina_alerta"
-        tools:layout="@layout/fragment_elimina_alerta" >
+        android:name="ipg.primeiro.projetofinalcovid.AlertaFragment.EliminaAlertaFragment"
+        android:label="@string/titulo_elimina_alerta"
+        tools:layout="@layout/fragment_elimina_alerta">
         <action
             android:id="@+id/action_eliminaAlertaFragment_to_listaAlertaFragment"
             app:destination="@id/listaAlertaFragment" />

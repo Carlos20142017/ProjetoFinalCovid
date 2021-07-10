@@ -99,6 +99,7 @@
     <string name="novo_alerta">Novo Alerta</string>
     <string name="erro_eliminar_alerta">Erro ao eliminar alerta</string>
     <string name="alerta_eliminado_sucesso">Alerta Eliminado com sucesso</string>
+    <string name="titulo_elimina_alerta">Eliminar Alerta</string>
 
 
 </resources>

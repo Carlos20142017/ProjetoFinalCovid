@@ -13,6 +13,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import ipg.primeiro.projetofinalcovid.AlertaFragment.EditaAlertaFragment
+import ipg.primeiro.projetofinalcovid.AlertaFragment.EliminaAlertaFragment
+import ipg.primeiro.projetofinalcovid.AlertaFragment.ListaAlertaFragment
+import ipg.primeiro.projetofinalcovid.AlertaFragment.NovoAlertaFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.EditaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment

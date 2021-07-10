@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.AlertaFragment
 
 import android.database.Cursor
 import android.os.Bundle
@@ -13,6 +13,10 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaAlertas
 
 
