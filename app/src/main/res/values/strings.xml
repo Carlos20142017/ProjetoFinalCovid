@@ -89,6 +89,9 @@
     <string name="preencha_campo_alerta">Preencha campo alerta</string>
     <string name="erro_inserir_alerta">Erro ao inserir alerta</string>
     <string name="preencha_campo_descricao">Preencha o campo descrição</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titulo_edita_alerta">Editar Alerta</string>
 
 
 </resources>

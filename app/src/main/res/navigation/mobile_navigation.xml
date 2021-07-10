@@ -142,6 +142,9 @@
         <action
             android:id="@+id/action_listaAlertaFragment_to_novoAlertaFragment"
             app:destination="@id/novoAlertaFragment" />
+        <action
+            android:id="@+id/action_listaAlertaFragment_to_editaAlertaFragment"
+            app:destination="@id/editaAlertaFragment" />
     </fragment>
     <fragment
         android:id="@+id/novoAlertaFragment"
@@ -150,6 +153,15 @@
         tools:layout="@layout/fragment_novo_alerta">
         <action
             android:id="@+id/action_novoAlertaFragment_to_listaAlertaFragment"
+            app:destination="@id/listaAlertaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaAlertaFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EditaAlertaFragment"
+        android:label="@string/titulo_edita_alerta"
+        tools:layout="@layout/fragment_edita_alerta">
+        <action
+            android:id="@+id/action_editaAlertaFragment_to_listaAlertaFragment"
             app:destination="@id/listaAlertaFragment" />
     </fragment>
 
