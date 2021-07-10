@@ -135,7 +135,7 @@
             app:destination="@id/listaTestesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/listaAlertaFragment2"
+        android:id="@+id/listaAlertaFragment"
         android:name="ipg.primeiro.projetofinalcovid.ListaAlertaFragment"
         android:label="@string/titulo_lista_alerta"
         tools:layout="@layout/fragment_lista_alerta" />

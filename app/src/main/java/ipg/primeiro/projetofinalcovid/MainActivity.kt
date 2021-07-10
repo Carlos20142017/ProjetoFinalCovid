@@ -55,7 +55,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.listaPessoaFragment,
                 R.id.listaDistritoFragment,
-                R.id.listaTestesFragment
+                R.id.listaTestesFragment,
+                R.id.listaAlertaFragment
 
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -80,6 +81,9 @@ class MainActivity : AppCompatActivity() {
         }
         if(menuAtual == R.menu.menu_lista_testes){
             atualizaMenuListaTeste(false)
+        }
+        if(menuAtual == R.menu.menu_lista_alerta){
+            atualizaMenuListaAlerta(false)
         }
 
         return true
@@ -113,6 +117,10 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_novo_teste -> (DadosApp.fragment as NovoTesteFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_teste -> (DadosApp.fragment as EditaTesteFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_teste -> (DadosApp.fragment as EliminaTesteFragment).processaOpcaoMenu(item)
+
+                //Alerta
+                R.menu.menu_lista_alerta -> (DadosApp.fragment as ListaAlertaFragment).processaOpcaoMenu(item)
+
 
 
                else -> false
