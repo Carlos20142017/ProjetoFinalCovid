@@ -1,10 +1,7 @@
 package ipg.primeiro.projetofinalcovid
 
 import androidx.fragment.app.Fragment
-import ipg.primeiro.projetofinalcovid.classedastabelas.Alerta
-import ipg.primeiro.projetofinalcovid.classedastabelas.Distrito
-import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
-import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
+import ipg.primeiro.projetofinalcovid.classedastabelas.*
 
 class DadosApp {
     companion object{
@@ -18,5 +15,7 @@ class DadosApp {
        var testeSelecionado: Teste? = null
 
         var alertaSelecionado: Alerta? = null
+
+        var notificacaoSelecionado: Notificacao? = null
     }
 }

@@ -89,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         if(menuAtual == R.menu.menu_lista_alerta){
             atualizaMenuListaAlerta(false)
         }
+        if(menuAtual == R.menu.menu_lista_notificacao){
+            atualizaMenuListaNotificacao(false)
+        }
 
         return true
     }
@@ -168,6 +171,12 @@ class MainActivity : AppCompatActivity() {
 
         menu.findItem(R.id.action_alterar_alerta).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_alerta).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaNotificacao(mostraBotoesAlterarEliminar: Boolean) {
+
+        menu.findItem(R.id.action_alterar_notificacao).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_notificacao).setVisible(mostraBotoesAlterarEliminar)
     }
 
 

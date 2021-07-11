@@ -102,6 +102,7 @@
     <string name="titulo_elimina_alerta">Eliminar Alerta</string>
     <string name="negativo">Negativo</string>
     <string name="verde">Verde</string>
+    <string name="titulo_lista_notificacao">Notificação</string>
 
 
 </resources>
