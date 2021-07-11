@@ -47,7 +47,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
             if (columns[i] == CAMPO_EXTERNO_NOME_ALERTA) {
                 posColNomeAlerta = i
                 //break
-            }else if (columns[i] == CAMPO_EXTERNO_TEMPERATURA) {
+            }else if (columns[i] == CAMPO_EXTERNO_NOMEPESSOA) {
                 posColTemperatura = i
                 //break
             }
@@ -74,7 +74,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
             colunas += if(i == posColNomeAlerta) {
                 "${TabelaAlertas.NOME_TABELA}.${TabelaAlertas.CAMPO_NOME_ALERTA} AS ${CAMPO_EXTERNO_NOME_ALERTA}"
             }else if(i == posColTemperatura) {
-                "${TabelaTestes.NOME_TABELA}.${TabelaTestes.CAMPO_TEMPERATURA} AS ${CAMPO_EXTERNO_TEMPERATURA}"
+                "${TabelaTestes.NOME_TABELA}.${TabelaTestes.CAMPO_EXTERNO_NOME_Pessoas} AS ${CAMPO_EXTERNO_NOMEPESSOA}"
             }
             else{
                 "${NOME_TABELA}.${columns[i]}"
@@ -112,7 +112,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
         const val CAMPO_ID_ESTRANG_TESTES ="id_testes"
         const val CAMPO_ID_ESTRANG_ALERTAS ="id_alertas"
 
-        const val CAMPO_EXTERNO_TEMPERATURA = "nome_temperatura"
+        const val CAMPO_EXTERNO_NOMEPESSOA = "nome_externoPessoa"
         const val CAMPO_EXTERNO_NOME_ALERTA = "nome_externo_alerta"
 
         val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
@@ -120,7 +120,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
             CAMPO_ID_ESTRANG_TESTES,
             CAMPO_ID_ESTRANG_ALERTAS,
             CAMPO_EXTERNO_NOME_ALERTA,
-            CAMPO_EXTERNO_TEMPERATURA
+            CAMPO_EXTERNO_NOMEPESSOA
         )
     }
 }

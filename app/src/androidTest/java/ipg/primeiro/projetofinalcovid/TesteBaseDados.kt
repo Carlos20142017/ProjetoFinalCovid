@@ -481,7 +481,7 @@ class TesteBaseDados {
 
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Positivo", id_estrang_testes= teste.id,
-            id_estrang_alertas = alerta.id,nomeAlerta = alerta.nome_alerta, temperaturaExterna = teste.temperatura)
+            id_estrang_alertas = alerta.id,nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.nomePessoa)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
@@ -523,7 +523,8 @@ class TesteBaseDados {
 
         val tabelaTestes = TabelaTestes(db)
         val testeAtual = Teste(temperatura = 30.0f, sintomas = "Nenhum", estado_saude = "Bom",
-            data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoaAtual.id, nomePessoa = pessoaAtual.nome)
+            data_teste= Date(2020-1900,10,20),id_estrang_pessoas = pessoaAtual.id,
+            nomePessoa = pessoaAtual.nome)
            testeAtual.id = insereTeste(tabelaTestes, testeAtual)
 
         val testeNovo = Teste(temperatura = 50.0f, sintomas = "Tosse", estado_saude = "Doente",
@@ -535,14 +536,14 @@ class TesteBaseDados {
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Negativo",id_estrang_testes = testeNovo.id,
             id_estrang_alertas = alertaAtual.id, nomeAlerta = alertaAtual.nome_alerta,
-            temperaturaExterna = testeAtual.temperatura)
+            nomeExternoPessoa = testeAtual.nomePessoa)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
 
         notificacao.resultado="Positivo"
         notificacao.id_estrang_testes=testeNovo.id
         notificacao.nomeAlerta = alertaNovo.nome_alerta
-        notificacao.temperaturaExterna = testeNovo.temperatura
+        notificacao.nomeExternoPessoa = testeNovo.nomePessoa
 
         val registosAlterados = tabelaNotificacao.update(
             notificacao.toContentValues(),
@@ -582,7 +583,7 @@ class TesteBaseDados {
 
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Negativo", id_estrang_testes = teste.id,
-            id_estrang_alertas = alerta.id, nomeAlerta = alerta.nome_alerta, temperaturaExterna = teste.temperatura)
+            id_estrang_alertas = alerta.id, nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.nomePessoa)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao )
 
         val registosEliminados = tabelaNotificacao.delete(
@@ -621,7 +622,7 @@ class TesteBaseDados {
 
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Negativo" ,id_estrang_testes = teste.id,
-            id_estrang_alertas = alerta.id, nomeAlerta = alerta.nome_alerta, temperaturaExterna = teste.temperatura)
+            id_estrang_alertas = alerta.id, nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.nomePessoa)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))

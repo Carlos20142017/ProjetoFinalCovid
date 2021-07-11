@@ -3,13 +3,10 @@ package ipg.primeiro.projetofinalcovid.classedastabelas
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
-import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.basedados.TabelaNotificacao
-import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
-import ipg.primeiro.projetofinalcovid.basedados.TabelaTestes
 
 data class Notificacao (var id: Long = -1, var resultado: String, var id_estrang_testes: Long,
-                        var id_estrang_alertas: Long, var nomeAlerta: String? = null, var temperaturaExterna: Float? = null) {
+                        var id_estrang_alertas: Long, var nomeAlerta: String? = null, var nomeExternoPessoa: String? = null) {
     fun toContentValues(): ContentValues {
         val valores= ContentValues().apply {
             put(TabelaNotificacao.CAMPO_RESULTADO, resultado)
@@ -27,16 +24,16 @@ data class Notificacao (var id: Long = -1, var resultado: String, var id_estrang
             val colIdTeste = cursor.getColumnIndex(TabelaNotificacao.CAMPO_ID_ESTRANG_TESTES)
             val colIdAlerta = cursor.getColumnIndex(TabelaNotificacao.CAMPO_ID_ESTRANG_ALERTAS)
             val colNomeAlerta = cursor.getColumnIndex(TabelaNotificacao.CAMPO_EXTERNO_NOME_ALERTA)
-            val colTemperaturaExterna = cursor.getColumnIndex(TabelaNotificacao.CAMPO_EXTERNO_TEMPERATURA)
+            val colNomeExterno = cursor.getColumnIndex(TabelaNotificacao.CAMPO_EXTERNO_NOMEPESSOA)
 
             val id = cursor.getLong(colId)
             val resultado = cursor.getString(colResultado)
             val idTeste = cursor.getLong(colIdTeste)
             val idAlerta = cursor.getLong(colIdAlerta)
             val nomeAlerta = if(colNomeAlerta != -1) cursor.getString(colNomeAlerta) else null
-            val temperaturaExterna = if(colTemperaturaExterna != -1) cursor.getFloat(colTemperaturaExterna) else null
+            val nomeExternoPessoa = if(colNomeExterno != -1) cursor.getString(colNomeExterno) else null
 
-            return Notificacao(id,resultado, idTeste, idAlerta, nomeAlerta, temperaturaExterna)
+            return Notificacao(id,resultado, idTeste, idAlerta, nomeAlerta, nomeExternoPessoa)
         }
     }
 }
