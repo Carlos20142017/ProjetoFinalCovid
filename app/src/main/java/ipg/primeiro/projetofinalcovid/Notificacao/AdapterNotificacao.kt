@@ -1,10 +1,12 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.Notificacao
 
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.classedastabelas.Notificacao
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import java.util.*
@@ -27,11 +29,14 @@ class AdapterNotificacao (val fragment: ListaNotificacaoFragment): RecyclerView.
 
         private lateinit var notificacao : Notificacao
 
+        lateinit var pessoa: Pessoa
+
         init{
             itemView.setOnClickListener(this)
         }
 
         fun atualizaNotificacao(notificacao: Notificacao) {
+
 
             this.notificacao = notificacao
 
@@ -40,6 +45,10 @@ class AdapterNotificacao (val fragment: ListaNotificacaoFragment): RecyclerView.
             textViewResultado.text = notificacao.resultado
             textViewNomeAlerta.text = notificacao.nomeAlerta
             textViewNomePessoa.text = notificacao.nomeExternoPessoa
+        }
+        fun atualizaPessoa(pessoa: Pessoa) {
+            this.pessoa = pessoa
+            textViewNomePessoa.text = pessoa.nome
         }
 
         /**
@@ -122,6 +131,7 @@ class AdapterNotificacao (val fragment: ListaNotificacaoFragment): RecyclerView.
     override fun onBindViewHolder(holder: ViewHolderNotificacao, position: Int) {
         cursor!!.moveToPosition(position)
         holder.atualizaNotificacao(Notificacao.fromCursor(cursor!!))
+//        holder.atualizaPessoa(Pessoa.fromCursor(cursor!!))
     }
 
     /**

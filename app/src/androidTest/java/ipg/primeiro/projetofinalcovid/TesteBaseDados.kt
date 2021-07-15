@@ -481,7 +481,7 @@ class TesteBaseDados {
 
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Positivo", id_estrang_testes= teste.id,
-            id_estrang_alertas = alerta.id,nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.nomePessoa)
+            id_estrang_alertas = alerta.id,nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.estado_saude)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
@@ -536,14 +536,15 @@ class TesteBaseDados {
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Negativo",id_estrang_testes = testeNovo.id,
             id_estrang_alertas = alertaAtual.id, nomeAlerta = alertaAtual.nome_alerta,
-            nomeExternoPessoa = testeAtual.nomePessoa)
+            nomeExternoPessoa = testeAtual.estado_saude)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
 
         notificacao.resultado="Positivo"
         notificacao.id_estrang_testes=testeNovo.id
+        notificacao.id_estrang_alertas = alertaNovo.id
         notificacao.nomeAlerta = alertaNovo.nome_alerta
-        notificacao.nomeExternoPessoa = testeNovo.nomePessoa
+        notificacao.nomeExternoPessoa = testeNovo.estado_saude
 
         val registosAlterados = tabelaNotificacao.update(
             notificacao.toContentValues(),
@@ -553,7 +554,7 @@ class TesteBaseDados {
 
         assertEquals(1, registosAlterados)
 
-     //   assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
+        assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))
 
         db.close()
     }
@@ -622,7 +623,7 @@ class TesteBaseDados {
 
         val tabelaNotificacao = TabelaNotificacao(db)
         val notificacao = Notificacao( resultado = "Negativo" ,id_estrang_testes = teste.id,
-            id_estrang_alertas = alerta.id, nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.nomePessoa)
+            id_estrang_alertas = alerta.id, nomeAlerta = alerta.nome_alerta, nomeExternoPessoa = teste.estado_saude)
         notificacao.id = insereNotificacao(tabelaNotificacao, notificacao)
 
         assertEquals(notificacao, getNotificacaoBaseDados(tabelaNotificacao, notificacao.id))

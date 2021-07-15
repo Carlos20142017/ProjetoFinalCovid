@@ -26,12 +26,14 @@ data class Notificacao (var id: Long = -1, var resultado: String, var id_estrang
             val colNomeAlerta = cursor.getColumnIndex(TabelaNotificacao.CAMPO_EXTERNO_NOME_ALERTA)
             val colNomeExterno = cursor.getColumnIndex(TabelaNotificacao.CAMPO_EXTERNO_NOMEPESSOA)
 
+
             val id = cursor.getLong(colId)
             val resultado = cursor.getString(colResultado)
             val idTeste = cursor.getLong(colIdTeste)
             val idAlerta = cursor.getLong(colIdAlerta)
             val nomeAlerta = if(colNomeAlerta != -1) cursor.getString(colNomeAlerta) else null
             val nomeExternoPessoa = if(colNomeExterno != -1) cursor.getString(colNomeExterno) else null
+
 
             return Notificacao(id,resultado, idTeste, idAlerta, nomeAlerta, nomeExternoPessoa)
         }

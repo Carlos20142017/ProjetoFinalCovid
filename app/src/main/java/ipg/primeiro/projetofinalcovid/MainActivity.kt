@@ -21,6 +21,7 @@ import ipg.primeiro.projetofinalcovid.DistritoFragment.EditaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.EliminaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.ListaDistritoFragment
 import ipg.primeiro.projetofinalcovid.DistritoFragment.NovoDistritoFragment
+import ipg.primeiro.projetofinalcovid.Notificacao.ListaNotificacaoFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.EditaTesteFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.EliminaTesteFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment
@@ -60,7 +61,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.listaPessoaFragment,
                 R.id.listaDistritoFragment,
                 R.id.listaTestesFragment,
-                R.id.listaAlertaFragment
+                R.id.listaAlertaFragment,
+                R.id.listaNotificacaoFragment
 
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -131,7 +133,8 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_edita_alerta -> (DadosApp.fragment as EditaAlertaFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_alerta -> (DadosApp.fragment as EliminaAlertaFragment).processaOpcaoMenu(item)
 
-
+                //Notificação
+                R.menu.menu_lista_notificacao -> (DadosApp.fragment as ListaNotificacaoFragment).processaOpcaoMenu(item)
 
 
                else -> false

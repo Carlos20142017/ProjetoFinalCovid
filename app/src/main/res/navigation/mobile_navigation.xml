@@ -178,7 +178,7 @@
     </fragment>
     <fragment
         android:id="@+id/listaNotificacaoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.ListaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.Notificacao.ListaNotificacaoFragment"
         android:label="@string/titulo_lista_notificacao"
         tools:layout="@layout/fragment_lista_notificacao" />
 

@@ -43,6 +43,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
         var posColNomeAlerta = -1 // - 1 indica que a coluna não foi pedido
         var posColTemperatura = -1
 
+
         for (i in 0..ultimaColuna) {
             if (columns[i] == CAMPO_EXTERNO_NOME_ALERTA) {
                 posColNomeAlerta = i
@@ -53,7 +54,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
             }
         }
 
-        if (posColNomeAlerta == -1 && posColTemperatura == -1) {
+        if (posColNomeAlerta == -1 && posColTemperatura == -1 ) {
 
             return db.query(
                 NOME_TABELA,
@@ -74,7 +75,7 @@ class TabelaNotificacao(db: SQLiteDatabase) {
             colunas += if(i == posColNomeAlerta) {
                 "${TabelaAlertas.NOME_TABELA}.${TabelaAlertas.CAMPO_NOME_ALERTA} AS ${CAMPO_EXTERNO_NOME_ALERTA}"
             }else if(i == posColTemperatura) {
-                "${TabelaTestes.NOME_TABELA}.${TabelaTestes.CAMPO_EXTERNO_NOME_Pessoas} AS ${CAMPO_EXTERNO_NOMEPESSOA}"
+                "${TabelaTestes.NOME_TABELA}.${TabelaTestes.CAMPO_EST_SAUDE} AS ${CAMPO_EXTERNO_NOMEPESSOA}"
             }
             else{
                 "${NOME_TABELA}.${columns[i]}"
@@ -115,12 +116,14 @@ class TabelaNotificacao(db: SQLiteDatabase) {
         const val CAMPO_EXTERNO_NOMEPESSOA = "nome_externoPessoa"
         const val CAMPO_EXTERNO_NOME_ALERTA = "nome_externo_alerta"
 
+
         val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
             CAMPO_RESULTADO,
             CAMPO_ID_ESTRANG_TESTES,
             CAMPO_ID_ESTRANG_ALERTAS,
             CAMPO_EXTERNO_NOME_ALERTA,
             CAMPO_EXTERNO_NOMEPESSOA
+
         )
     }
 }

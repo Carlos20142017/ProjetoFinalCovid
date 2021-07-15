@@ -25,5 +25,10 @@
             android:id="@+id/listaAlertaFragment"
             android:icon="@drawable/ic_baseline_access_alarm_24"
             android:title="@string/alerta" />
+
+        <item
+            android:id="@+id/listaNotificacaoFragment"
+            android:icon="@drawable/ic_baseline_notifications_24"
+            android:title="@string/notifica_o" />
 </group>
 </menu>
