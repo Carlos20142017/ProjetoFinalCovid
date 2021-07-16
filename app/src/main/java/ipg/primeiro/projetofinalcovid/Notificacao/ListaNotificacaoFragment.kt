@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
@@ -54,7 +55,7 @@ class ListaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
     }
 
     fun navegaNovaNotificacao(){
-     //   findNavController().navigate(R.id.action_ListaPessoaFragment_to_NovaPessoaFragment)
+        findNavController().navigate(R.id.action_listaNotificacaoFragment_to_novaNotificacaoFragment)
     }
     fun navegaAlterarNotificacao(){
      //   findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)

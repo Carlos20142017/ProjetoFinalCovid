@@ -180,6 +180,19 @@
         android:id="@+id/listaNotificacaoFragment"
         android:name="ipg.primeiro.projetofinalcovid.Notificacao.ListaNotificacaoFragment"
         android:label="@string/titulo_lista_notificacao"
-        tools:layout="@layout/fragment_lista_notificacao" />
+        tools:layout="@layout/fragment_lista_notificacao" >
+        <action
+            android:id="@+id/action_listaNotificacaoFragment_to_novaNotificacaoFragment"
+            app:destination="@id/novaNotificacaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NovaNotificacaoFragment"
+        android:label="fragment_nova_notificacao"
+        tools:layout="@layout/fragment_nova_notificacao" >
+        <action
+            android:id="@+id/action_novaNotificacaoFragment_to_listaNotificacaoFragment"
+            app:destination="@id/listaNotificacaoFragment" />
+    </fragment>
 
 </navigation>

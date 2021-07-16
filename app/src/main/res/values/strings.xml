@@ -104,6 +104,8 @@
     <string name="verde">Verde</string>
     <string name="titulo_lista_notificacao">Notificação</string>
     <string name="notifica_o">Notificação</string>
+    <string name="resultado">Resultado</string>
+    <string name="erro_inserir_notificacao">Erro ao inserir notificação</string>
 
 
 </resources>

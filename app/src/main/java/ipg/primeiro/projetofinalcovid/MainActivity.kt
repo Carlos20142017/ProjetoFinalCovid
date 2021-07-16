@@ -135,6 +135,7 @@ class MainActivity : AppCompatActivity() {
 
                 //Notificação
                 R.menu.menu_lista_notificacao -> (DadosApp.fragment as ListaNotificacaoFragment).processaOpcaoMenu(item)
+                R.menu.menu_nova_notificacao -> (DadosApp.fragment as NovaNotificacaoFragment).processaOpcaoMenu(item)
 
 
                else -> false
