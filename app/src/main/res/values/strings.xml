@@ -77,43 +77,41 @@
     <string name="erro_alterar_teste">Error changing test</string>
     <string name="teste_alterado_sucesso">Test successfully changed</string>
 
-    <string name="titulo_elimina_teste">Eliminar Teste</string>
-    <string name="erro_eliminar_teste">Erro ao eliminar teste</string>
-    <string name="teste_eliminado_sucesso">Teste eliminado com sucesso</string>
-    <string name="alerta">Alerta</string>
-    <string name="titulo_lista_alerta">Alertas</string>
-
-    <string name="titutlo_novo_alerta">Novo Alerta</string>
-    <string name="nome_do_alerta">Nome do Alerta</string>
-    <string name="descri_o">Descrição</string>
-    <string name="preencha_campo_alerta">Preencha campo alerta</string>
-    <string name="erro_inserir_alerta">Erro ao inserir alerta</string>
-    <string name="preencha_campo_descricao">Preencha o campo descrição</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titulo_edita_alerta">Editar Alerta</string>
-    <string name="erro_alterar_alerta">Erro ao alterar alerta</string>
-    <string name="alerta_alterado_sucesso">Alerta alterado com sucesso</string>
-    <string name="eliminar_alerta">Eliminar Alerta</string>
-    <string name="alterar_alerta">Alterar Alerta</string>
-    <string name="novo_alerta">Novo Alerta</string>
-    <string name="erro_eliminar_alerta">Erro ao eliminar alerta</string>
-    <string name="alerta_eliminado_sucesso">Alerta Eliminado com sucesso</string>
-    <string name="titulo_elimina_alerta">Eliminar Alerta</string>
+    <string name="negativo" translatable="false">Negativo</string>
+    <string name="verde" translatable="false">Verde</string>
+    <string name="notifica_o">Notification</string>
+    <string name="titulo_elimina_teste">Delete Test</string>
+    <string name="erro_eliminar_teste">Error deleting test</string>
+    <string name="teste_eliminado_sucesso">Test successfully eliminated</string>
+    <string name="alerta">Alert</string>
+    <string name="titulo_lista_alerta">Alerts</string>
+    <string name="titutlo_novo_alerta">New Alert</string>
+    <string name="nome_do_alerta">Alert Name</string>
+    <string name="descri_o">Description</string>
+    <string name="preencha_campo_alerta">Fill in the alert field</string>
+    <string name="erro_inserir_alerta">Error inserting alert</string>
+    <string name="preencha_campo_descricao">Fill in the description field</string>
+    <string name="titulo_edita_alerta">Edit Alert</string>
+    <string name="erro_alterar_alerta">Error changing alert</string>
+    <string name="alerta_alterado_sucesso">Alert changed successfully</string>
+    <string name="eliminar_alerta">Delete Alert</string>
+    <string name="alterar_alerta">Change Alert</string>
+    <string name="novo_alerta">New Alert</string>
+    <string name="erro_eliminar_alerta">Error deleting alert</string>
+    <string name="alerta_eliminado_sucesso">Alert Deleted Successfully</string>
+    <string name="titulo_elimina_alerta">Delete Alert</string>
     <string name="negativo">Negativo</string>
-    <string name="verde">Verde</string>
-    <string name="titulo_lista_notificacao">Notificação</string>
-    <string name="notifica_o">Notificação</string>
-    <string name="resultado">Resultado</string>
-    <string name="erro_inserir_notificacao">Erro ao inserir notificação</string>
-    <string name="titulo_edita_notificacao">Editar Notificação</string>
-    <string name="titulo_nova_notificacao">Nova Notificação</string>
-    <string name="preencha_campo_resultado">Preencha o campo resultado</string>
-    <string name="erro_alterar_notificacao">Erro ao alterar a notificação</string>
-    <string name="notificacao_alterada_sucesso">Notificação alterada com sucesso</string>
-    <string name="titulo_eliminar_notificacao">Eliminar Notificação</string>
-    <string name="erro_eliminar_notificacao">Erro ao eliminar notificação</string>
-    <string name="notificacao_eliminada_sucesso">Notificação eliminada com sucesso</string>
+    <string name="titulo_lista_notificacao">Notification</string>
+    <string name="resultado">Result</string>
+    <string name="erro_inserir_notificacao">Error inserting notification</string>
+    <string name="titulo_edita_notificacao">Edit Notification</string>
+    <string name="titulo_nova_notificacao">New Notification</string>
+    <string name="preencha_campo_resultado">Nouvelle notification</string>
+    <string name="erro_alterar_notificacao">Error changing notification</string>
+    <string name="notificacao_alterada_sucesso">Notification changed successfully</string>
+    <string name="titulo_eliminar_notificacao">Delete Notification</string>
+    <string name="erro_eliminar_notificacao">Delete Notification</string>
+    <string name="notificacao_eliminada_sucesso">Notification deleted successfully</string>
 
 
 </resources>
