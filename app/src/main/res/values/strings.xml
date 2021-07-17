@@ -108,6 +108,9 @@
     <string name="erro_inserir_notificacao">Erro ao inserir notificação</string>
     <string name="titulo_edita_notificacao">Editar Notificação</string>
     <string name="titulo_nova_notificacao">Nova Notificação</string>
+    <string name="preencha_campo_resultado">Preencha o campo resultado</string>
+    <string name="erro_alterar_notificacao">Erro ao alterar a notificação</string>
+    <string name="notificacao_alterada_sucesso">Notificação alterada com sucesso</string>
 
 
 </resources>

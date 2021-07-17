@@ -58,7 +58,7 @@ class ListaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
         findNavController().navigate(R.id.action_listaNotificacaoFragment_to_novaNotificacaoFragment)
     }
     fun navegaAlterarNotificacao(){
-     //   findNavController().navigate(R.id.action_listaPessoaFragment_to_editPessoaFragment)
+        findNavController().navigate(R.id.action_listaNotificacaoFragment_to_editaNotificacaoFragment)
     }
 
     fun navegaEliminarNotificacao(){
