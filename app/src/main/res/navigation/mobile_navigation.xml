@@ -187,6 +187,9 @@
         <action
             android:id="@+id/action_listaNotificacaoFragment_to_editaNotificacaoFragment"
             app:destination="@id/editaNotificacaoFragment" />
+        <action
+            android:id="@+id/action_listaNotificacaoFragment_to_eliminaNotificacaoFragment"
+            app:destination="@id/eliminaNotificacaoFragment" />
     </fragment>
     <fragment
         android:id="@+id/novaNotificacaoFragment"
@@ -204,6 +207,15 @@
         tools:layout="@layout/fragment_edita_notificacao">
         <action
             android:id="@+id/action_editaNotificacaoFragment_to_listaNotificacaoFragment"
+            app:destination="@id/listaNotificacaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EliminaNotificacaoFragment"
+        android:label="@string/titulo_eliminar_notificacao"
+        tools:layout="@layout/fragment_elimina_notificacao">
+        <action
+            android:id="@+id/action_eliminaNotificacaoFragment_to_listaNotificacaoFragment"
             app:destination="@id/listaNotificacaoFragment" />
     </fragment>
 
