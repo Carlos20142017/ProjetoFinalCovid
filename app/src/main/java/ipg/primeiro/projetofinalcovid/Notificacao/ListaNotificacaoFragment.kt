@@ -62,7 +62,7 @@ class ListaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
     }
 
     fun navegaEliminarNotificacao(){
-      //  findNavController().navigate(R.id.action_listaPessoaFragment_to_eliminaPessoaFragment)
+        findNavController().navigate(R.id.action_listaNotificacaoFragment_to_eliminaNotificacaoFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{

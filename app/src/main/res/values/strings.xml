@@ -112,6 +112,8 @@
     <string name="erro_alterar_notificacao">Erro ao alterar a notificação</string>
     <string name="notificacao_alterada_sucesso">Notificação alterada com sucesso</string>
     <string name="titulo_eliminar_notificacao">Eliminar Notificação</string>
+    <string name="erro_eliminar_notificacao">Erro ao eliminar notificação</string>
+    <string name="notificacao_eliminada_sucesso">Notificação eliminada com sucesso</string>
 
 
 </resources>

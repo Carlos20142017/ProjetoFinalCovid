@@ -137,6 +137,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_lista_notificacao -> (DadosApp.fragment as ListaNotificacaoFragment).processaOpcaoMenu(item)
                 R.menu.menu_nova_notificacao -> (DadosApp.fragment as NovaNotificacaoFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_notificacao -> (DadosApp.fragment as EditaNotificacaoFragment).processaOpcaoMenu(item)
+                R.menu.menu_elimina_notificacao -> (DadosApp.fragment as EliminaNotificacaoFragment).processaOpcaoMenu(item)
 
 
                else -> false
