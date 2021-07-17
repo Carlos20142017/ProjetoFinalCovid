@@ -178,7 +178,7 @@
     </fragment>
     <fragment
         android:id="@+id/listaNotificacaoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.Notificacao.ListaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NotificacaoFragment.ListaNotificacaoFragment"
         android:label="@string/titulo_lista_notificacao"
         tools:layout="@layout/fragment_lista_notificacao" >
         <action
@@ -193,7 +193,7 @@
     </fragment>
     <fragment
         android:id="@+id/novaNotificacaoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.NovaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NotificacaoFragment.NovaNotificacaoFragment"
         android:label="@string/titulo_nova_notificacao"
         tools:layout="@layout/fragment_nova_notificacao">
         <action
@@ -202,7 +202,7 @@
     </fragment>
     <fragment
         android:id="@+id/editaNotificacaoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EditaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NotificacaoFragment.EditaNotificacaoFragment"
         android:label="@string/titulo_edita_notificacao"
         tools:layout="@layout/fragment_edita_notificacao">
         <action
@@ -211,7 +211,7 @@
     </fragment>
     <fragment
         android:id="@+id/eliminaNotificacaoFragment"
-        android:name="ipg.primeiro.projetofinalcovid.EliminaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.NotificacaoFragment.EliminaNotificacaoFragment"
         android:label="@string/titulo_eliminar_notificacao"
         tools:layout="@layout/fragment_elimina_notificacao">
         <action

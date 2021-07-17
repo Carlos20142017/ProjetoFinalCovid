@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid
+package ipg.primeiro.projetofinalcovid.NotificacaoFragment
 
 import android.database.Cursor
 import android.os.Bundle
@@ -15,12 +15,13 @@ import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
+import ipg.primeiro.projetofinalcovid.DadosApp
+import ipg.primeiro.projetofinalcovid.MainActivity
+import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaAlertas
-import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
-import ipg.primeiro.projetofinalcovid.basedados.TabelaNotificacao
 import ipg.primeiro.projetofinalcovid.basedados.TabelaTestes
 import ipg.primeiro.projetofinalcovid.classedastabelas.Notificacao
-import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.NovaPessoaFragment
 import java.util.*
 
 
@@ -125,7 +126,7 @@ class NovaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curso
          else if(id== ID_LOADER_MANAGER_ESTADO_SAUDE){
               return CursorLoader(
                 requireContext(),
-                ContentProviderPessoas.ENDERECO_TESTE,
+                  ContentProviderPessoas.ENDERECO_TESTE,
                 TabelaTestes.TODAS_COLUNAS,
                 null, null,
                 TabelaTestes.CAMPO_EXTERNO_NOME_Pessoas

@@ -77,7 +77,7 @@
     <string name="erro_alterar_teste">Error changing test</string>
     <string name="teste_alterado_sucesso">Test successfully changed</string>
 
-    <string name="negativo" translatable="false">Negativo</string>
+
     <string name="verde" translatable="false">Verde</string>
     <string name="notifica_o">Notification</string>
     <string name="titulo_elimina_teste">Delete Test</string>
@@ -100,7 +100,7 @@
     <string name="erro_eliminar_alerta">Error deleting alert</string>
     <string name="alerta_eliminado_sucesso">Alert Deleted Successfully</string>
     <string name="titulo_elimina_alerta">Delete Alert</string>
-    <string name="negativo">Negativo</string>
+
     <string name="titulo_lista_notificacao">Notification</string>
     <string name="resultado">Result</string>
     <string name="erro_inserir_notificacao">Error inserting notification</string>

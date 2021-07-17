@@ -1,4 +1,4 @@
-package ipg.primeiro.projetofinalcovid.Notificacao
+package ipg.primeiro.projetofinalcovid.NotificacaoFragment
 
 import android.database.Cursor
 import android.os.Bundle
