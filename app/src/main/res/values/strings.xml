@@ -106,6 +106,8 @@
     <string name="notifica_o">Notificação</string>
     <string name="resultado">Resultado</string>
     <string name="erro_inserir_notificacao">Erro ao inserir notificação</string>
+    <string name="titulo_edita_notificacao">Editar Notificação</string>
+    <string name="titulo_nova_notificacao">Nova Notificação</string>
 
 
 </resources>

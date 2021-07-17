@@ -184,14 +184,26 @@
         <action
             android:id="@+id/action_listaNotificacaoFragment_to_novaNotificacaoFragment"
             app:destination="@id/novaNotificacaoFragment" />
+        <action
+            android:id="@+id/action_listaNotificacaoFragment_to_editaNotificacaoFragment"
+            app:destination="@id/editaNotificacaoFragment" />
     </fragment>
     <fragment
         android:id="@+id/novaNotificacaoFragment"
         android:name="ipg.primeiro.projetofinalcovid.NovaNotificacaoFragment"
-        android:label="fragment_nova_notificacao"
-        tools:layout="@layout/fragment_nova_notificacao" >
+        android:label="@string/titulo_nova_notificacao"
+        tools:layout="@layout/fragment_nova_notificacao">
         <action
             android:id="@+id/action_novaNotificacaoFragment_to_listaNotificacaoFragment"
+            app:destination="@id/listaNotificacaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaNotificacaoFragment"
+        android:name="ipg.primeiro.projetofinalcovid.EditaNotificacaoFragment"
+        android:label="@string/titulo_edita_notificacao"
+        tools:layout="@layout/fragment_edita_notificacao">
+        <action
+            android:id="@+id/action_editaNotificacaoFragment_to_listaNotificacaoFragment"
             app:destination="@id/listaNotificacaoFragment" />
     </fragment>
 
