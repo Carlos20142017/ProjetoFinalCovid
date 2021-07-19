@@ -114,28 +114,7 @@ class MainActivity : AppCompatActivity() {
             atualizaMenuListaNotificacao(false)
         }
 
-        if(menuAtual == R.menu.menu_pesquisar) {
 
- /*           val menuItem = menu!!.findItem(R.id.action_pesquisar_pessoas)
-            val searchView = menuItem.actionView as SearchView
-
-            searchView.maxWidth = Int.MAX_VALUE
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-
-                    adapterPesquisaPessoas!!.filter.filter(query)
-                    return true
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-
-                    adapterPesquisaPessoas!!.filter.filter(newText)
-                    return true
-                }
-
-            })*/
-
-        }
         return true
     }
 

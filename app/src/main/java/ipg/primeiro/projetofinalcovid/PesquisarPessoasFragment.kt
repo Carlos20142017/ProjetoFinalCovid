@@ -3,6 +3,8 @@ package ipg.primeiro.projetofinalcovid
 import android.database.Cursor
 import android.os.Bundle
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -11,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
+import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.AdapterPessoas
 
 
@@ -19,7 +22,8 @@ import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.AdapterPessoas
  * Use the [PesquisarPessoasFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PesquisarPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
+class PesquisarPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>,
+    SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
 
     private var adapterPesquisaPessoas : AdapterPesquisar? = null
 
@@ -142,6 +146,49 @@ class PesquisarPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
 
     companion object{
         const val ID_LOADER_MANAGER_PESSOAS = 0
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_pesquisar, menu)
+
+     var searchItem: MenuItem = menu.findItem(R.id.action_pesquisar_pessoas)
+      val searchView: SearchView = searchItem.getActionView() as SearchView
+        searchView.setOnQueryTextListener(this)
+
+
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+       return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+
+     if(newText == null){
+         return false
+     }
+
+
+        var itemPessoaListFilter = ArrayList<Pessoa>()
+
+
+        for( item in  itemPessoaListFilter){
+
+        }
+
+
+      return false
+    }
+
+    override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+        return true
+    }
+
+    override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+       return true
     }
 
 }

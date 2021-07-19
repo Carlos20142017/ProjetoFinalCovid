@@ -15,18 +15,9 @@ import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
 import java.util.*
 import kotlin.collections.ArrayList
 
-class AdapterPesquisar(val fragment: PesquisarPessoasFragment): RecyclerView.Adapter<AdapterPesquisar.ViewHolderPesquisaPessoas>(), Filterable {
+class AdapterPesquisar(val fragment: PesquisarPessoasFragment): RecyclerView.Adapter<AdapterPesquisar.ViewHolderPesquisaPessoas>() {
 
-  var itemPessoaList = ArrayList<Pessoa>()
-    var itemPessoaListFilter = ArrayList<Pessoa>()
-
-    fun setData(itemPessoaList: ArrayList<Pessoa>) {
-        this.itemPessoaList = itemPessoaList
-        this.itemPessoaListFilter = itemPessoaList
-        notifyDataSetChanged()
-    }
-
-
+ 
 
 
 
@@ -163,39 +154,5 @@ class AdapterPesquisar(val fragment: PesquisarPessoasFragment): RecyclerView.Ada
         return cursor?.count ?: 0
     }
 
-    override fun getFilter(): Filter {
 
-        return  object: Filter(){
-            override fun performFiltering(charSequence: CharSequence?): FilterResults {
-
-                val filterResults = FilterResults()
-                if (charSequence == null || charSequence.length < 0){
-                    filterResults.count = itemPessoaListFilter.size
-                    filterResults.values =  itemPessoaListFilter
-                }else{
-                    var searchView = charSequence.toString().toLowerCase()
-
-                    val itemPessoaList = ArrayList<Pessoa>()
-
-                    for (item in itemPessoaListFilter){
-                        if(item.nome.contains(searchView)){
-                            itemPessoaList.add(item)
-                        }
-
-                    }
-
-                    filterResults.count = itemPessoaList.size
-                    filterResults.values = itemPessoaList
-                }
-                return  filterResults
-            }
-
-            override fun publishResults(p0: CharSequence?, filterResults: FilterResults?) {
-
-                itemPessoaList = filterResults!!.values as ArrayList<Pessoa>
-                notifyDataSetChanged()
-            }
-
-        }
-    }
 }
