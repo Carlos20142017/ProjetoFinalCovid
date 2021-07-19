@@ -48,8 +48,12 @@ class PesquisarPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
 
 
 
-    fun processaOpcaoMenu(item: MenuItem): Boolean{
 
+    fun processaOpcaoMenu(item: MenuItem): Boolean{
+        when(item.itemId){
+
+            else -> return false
+        }
         return true
     }
 

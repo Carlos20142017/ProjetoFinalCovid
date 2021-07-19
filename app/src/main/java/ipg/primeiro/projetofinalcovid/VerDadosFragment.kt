@@ -36,7 +36,7 @@ class VerDadosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        DadosApp.fragment = this
+
         return inflater.inflate(R.layout.fragment_ver_dados, container, false)
     }
 
