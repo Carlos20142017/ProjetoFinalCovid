@@ -21,6 +21,7 @@ import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
 import ipg.primeiro.projetofinalcovid.basedados.TabelaDistritos
 import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
+import java.text.SimpleDateFormat
 import java.util.*
 
 class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
@@ -72,7 +73,7 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     fun guardar(){
 
         val nome = editTextNome.text.toString()
-        if(nome.isEmpty()){
+        if(nome.isEmpty() ||nome.length<3){
             editTextNome.setError(getString(R.string.preencha_nome))
             editTextNome.requestFocus()
             return
@@ -86,14 +87,14 @@ class NovaPessoaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         }
 
         val dataNascimento = editTextDataNascimento.text.toString()
-        if(dataNascimento == null){
+        if(dataNascimento == null || !dataNascimento.equals(SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()))){
             editTextDataNascimento.setError(getString(R.string.preencha_data_nascimento))
             editTextDataNascimento.requestFocus()
             return
         }
 
         val telemovel = editTextTelemovel.text.toString()
-        if(telemovel.isEmpty()){
+        if(telemovel.isEmpty() ||telemovel.toInt()<910000000){
             editTextTelemovel.setError(getString(R.string.preencha_contacto_telemovel))
             editTextTelemovel.requestFocus()
             return

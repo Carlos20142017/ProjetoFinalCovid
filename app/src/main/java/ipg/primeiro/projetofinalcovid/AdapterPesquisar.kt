@@ -17,7 +17,7 @@ import kotlin.collections.ArrayList
 
 class AdapterPesquisar(val fragment: PesquisarPessoasFragment): RecyclerView.Adapter<AdapterPesquisar.ViewHolderPesquisaPessoas>() {
 
- 
+
 
 
 

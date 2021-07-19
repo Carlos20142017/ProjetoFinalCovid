@@ -74,7 +74,7 @@ class EditaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
     fun guardar(){
 
         val resultado = editTextResultado.text.toString()
-        if(resultado.isEmpty()){
+        if(resultado.isEmpty()|| resultado.length<6){
             editTextResultado.setError(getString(R.string.preencha_campo_resultado))
             editTextResultado.requestFocus()
             return

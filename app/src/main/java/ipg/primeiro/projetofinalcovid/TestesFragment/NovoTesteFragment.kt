@@ -22,6 +22,7 @@ import ipg.primeiro.projetofinalcovid.R
 
 import ipg.primeiro.projetofinalcovid.basedados.TabelaPessoas
 import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -71,7 +72,7 @@ class NovoTesteFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>  {
     fun guardar(){
 
         val temperatura = editTextTemperatura.text.toString()
-        if(temperatura.isEmpty()){
+        if(temperatura.isEmpty() || temperatura.toFloat()<25){
             editTextTemperatura.setError(getString(R.string.preencha_temperatura))
             editTextTemperatura.requestFocus()
             return
@@ -85,7 +86,7 @@ class NovoTesteFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>  {
         }
 
         val dataTeste = editTextDataTeste.text.toString()
-        if(dataTeste == null){
+        if(dataTeste == null || !dataTeste.equals(SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()))){
             editTextDataTeste.setError(getString(R.string.preencha_data_teste))
             editTextDataTeste.requestFocus()
             return

@@ -59,14 +59,14 @@ class EditaAlertaFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     fun guardar(){
 
         val nomeAlerta = editTextNomeAlerta.text.toString()
-        if(nomeAlerta.isEmpty()){
+        if(nomeAlerta.isEmpty()|| nomeAlerta.length<5){
             editTextNomeAlerta.setError(getString(R.string.preencha_campo_alerta))
             editTextNomeAlerta.requestFocus()
             return
         }
 
         val descricao = editTextDescricao.text.toString()
-        if(descricao.isEmpty()){
+        if(descricao.isEmpty()|| descricao.length<5){
             editTextDescricao.setError(getString(R.string.preencha_campo_descricao))
             editTextDescricao.requestFocus()
             return

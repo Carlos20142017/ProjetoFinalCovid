@@ -66,7 +66,7 @@ class EditaDistritoFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor>
     fun guardar(){
 
         val nome = editTextNomeDistrito.text.toString()
-        if(nome.isEmpty()){
+        if(nome.isEmpty()|| nome.length<4){
             editTextNomeDistrito.setError(getString(R.string.preencha_nome))
             editTextNomeDistrito.requestFocus()
             return

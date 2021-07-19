@@ -75,7 +75,7 @@ class NovaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curso
     fun guardar(){
 
         val resultado = editTextResutado.text.toString()
-        if(resultado.isEmpty()){
+        if(resultado.isEmpty()|| resultado.length<6){
             editTextResutado.setError("Preencha o campo resultado")
             editTextResutado.requestFocus()
             return

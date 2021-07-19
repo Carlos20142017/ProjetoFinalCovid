@@ -79,7 +79,7 @@ class EditaTesteFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
     fun guardar(){
 
         val temperatura = editTextTemperatura.text.toString()
-        if(temperatura.isEmpty()){
+        if(temperatura.isEmpty()|| temperatura.toFloat()<25){
             editTextTemperatura.setError(getString(R.string.preencha_temperatura))
             editTextTemperatura.requestFocus()
             return
@@ -93,7 +93,7 @@ class EditaTesteFragment : Fragment(), LoaderManager.LoaderCallbacks <Cursor> {
         }
 
         val dataTeste = editTextDataTeste.text.toString()
-        if(dataTeste == null){
+        if(dataTeste == null || !dataTeste.equals(SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()))){
             editTextDataTeste.setError(getString(R.string.preencha_data_teste))
             editTextDataTeste.requestFocus()
             return
