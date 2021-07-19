@@ -93,4 +93,6 @@
     <string name="titulo_eliminar_notificacao">Supprimer la notification</string>
     <string name="erro_eliminar_notificacao">Supprimer la notification</string>
     <string name="notificacao_eliminada_sucesso">Notification supprimée avec succès</string>
+    <string name="titulo_pesquisar">Rechercher</string>
+    <string name="titulo_dados_completo">Données Complètes</string>
 </resources>

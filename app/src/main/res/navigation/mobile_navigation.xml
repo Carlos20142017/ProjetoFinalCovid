@@ -218,5 +218,19 @@
             android:id="@+id/action_eliminaNotificacaoFragment_to_listaNotificacaoFragment"
             app:destination="@id/listaNotificacaoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pesquisarPessoasFragment"
+        android:name="ipg.primeiro.projetofinalcovid.PesquisarPessoasFragment"
+        android:label="@string/titulo_pesquisar"
+        tools:layout="@layout/fragment_pesquisar_pessoas" >
+        <action
+            android:id="@+id/action_pesquisarPessoasFragment_to_verDadosFragment"
+            app:destination="@id/verDadosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verDadosFragment"
+        android:name="ipg.primeiro.projetofinalcovid.VerDadosFragment"
+        android:label="@string/titulo_dados_completo"
+        tools:layout="@layout/fragment_ver_dados" />
 
 </navigation>

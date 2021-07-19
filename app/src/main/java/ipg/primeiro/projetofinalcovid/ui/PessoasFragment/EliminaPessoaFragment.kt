@@ -14,6 +14,7 @@ import ipg.primeiro.projetofinalcovid.ContentProviderPessoas
 import ipg.primeiro.projetofinalcovid.DadosApp
 import ipg.primeiro.projetofinalcovid.MainActivity
 import ipg.primeiro.projetofinalcovid.R
+import ipg.primeiro.projetofinalcovid.classedastabelas.Teste
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,6 +25,8 @@ import java.util.*
  * create an instance of this fragment.
  */
 class EliminaPessoaFragment : Fragment() {
+
+
 
     private  lateinit var textViewNome : TextView
     private  lateinit var textViewSexo : TextView

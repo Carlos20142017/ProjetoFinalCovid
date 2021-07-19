@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/margin_campos"
         android:layout_marginEnd="@dimen/margin_campos"
         android:layout_marginRight="@dimen/margin_campos"
-        android:text="@string/negativo"
+        android:text="Negativo"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toStartOf="@+id/textViewNomePessoa"
         app:layout_constraintStart_toStartOf="parent"

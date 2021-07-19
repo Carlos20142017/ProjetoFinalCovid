@@ -144,7 +144,7 @@ class EditaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
      */
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
 
-        if(id == NovaNotificacaoFragment.ID_LOADER_MANAGER_ALERTAS) {
+        if(id == ID_LOADER_MANAGER_ALERTAS) {
             return CursorLoader(
                 requireContext(),
                 ContentProviderPessoas.ENDERECO_ALERTA,
@@ -154,7 +154,7 @@ class EditaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
 
             )
         }
-        else if(id== NovaNotificacaoFragment.ID_LOADER_MANAGER_ESTADO_SAUDE){
+        else if(id== ID_LOADER_MANAGER_ESTADO_SAUDE){
             return CursorLoader(
                 requireContext(),
                 ContentProviderPessoas.ENDERECO_TESTE,
@@ -213,11 +213,11 @@ class EditaNotificacaoFragment : Fragment(), LoaderManager.LoaderCallbacks <Curs
      */
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
 
-        if(loader.id == NovaNotificacaoFragment.ID_LOADER_MANAGER_ALERTAS){
+        if(loader.id == ID_LOADER_MANAGER_ALERTAS){
             atualizaSpinnerAlertas(data)
         }
 
-        else if(loader.id == NovaNotificacaoFragment.ID_LOADER_MANAGER_ESTADO_SAUDE){
+        else if(loader.id == ID_LOADER_MANAGER_ESTADO_SAUDE){
             atualizaSpinnerTestes(data)
         }
 

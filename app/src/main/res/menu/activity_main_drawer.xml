@@ -30,5 +30,10 @@
             android:id="@+id/listaNotificacaoFragment"
             android:icon="@drawable/ic_baseline_notifications_24"
             android:title="@string/notifica_o" />
+
+        <item
+            android:id="@+id/pesquisarPessoasFragment"
+            android:icon="@drawable/ic_baseline_search_24"
+            android:title="Pesquisar Pessoas" />
 </group>
 </menu>

@@ -113,5 +113,8 @@
     <string name="erro_eliminar_notificacao">Delete Notification</string>
     <string name="notificacao_eliminada_sucesso">Notification deleted successfully</string>
 
+    <string name="titulo_pesquisar">Search</string>
+    <string name="titulo_dados_completo">Full Data</string>
+
 
 </resources>

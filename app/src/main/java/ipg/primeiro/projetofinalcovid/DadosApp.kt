@@ -17,5 +17,7 @@ class DadosApp {
         var alertaSelecionado: Alerta? = null
 
         var notificacaoSelecionado: Notificacao? = null
+
+        var pesquisaSelecionada: Pessoa? = null
     }
 }

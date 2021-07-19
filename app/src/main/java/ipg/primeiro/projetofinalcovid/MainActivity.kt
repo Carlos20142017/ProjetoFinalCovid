@@ -3,6 +3,8 @@ package ipg.primeiro.projetofinalcovid
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.SearchView
+
 import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+
 import androidx.appcompat.widget.Toolbar
 import ipg.primeiro.projetofinalcovid.AlertaFragment.EditaAlertaFragment
 import ipg.primeiro.projetofinalcovid.AlertaFragment.EliminaAlertaFragment
@@ -29,6 +32,7 @@ import ipg.primeiro.projetofinalcovid.TestesFragment.EditaTesteFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.EliminaTesteFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.ListaTestesFragment
 import ipg.primeiro.projetofinalcovid.TestesFragment.NovoTesteFragment
+import ipg.primeiro.projetofinalcovid.classedastabelas.Pessoa
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.ListaPessoasFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EditaPessoaFragment
 import ipg.primeiro.projetofinalcovid.ui.PessoasFragment.EliminaPessoaFragment
@@ -39,6 +43,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private lateinit var menu: Menu
+
+
+    private var adapterPesquisaPessoas : AdapterPesquisar? = null
 
 
     var menuAtual = R.menu.menu_lista_pessoas
@@ -65,14 +72,23 @@ class MainActivity : AppCompatActivity() {
                 R.id.listaDistritoFragment,
                 R.id.listaTestesFragment,
                 R.id.listaAlertaFragment,
-                R.id.listaNotificacaoFragment
+                R.id.listaNotificacaoFragment,
+                R.id.pesquisarPessoasFragment
 
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         DadosApp.activity = this
+
+
+
     }
+
+
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -98,6 +114,28 @@ class MainActivity : AppCompatActivity() {
             atualizaMenuListaNotificacao(false)
         }
 
+        if(menuAtual == R.menu.menu_pesquisar) {
+
+            val menuItem = menu!!.findItem(R.id.action_pesquisar_pessoas)
+            val searchView = menuItem.actionView as SearchView
+
+            searchView.maxWidth = Int.MAX_VALUE
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+
+                    adapterPesquisaPessoas!!.filter.filter(query)
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+
+                    adapterPesquisaPessoas!!.filter.filter(newText)
+                    return true
+                }
+
+            })
+
+        }
         return true
     }
 
@@ -142,6 +180,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_edita_notificacao -> (DadosApp.fragment as EditaNotificacaoFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_notificacao -> (DadosApp.fragment as EliminaNotificacaoFragment).processaOpcaoMenu(item)
 
+                R.menu.menu_pesquisar -> (DadosApp.fragment as PesquisarPessoasFragment).processaOpcaoMenu(item)
 
                else -> false
 
