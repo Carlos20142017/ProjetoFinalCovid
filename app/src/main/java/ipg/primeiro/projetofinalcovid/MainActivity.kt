@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
 
         if(menuAtual == R.menu.menu_pesquisar) {
 
-            val menuItem = menu!!.findItem(R.id.action_pesquisar_pessoas)
+ /*           val menuItem = menu!!.findItem(R.id.action_pesquisar_pessoas)
             val searchView = menuItem.actionView as SearchView
 
             searchView.maxWidth = Int.MAX_VALUE
@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                     return true
                 }
 
-            })
+            })*/
 
         }
         return true
